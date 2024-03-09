@@ -45,7 +45,6 @@ v0.4 - a map view that shows the trees and your location
 
 ## Notes
 
-- menu: home, explore, map, trees
 - add to inaturalist & british trees
 - edit open street map
 - photos of trees are in sets with date stamps. take them from the same place and angle. show nearest photo to now.
