@@ -26,9 +26,9 @@ Push to the live branch, Github pages will depoloy automatically
 
 ## plan
 
-v0.1 - a hosted page that lists out trees with images, links to iNaturalist and a button to open in maps app.
+v1.1 - a button that shows your lat lng, and add multiple trees
 
-v0.2 - a secondary page that based on your location organises the tree list on distance from you, and shows that distance.
+v0.2 - based on your location organise the tree list on distance from you, and show that distance.
 
 v0.3 - the secondary page uses your compass to live filter to what is in front of you
 
