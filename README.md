@@ -26,7 +26,7 @@ Push to the live branch, Github pages will depoloy automatically
 
 ## plan
 
-v1.1 - a button that shows your lat lng, and add multiple trees
+v1.1 - a button that shows your lat lng, and add multiple trees. Bring in Tailwind and make mobile first design.
 
 v0.2 - based on your location organise the tree list on distance from you, and show that distance.
 
