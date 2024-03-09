@@ -1,4 +1,5 @@
 <script setup>
+const prefix = "https://www.inaturalist.org/observations/";
 const trees = [
   {
     title: "Mulberry Tree",
@@ -13,14 +14,19 @@ const trees = [
 <template>
   <ul>
     <li v-for="tree in trees" :key="tree.inaturalist_observation_id">
+      <h3>{{ tree.title }}</h3>
       <a
+        target="_blank"
         :href="
           'https://www.inaturalist.org/observations/' +
           tree.inaturalist_observation_id
         "
       >
-        {{ tree.title }}
+        View on iNaturalist
       </a>
+      <br />
+      <a href="geo:{{tree.lat}},{{tree.lon}}" target="_blank">View on Map</a>
+      <br />
       <img :src="tree.img" />
     </li>
   </ul>
