@@ -38,7 +38,6 @@ v0.4 - a map view that shows the trees and your location
 
 - https://dev.to/orkhanjafarovr/real-compass-on-mobile-browsers-with-javascript-3emi
 - https://observablehq.com/@d3/bubble-chart/2?intent=fork
-- https://stackoverflow.com/questions/15053004/how-to-generate-a-location-link-that-will-open-in-default-mapping-app#15053297
 - https://stackoverflow.com/questions/924171/geo-fencing-point-inside-outside-polygon#924180
 - https://www.earthday.org/
 - https://www.freecodecamp.org/news/how-to-use-the-javascript-geolocation-api/
