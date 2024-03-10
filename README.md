@@ -19,11 +19,17 @@ npm run dev;
 
 ## plan
 
-v0.2 - add multiple trees. based on your location organise the tree list on distance from you.
+v0.4 - an app menu and footer, with an about page, and a map view
 
-v0.3 - the secondary page uses your compass to live filter to what is in front of you
+v0.5 - filters for within 100m, 500m, 1k, 2k.
 
-v0.4 - a map view that shows the trees and your location
+v0.6 - details view for tree
+
+v0.7 - compass filtering on explore view
+
+v0.8 - better user flows
+
+v0.9 - search
 
 ## links
 
