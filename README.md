@@ -6,7 +6,7 @@ Explore the woods
 
 https://toru-digital.github.io/woods/
 http://localhost:3000/
-https://github.com/toru-digital/woods/actions
+https://main--classy-florentine-11ac94.netlify.app
 
 ## Usage
 
