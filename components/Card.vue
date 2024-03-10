@@ -8,6 +8,9 @@ const props = defineProps({
 		type: String,
 		required: true,
 	},
+	meta_1: {
+		type: String,
+	},
 });
 </script>
 
@@ -22,7 +25,7 @@ const props = defineProps({
 				class="flex items-center justify-between leading-tight p-2 md:p-4"
 			>
 				<h1 class="text-lg">{{ title }}</h1>
-				<p class="text-grey-darker text-sm">...</p>
+				<p class="text-slate-400 text-sm">{{ meta_1 }}</p>
 			</header>
 
 			<footer

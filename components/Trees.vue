@@ -18,6 +18,7 @@ const trees = [
 				v-for="tree in trees"
 				:image="tree.img"
 				:title="tree.title"
+				:meta_1="'200m away'"
 				:key="tree.inaturalist_observation_id"
 			>
 				<a
