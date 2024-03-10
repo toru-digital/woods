@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive } from "vue";
+import { reactive } from "vue";
 
 const trees = [
 	{
@@ -47,6 +47,11 @@ const getDistance = (lat1, lon1, lat2, lon2) => {
 	const d = R * c; // Distance in km
 	return d.toFixed(2) + " km";
 };
+
+const getUserPosition = () => {
+	if (user_data.lat == 0 && user_data.lon == 0) return "...";
+	return user_data.lat + ", " + user_data.lon;
+};
 </script>
 
 <template>
@@ -57,7 +62,7 @@ const getDistance = (lat1, lon1, lat2, lon2) => {
 		>
 			Update My Position
 		</button>
-		<h2>Your position: {{ user_data.lat }}, {{ user_data.lon }}</h2>
+		<h2>Your position: {{ getUserPosition() }}</h2>
 	</div>
 	<div class="container my-12 mx-auto px-4 md:px-12">
 		<div class="flex flex-wrap -mx-1 lg:-mx-4">
