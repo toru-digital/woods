@@ -6,12 +6,23 @@ const user_data = reactive({
 	lat: 0,
 	lon: 0,
 	log: "...",
+	sort: "title",
 });
 
 const onReceiveLocation = (position) => {
 	user_data.log += "callReceived. ";
 	user_data.lat = position.coords.latitude;
 	user_data.lon = position.coords.longitude;
+	user_data.sort = "distance";
+
+	trees.forEach((tree) => {
+		tree.distance = getDistance(
+			user_data.lat,
+			user_data.lon,
+			tree.lat,
+			tree.lon
+		);
+	});
 };
 
 const onLocationError = (err) => {
@@ -47,12 +58,22 @@ const getDistance = (lat1, lon1, lat2, lon2) => {
 			Math.sin(dLon / 2);
 	const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 	const d = R * c; // Distance in km
-	return d.toFixed(2) + " km";
+	return d.toFixed(2);
 };
 
 const getUserPosition = () => {
 	if (user_data.lat == 0 && user_data.lon == 0) return "...";
 	return user_data.lat + ", " + user_data.lon;
+};
+
+const getTrees = () => {
+	return trees.sort((a, b) =>
+		a[user_data.sort] > b[user_data.sort]
+			? 1
+			: b[user_data.sort] > a[user_data.sort]
+			? -1
+			: 0
+	);
 };
 </script>
 
@@ -73,10 +94,10 @@ const getUserPosition = () => {
 	<div class="container my-12 mx-auto px-4 md:px-12">
 		<div class="flex flex-wrap -mx-1 lg:-mx-4">
 			<Card
-				v-for="tree in trees"
+				v-for="tree in getTrees()"
 				:image="tree.img"
 				:title="tree.title"
-				:meta_1="getDistance(tree.lat, tree.lon, user_data.lat, user_data.lon)"
+				:meta_1="tree.distance >= 0 ? tree.distance + ' km' : '...'"
 				:key="tree.inaturalist_observation_id"
 			>
 				<a

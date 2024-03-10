@@ -5,6 +5,7 @@ export const trees = [
 		lat: 52.224408,
 		lon: -0.890492,
 		img: "https://static.inaturalist.org/photos/240105711/small.jpg",
+		distance:-1
 	},
 	{
 		title: "Caucasian Wingnut",
@@ -12,6 +13,7 @@ export const trees = [
 		lat: 52.224922,
 		lon: -0.874822,
 		img: "https://static.inaturalist.org/photos/211255538/small.jpg",
+		distance:-1
 	},
 	{
 		title: "Elder",
@@ -19,6 +21,7 @@ export const trees = [
 		lat: 52.225201,
 		lon: -0.889122,
 		img: "https://static.inaturalist.org/photos/211698253/small.jpg",
+		distance:-1
 	},
 	{
 		title: "Cedar",
@@ -26,6 +29,7 @@ export const trees = [
 		lat: 52.22435,
 		lon: -0.888324,
 		img: "https://static.inaturalist.org/photos/213582059/small.jpg",
+		distance:-1
 	},
 	{
 		title: "Sycamore",
@@ -33,6 +37,7 @@ export const trees = [
 		lat: 52.22495,
 		lon: -0.889542,
 		img: "https://static.inaturalist.org/photos/214046952/small.jpg",
+		distance:-1
 	},
 	{
 		title: "Cherry Laurel",
@@ -40,6 +45,7 @@ export const trees = [
 		lat: 52.225366,
 		lon: -0.888641,
 		img: "https://static.inaturalist.org/photos/214088098/small.jpg",
+		distance:-1
 	},
 	{
 		title: "Bloodwood",
@@ -47,6 +53,7 @@ export const trees = [
 		lat: 52.225334,
 		lon: -0.888862,
 		img: "https://static.inaturalist.org/photos/214088707/small.jpg",
+		distance:-1
 	},
 	{
 		title: "Argentinian Vervain",
@@ -54,6 +61,7 @@ export const trees = [
 		lat: 52.225178,
 		lon: -0.889778,
 		img: "https://static.inaturalist.org/photos/214365619/small.jpg",
+		distance:-1
 	},
 	{
 		title: "White Willow",
@@ -61,6 +69,7 @@ export const trees = [
 		lat: 52.225097,
 		lon: -0.889887,
 		img: "https://static.inaturalist.org/photos/214365706/small.jpg",
+		distance:-1
 	},
 	{
 		title: "Dicot",
@@ -68,6 +77,7 @@ export const trees = [
 		lat:  52.225781,
 		lon: -0.888695,
 		img: "https://static.inaturalist.org/photos/215409312/small.jpg",
+		distance:-1
 	},
 	{
 		title: "Blackthorn",
@@ -75,6 +85,7 @@ export const trees = [
 		lat: 52.223645,
 		lon: -0.88425,
 		img: "https://static.inaturalist.org/photos/217939763/small.jpg",
+		distance:-1
 	},
 	{
 		title: "Alder",
@@ -82,6 +93,7 @@ export const trees = [
 		lat: 52.224324,
 		lon: -0.889991,
 		img: "https://static.inaturalist.org/photos/223517331/small.jpg",
+		distance:-1
 	},
 	{
 		title: "Elder",
@@ -89,6 +101,7 @@ export const trees = [
 		lat: 52.223689,
 		lon: -0.883785,
 		img: "https://static.inaturalist.org/photos/224962274/small.jpg",
+		distance:-1
 	},
 	{
 		title: "Snowberry",
@@ -96,6 +109,7 @@ export const trees = [
 		lat: 52.217872,
 		lon: -0.887043,
 		img: "https://static.inaturalist.org/photos/232314680/small.jpg",
+		distance:-1
 	},
 	{
 		title: "Tulip Tree",
@@ -103,6 +117,7 @@ export const trees = [
 		lat: 52.224667,
 		lon: -0.888238,
 		img: "https://static.inaturalist.org/photos/239936807/small.jpg",
+		distance:-1
 	},
 	{
 		title: "Mediterranean Spurge",
@@ -110,6 +125,7 @@ export const trees = [
 		lat: 52.225219,
 		lon: -0.889761,
 		img: "https://static.inaturalist.org/photos/257873837/small.jpg",
+		distance:-1
 	},
 	{
 		title: "Cherry Plum",
@@ -117,6 +133,7 @@ export const trees = [
 		lat: 52.223806,
 		lon: -0.885502,
 		img: "https://static.inaturalist.org/photos/259338147/small.jpg",
+		distance:-1
 	},
 	{
 		title: "Alder",
@@ -124,6 +141,7 @@ export const trees = [
 		lat: 52.225399,
 		lon: -0.881332,
 		img: "https://static.inaturalist.org/photos/259339041/small.jpg",
+		distance:-1
 	},
 	{
 		title: "Sweet Chestnut",
@@ -131,6 +149,7 @@ export const trees = [
 		lat: 52.224687,
 		lon: -0.886379,
 		img: "https://static.inaturalist.org/photos/268457848/small.jpg",
+		distance:-1
 	},
 	{
 		title: "Hawthorn",
@@ -138,5 +157,6 @@ export const trees = [
 		lat: 52.220488,
 		lon: -0.892844,
 		img: "https://static.inaturalist.org/photos/268459297/small.jpg",
+		distance:-1
 	}
 ]
