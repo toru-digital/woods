@@ -31,11 +31,23 @@ const trees = [
 					iNaturalist </a
 				><a
 					class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-					href="geo:{{tree.lat}},{{tree.lon}}"
+					:href="'geo:' + tree.lat + ',' + tree.lon"
 					target="_blank"
-					>Map</a
-				></Card
-			>
+					>Geo</a
+				><a
+					class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+					:href="
+						'http://maps.apple.com/?ll=' +
+						tree.lat +
+						',' +
+						tree.lon +
+						'&z=20&q=' +
+						tree.title
+					"
+					target="_blank"
+					>Apple</a
+				>
+			</Card>
 		</div>
 	</div>
 </template>

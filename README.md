@@ -1,5 +1,5 @@
-<<<<<<< Updated upstream
-=======
+# <<<<<<< Updated upstream
+
 # woods
 
 Explore the woods
@@ -33,6 +33,7 @@ v0.4 - a map view that shows the trees and your location
 - https://stackoverflow.com/questions/924171/geo-fencing-point-inside-outside-polygon#924180
 - https://www.earthday.org/
 - https://www.freecodecamp.org/news/how-to-use-the-javascript-geolocation-api/
+- https://github.com/prowestgis/dojo-geo-uri-polyfill/blob/master/polyfill.js
 
 ## Notes
 
@@ -42,7 +43,8 @@ v0.4 - a map view that shows the trees and your location
 - submit a tree, via insturalist. set it up there first. when it’s been validated we will add it.
 - draw geo fences. outer woods. walled garden, outer woods. charter woods. delapre woods. the rookery.
 
->>>>>>> Stashed changes
+> > > > > > > Stashed changes
+
 # Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
@@ -83,5 +85,6 @@ bun run preview
 ```
 
 =======
->>>>>>> Stashed changes
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+> > > > > > > Stashed changes
+> > > > > > > Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
