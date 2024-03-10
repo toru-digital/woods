@@ -19,7 +19,41 @@ const trees = [
 				:image="tree.img"
 				:title="tree.title"
 				:key="tree.inaturalist_observation_id"
-			/>
+			>
+				<a
+					target="_blank"
+					:href="
+						'https://www.inaturalist.org/observations/' +
+						tree.inaturalist_observation_id
+					"
+					class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+				>
+					iNaturalist </a
+				><a
+					class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+					href="geo:{{tree.lat}},{{tree.lon}}"
+					target="_blank"
+					>Map</a
+				></Card
+			>
 		</div>
 	</div>
 </template>
+
+<!-- <template>
+  <ul>
+    <li>
+      <h3>{{ tree.title }}</h3>
+      <a
+        
+        
+      >
+        View on 
+      </a>
+      <br />
+      
+      <br />
+      <img :src="tree.img" />
+    </li>
+  </ul>
+</template> -->

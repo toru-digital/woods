@@ -25,44 +25,11 @@ const props = defineProps({
 				<p class="text-grey-darker text-sm">...</p>
 			</header>
 
-			<footer class="flex items-center justify-between leading-none p-2 md:p-4">
-				<a
-					class="flex items-center no-underline hover:underline text-black"
-					href="#"
-				>
-					<img
-						alt="Placeholder"
-						class="block rounded-full"
-						src="https://picsum.photos/32/32/?random"
-					/>
-					<p class="ml-2 text-sm">...</p>
-				</a>
-				<a class="no-underline text-grey-darker hover:text-red-dark" href="#">
-					<span class="hidden">Like</span>
-					<i class="fa fa-heart"></i>
-				</a>
+			<footer
+				class="flex gap-2 items-center justify-start leading-none p-2 md:p-4"
+			>
+				<slot></slot>
 			</footer>
 		</article>
 	</div>
 </template>
-
-<!-- <template>
-  <ul>
-    <li>
-      <h3>{{ tree.title }}</h3>
-      <a
-        target="_blank"
-        :href="
-          'https://www.inaturalist.org/observations/' +
-          tree.inaturalist_observation_id
-        "
-      >
-        View on iNaturalist
-      </a>
-      <br />
-      <a href="geo:{{tree.lat}},{{tree.lon}}" target="_blank">View on Map</a>
-      <br />
-      <img :src="tree.img" />
-    </li>
-  </ul>
-</template> -->
