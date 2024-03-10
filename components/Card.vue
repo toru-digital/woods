@@ -18,7 +18,10 @@ const props = defineProps({
 	<div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
 		<article class="overflow-hidden rounded-lg shadow-lg">
 			<a href="#">
-				<img alt="Placeholder" class="block h-auto w-full" :src="image" />
+				<div
+					class="block h-auto w-full h-[280px] bg-center bg-cover"
+					:style="'background-image:url(' + image + ')'"
+				/>
 			</a>
 
 			<header
