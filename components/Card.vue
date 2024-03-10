@@ -19,7 +19,7 @@ const props = defineProps({
 		<article class="overflow-hidden rounded-lg shadow-lg">
 			<a href="#">
 				<div
-					class="block h-auto w-full h-[280px] bg-center bg-cover"
+					class="block w-full h-[280px] bg-center bg-cover"
 					:style="'background-image:url(' + image + ')'"
 				/>
 			</a>
