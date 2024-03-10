@@ -2,11 +2,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
-  ssr: false,
-  target: 'static',
-  router: {
-    base: '/woods/'
-  },
   postcss: {
     plugins: {
       tailwindcss: {},
