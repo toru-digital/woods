@@ -31,7 +31,10 @@ const updateMyPosition = function () {
 	user_data.log += "updateMyPosition. ";
 	if (!process.client || !navigator.geolocation) return;
 	user_data.log += "callMade. ";
-	navigator.geolocation.getCurrentPosition(onReceiveLocation, onLocationError);
+	navigator.geolocation.getCurrentPosition(onReceiveLocation, onLocationError, {
+		enableHighAccuracy: true,
+		maximumAge: 100,
+	});
 };
 
 const deg2rad = (degrees) => {
