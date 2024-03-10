@@ -14,16 +14,24 @@ const trees = [
 const user_data = reactive({
 	lat: 0,
 	lon: 0,
+	log: "...",
 });
 
 const onReceiveLocation = (position) => {
+	user_data.log += "callReceived. ";
 	user_data.lat = position.coords.latitude;
 	user_data.lon = position.coords.longitude;
 };
 
+const onLocationError = (err) => {
+	user_data.log += `ERROR(${err.code}): ${err.message}`;
+};
+
 const updateMyPosition = function () {
+	user_data.log += "updateMyPosition. ";
 	if (!process.client || !navigator.geolocation) return;
-	navigator.geolocation.getCurrentPosition(onReceiveLocation);
+	user_data.log += "callMade. ";
+	navigator.geolocation.getCurrentPosition(onReceiveLocation, onLocationError);
 };
 
 const deg2rad = (degrees) => {
@@ -58,11 +66,15 @@ const getUserPosition = () => {
 	<div class="container my-12 mx-auto px-4 md:px-12">
 		<button
 			class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-			@click="updateMyPosition"
+			@click="
+				user_data.log = 'CLICK. ';
+				updateMyPosition();
+			"
 		>
 			Update My Position
 		</button>
 		<h2>Your position: {{ getUserPosition() }}</h2>
+		<h2>log: {{ user_data.log }}</h2>
 	</div>
 	<div class="container my-12 mx-auto px-4 md:px-12">
 		<div class="flex flex-wrap -mx-1 lg:-mx-4">
