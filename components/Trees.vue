@@ -14,7 +14,12 @@ const trees = [
 <template>
 	<div class="container my-12 mx-auto px-4 md:px-12">
 		<div class="flex flex-wrap -mx-1 lg:-mx-4">
-			<Card v-for="tree in trees" :key="tree.inaturalist_observation_id" />
+			<Card
+				v-for="tree in trees"
+				:image="tree.img"
+				:title="tree.title"
+				:key="tree.inaturalist_observation_id"
+			/>
 		</div>
 	</div>
 </template>
