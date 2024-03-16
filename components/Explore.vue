@@ -3,5 +3,5 @@ const props = defineProps({});
 </script>
 
 <template>
-	<p>Explore</p>
+	<h2 class="text-xl text-center mt-8">Explore</h2>
 </template>
