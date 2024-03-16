@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from "vue";
+import { trees } from "../data/trees";
+
 const zoom = ref(18);
 </script>
 
@@ -12,7 +14,11 @@ const zoom = ref(18);
 				layer-type="base"
 				name="OpenStreetMap"
 			/>
-			<LMarker :lat-lng="[52.224723, -0.887954]"></LMarker>
+			<LMarker
+				v-for="tree in trees"
+				:key="tree.inaturalist_observation_id"
+				:lat-lng="[tree.lat, tree.lon]"
+			></LMarker>
 		</LMap>
 	</div>
 </template>
