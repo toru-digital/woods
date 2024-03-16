@@ -13,7 +13,7 @@ const props = defineProps({
 
 <template>
 	<div
-		class="opacity-25 cursor-pointer w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
+		class="cursor-pointer w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
 		:class="{ 'opacity-100': active }"
 	>
 		<svg width="25" height="25" viewBox="0 0 42 42" class="inline-block mb-1">

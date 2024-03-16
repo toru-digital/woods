@@ -15,10 +15,12 @@ const state = reactive({
 
 <template>
 	<div class="w-full h-screen">
-		<Home v-if="state.screen_index == 0" />
-		<Explore v-if="state.screen_index == 1" />
-		<Map v-if="state.screen_index == 2" />
-		<Trees v-if="state.screen_index == 3" />
+		<section class="z-0">
+			<Home v-if="state.screen_index == 0" />
+			<Explore v-if="state.screen_index == 1" />
+			<Map v-if="state.screen_index == 2" />
+			<Trees v-if="state.screen_index == 3" />
+		</section>
 		<!-- <section id="bottom-navigation" class="md:hidden block fixed inset-x-0 bottom-0 z-10 bg-white shadow"> // if shown only tablet/mobile-->
 		<section
 			id="bottom-navigation"

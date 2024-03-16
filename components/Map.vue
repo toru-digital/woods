@@ -1,7 +1,23 @@
+<template>
+	<div style="height: 100vh; width: 100vw">
+		<LMap ref="map" :zoom="zoom" :center="[47.21322, -1.559482]">
+			<LTileLayer
+				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+				attribution='&amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+				layer-type="base"
+				name="OpenStreetMap"
+			/>
+		</LMap>
+	</div>
+</template>
+
 <script setup>
-const props = defineProps({});
+import { ref } from "vue";
+const zoom = ref(6);
 </script>
 
-<template>
-	<h2 class="text-xl text-center mt-8">Map</h2>
-</template>
+<style>
+body {
+	margin: 0;
+}
+</style>
