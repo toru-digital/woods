@@ -15,7 +15,7 @@ const state = reactive({
 
 <template>
 	<div class="w-full h-screen">
-		<section class="z-0">
+		<section class="z-0 relative">
 			<Home v-if="state.screen_index == 0" />
 			<Explore v-if="state.screen_index == 1" />
 			<Map v-if="state.screen_index == 2" />
