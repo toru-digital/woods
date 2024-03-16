@@ -18,8 +18,6 @@ npm run dev;
 
 ## plan
 
-v0.4 - an app menu and footer, with an about page, and a map view
-
 v0.5 - filters for within 100m, 500m, 1k, 2k.
 
 v0.6 - details view for tree
