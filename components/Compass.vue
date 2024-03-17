@@ -57,7 +57,7 @@ onNuxtReady(async () => {
 });
 
 const startCompass = function () {
-	user_data.log = "START. ";
+	user_data.log = "START";
 	if (!isIOS) return;
 
 	DeviceOrientationEvent.requestPermission()
@@ -73,10 +73,10 @@ const startCompass = function () {
 };
 
 const handler = function (e) {
-	console.log(e);
-	user_data.log = "HANDLER! ";
-	const deg = (user_data.deg =
-		e.webkitCompassHeading || Math.abs(e.alpha - 360));
+	user_data.log = "@@@";
+	user_data.deg = user_data.deg =
+		e.webkitCompassHeading || Math.abs(e.alpha - 360);
+
 	user_data.log = user_data.deg + "@";
 	user_data.compass_style = `transform: translate(-50%, -50%) rotate(${-user_data.deg}deg)`;
 
@@ -98,7 +98,9 @@ const handler = function (e) {
 		<div class="arrow"></div>
 		<div
 			class="compass-circle"
-			:style="{ transform: user_data.compass_style }"
+			:style="{
+				transform: `translate(-50%, -50%) rotate(${-user_data.deg}deg)`,
+			}"
 		></div>
 		<div class="my-point"></div>
 	</div>
