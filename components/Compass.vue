@@ -72,7 +72,7 @@ const startCompass = function () {
 
 const handler = function (e) {
 	console.log(e);
-	user_data.log = "HANDLER. ";
+	user_data.log = "HANDLER! ";
 	const compass_deg = e.webkitCompassHeading || Math.abs(e.alpha - 360);
 	user_data.log = compass_deg;
 	// compass = ;
