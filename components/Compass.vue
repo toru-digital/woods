@@ -6,6 +6,7 @@ const props = defineProps({});
 const user_data = reactive({
 	log: "...",
 	deg: 0,
+	compass_style: "",
 });
 
 const isIOS =
@@ -74,10 +75,10 @@ const startCompass = function () {
 const handler = function (e) {
 	console.log(e);
 	user_data.log = "HANDLER! ";
-	user_data.deg = e.webkitCompassHeading || Math.abs(e.alpha - 360);
+	const deg = (user_data.deg =
+		e.webkitCompassHeading || Math.abs(e.alpha - 360));
 	user_data.log = user_data.deg + "@";
-	// compass = ;
-	// compassCircle.style.transform = `translate(-50%, -50%) rotate(${-compass}deg)`;
+	user_data.compass_style = `transform: translate(-50%, -50%) rotate(${-user_data.deg}deg)`;
 
 	// // ±15 degree
 	// if (
@@ -95,7 +96,10 @@ const handler = function (e) {
 <template>
 	<div class="compass">
 		<div class="arrow"></div>
-		<div class="compass-circle"></div>
+		<div
+			class="compass-circle"
+			:style="{ transform: user_data.compass_style }"
+		></div>
 		<div class="my-point"></div>
 	</div>
 	<h2 class="text-center">log: {{ user_data.log }}</h2>
