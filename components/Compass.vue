@@ -1,9 +1,16 @@
 <script setup>
+import { reactive } from "vue";
+
 const props = defineProps({});
+
+const user_data = reactive({
+	log: "...",
+});
 
 const compassCircle = document.querySelector(".compass-circle");
 const myPoint = document.querySelector(".my-point");
 // const startBtn = document.querySelector(".start-btn");
+
 const isIOS =
 	navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
 	navigator.userAgent.match(/AppleWebKit/);
@@ -52,21 +59,24 @@ onNuxtReady(async () => {
 });
 
 const startCompass = function () {
+	user_data.log = "START. ";
 	if (!isIOS) return;
 
-	// DeviceOrientationEvent.requestPermission()
-	// 	.then((response) => {
-	// 		if (response === "granted") {
-	// 			window.addEventListener("deviceorientation", handler, true);
-	// 		} else {
-	// 			alert("has to be allowed!");
-	// 		}
-	// 	})
-	// 	.catch(() => alert("not supported"));
+	DeviceOrientationEvent.requestPermission()
+		.then((response) => {
+			console.log(response);
+			if (response === "granted") {
+				window.addEventListener("deviceorientation", handler, true);
+			} else {
+				alert("has to be allowed!");
+			}
+		})
+		.catch(() => alert("not supported"));
 };
 
 const handler = function (e) {
 	console.log(e);
+	user_data.log = "HANDLER. ";
 	// compass = e.webkitCompassHeading || Math.abs(e.alpha - 360);
 	// compassCircle.style.transform = `translate(-50%, -50%) rotate(${-compass}deg)`;
 
@@ -89,6 +99,7 @@ const handler = function (e) {
 		<div class="compass-circle"></div>
 		<div class="my-point"></div>
 	</div>
+	<h2 class="text-center">log: {{ user_data.log }}</h2>
 	<div class="flex justify-center mt-8">
 		<button
 			class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
