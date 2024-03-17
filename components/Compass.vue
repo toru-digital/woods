@@ -7,10 +7,6 @@ const user_data = reactive({
 	log: "...",
 });
 
-const compassCircle = document.querySelector(".compass-circle");
-const myPoint = document.querySelector(".my-point");
-// const startBtn = document.querySelector(".start-btn");
-
 const isIOS =
 	navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
 	navigator.userAgent.match(/AppleWebKit/);
@@ -77,7 +73,9 @@ const startCompass = function () {
 const handler = function (e) {
 	console.log(e);
 	user_data.log = "HANDLER. ";
-	// compass = e.webkitCompassHeading || Math.abs(e.alpha - 360);
+	const compass_deg = e.webkitCompassHeading || Math.abs(e.alpha - 360);
+	user_data.log = compass_deg;
+	// compass = ;
 	// compassCircle.style.transform = `translate(-50%, -50%) rotate(${-compass}deg)`;
 
 	// // ±15 degree
