@@ -5,6 +5,7 @@ const props = defineProps({});
 
 const user_data = reactive({
 	log: "...",
+	deg: 0,
 });
 
 const isIOS =
@@ -73,8 +74,8 @@ const startCompass = function () {
 const handler = function (e) {
 	console.log(e);
 	user_data.log = "HANDLER! ";
-	const compass_deg = e.webkitCompassHeading || Math.abs(e.alpha - 360);
-	user_data.log = compass_deg;
+	user_data.deg = e.webkitCompassHeading || Math.abs(e.alpha - 360);
+	user_data.log = user_data.deg + "@";
 	// compass = ;
 	// compassCircle.style.transform = `translate(-50%, -50%) rotate(${-compass}deg)`;
 
