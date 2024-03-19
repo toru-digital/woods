@@ -19,7 +19,7 @@ const zoom = ref(18);
 				:key="tree.inaturalist_observation_id"
 				:lat-lng="[tree.lat, tree.lon]"
 			>
-				<LTooltip direction="top">{{ tree.title }}!!</LTooltip>
+				<LPopup>{{ tree.title }}</LPopup>
 			</LMarker>
 		</LMap>
 	</div>
