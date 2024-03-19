@@ -4,8 +4,8 @@ import { trees } from "../data/trees";
 
 const user_data = reactive({
 	log: "...",
-	lat: -1,
-	lon: -1,
+	lat: 52.224723,
+	lon: -0.887954,
 });
 
 const locationHandler = function (position) {
@@ -26,7 +26,7 @@ const zoom = ref(18);
 
 <template>
 	<div style="height: 100vh; width: 100vw">
-		<LMap ref="map" :zoom="zoom" :center="[52.224723, -0.887954]">
+		<LMap ref="map" :zoom="zoom" :center="[tree.lat, tree.lon]">
 			<LTileLayer
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				attribution='&amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
