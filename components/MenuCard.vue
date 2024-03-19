@@ -37,7 +37,7 @@ const icons = {
 		<span
 			class="tab tab-home block text-xs"
 			:class="{ 'text-blue-500': active, 'text-slate-400': !active }"
-			>{{ title }} {{ icon }}</span
+			>{{ title }}</span
 		>
 	</div>
 </template>

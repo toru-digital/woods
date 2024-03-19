@@ -2,7 +2,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 124626725,
 		"scientific_name": "Pterocarya fraxinifolia",
-		"name": "Caucasian Wingnut",
+		"title": "Caucasian Wingnut",
 		"lat": 52.22492211,
 		"lon": -0.8748217451,
 		"url": "https://www.inaturalist.org/observations/124626725",
@@ -12,7 +12,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 124869322,
 		"scientific_name": "Sambucus nigra",
-		"name": "European black elderberry",
+		"title": "European black elderberry",
 		"lat": 52.22520082,
 		"lon": -0.8891221357,
 		"url": "https://www.inaturalist.org/observations/124869322",
@@ -22,7 +22,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 126168401,
 		"scientific_name": "Acer pseudoplatanus",
-		"name": "sycamore maple",
+		"title": "Sycamore Maple",
 		"lat": 52.22495,
 		"lon": -0.8895416667,
 		"url": "https://www.inaturalist.org/observations/126168401",
@@ -32,7 +32,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 126191404,
 		"scientific_name": "Pterocarpus",
-		"name": "Bloodwoods",
+		"title": "Bloodwood",
 		"lat": 52.22533381,
 		"lon": -0.8888622746,
 		"url": "https://www.inaturalist.org/observations/126191404",
@@ -42,7 +42,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 126346432,
 		"scientific_name": "Salix alba",
-		"name": "white willow",
+		"title": "White Willow",
 		"lat": 52.22509667,
 		"lon": -0.8898866667,
 		"url": "https://www.inaturalist.org/observations/126346432",
@@ -52,7 +52,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 128282682,
 		"scientific_name": "Prunus spinosa",
-		"name": "Blackthorn",
+		"title": "Blackthorn",
 		"lat": 52.223645,
 		"lon": -0.88425,
 		"url": "https://www.inaturalist.org/observations/128282682",
@@ -62,7 +62,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 131352031,
 		"scientific_name": "Alnus",
-		"name": "alders",
+		"title": "Alder",
 		"lat": 52.22432437,
 		"lon": -0.8899906464,
 		"url": "https://www.inaturalist.org/observations/131352031",
@@ -72,7 +72,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 132128026,
 		"scientific_name": "Sambucus nigra",
-		"name": "European black elderberry",
+		"title": "European Black Elderberry",
 		"lat": 52.22368936,
 		"lon": -0.8837845225,
 		"url": "https://www.inaturalist.org/observations/132128026",
@@ -82,7 +82,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 136144521,
 		"scientific_name": "Symphoricarpos albus",
-		"name": "Common Snowberry",
+		"title": "Common Snowberry",
 		"lat": 52.21787194,
 		"lon": -0.8870431176,
 		"url": "https://www.inaturalist.org/observations/136144521",
@@ -92,7 +92,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 140191672,
 		"scientific_name": "Liriodendron tulipifera",
-		"name": "tulip tree",
+		"title": "Tulip Tree",
 		"lat": 52.22466667,
 		"lon": -0.8882383333,
 		"url": "https://www.inaturalist.org/observations/140191672",
@@ -102,7 +102,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 140281316,
 		"scientific_name": "Morus",
-		"name": "Mulberries",
+		"title": "Mulberry",
 		"lat": 52.22440833,
 		"lon": -0.8904916667,
 		"url": "https://www.inaturalist.org/observations/140281316",
@@ -112,7 +112,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 149633441,
 		"scientific_name": "Euphorbia characias",
-		"name": "Mediterranean spurge",
+		"title": "Mediterranean Spurge",
 		"lat": 52.22521893,
 		"lon": -0.8897608146,
 		"url": "https://www.inaturalist.org/observations/149633441",
@@ -122,7 +122,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 150403873,
 		"scientific_name": "Prunus cerasifera",
-		"name": "Cherry-plum",
+		"title": "Cherry-plum",
 		"lat": 52.22380633,
 		"lon": -0.8855020534,
 		"url": "https://www.inaturalist.org/observations/150403873",
@@ -132,7 +132,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 153436862,
 		"scientific_name": "Castanea sativa",
-		"name": "Sweet Chestnut",
+		"title": "Sweet Chestnut",
 		"lat": 52.22468701,
 		"lon": -0.8863793395,
 		"url": "https://www.inaturalist.org/observations/153436862",
@@ -142,7 +142,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 158623894,
 		"scientific_name": "Symphoricarpos",
-		"name": "snowberries",
+		"title": "Snowberry",
 		"lat": 52.21782541,
 		"lon": -0.8923432867,
 		"url": "https://www.inaturalist.org/observations/158623894",
@@ -152,7 +152,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 159367235,
 		"scientific_name": "Amygdaloideae",
-		"name": "",
+		"title": "",
 		"lat": 52.22521604,
 		"lon": -0.8898692408,
 		"url": "https://www.inaturalist.org/observations/159367235",
@@ -162,7 +162,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202042705,
 		"scientific_name": "Taxus baccata",
-		"name": "common yew",
+		"title": "Common Yew",
 		"lat": 52.22440649,
 		"lon": -0.8880982551,
 		"url": "https://www.inaturalist.org/observations/202042705",
@@ -172,7 +172,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202042854,
 		"scientific_name": "Cedrus atlantica",
-		"name": "Atlas cedar",
+		"title": "Atlas Cedar",
 		"lat": 52.22428428,
 		"lon": -0.8881420125,
 		"url": "https://www.inaturalist.org/observations/202042854",
@@ -182,7 +182,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202154961,
 		"scientific_name": "Prunus laurocerasus",
-		"name": "Cherry laurel",
+		"title": "Cherry Laurel",
 		"lat": 52.22544201,
 		"lon": -0.8888544266,
 		"url": "https://www.inaturalist.org/observations/202154961",
@@ -192,7 +192,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202155393,
 		"scientific_name": "Syringa vulgaris",
-		"name": "common lilac",
+		"title": "Common Lilac",
 		"lat": 52.22547848,
 		"lon": -0.888917679,
 		"url": "https://www.inaturalist.org/observations/202155393",
@@ -202,7 +202,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202395608,
 		"scientific_name": "Ilex aquifolium",
-		"name": "European holly",
+		"title": "European Holly",
 		"lat": 52.22387177,
 		"lon": -0.8884415896,
 		"url": "https://www.inaturalist.org/observations/202395608",
@@ -212,7 +212,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202396033,
 		"scientific_name": "Sequoiadendron giganteum",
-		"name": "giant sequoia",
+		"title": "Giant Sequoia",
 		"lat": 52.22394029,
 		"lon": -0.8886648465,
 		"url": "https://www.inaturalist.org/observations/202396033",
@@ -222,7 +222,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202396334,
 		"scientific_name": "Cedrus",
-		"name": "Cedars",
+		"title": "Cedar",
 		"lat": 52.22424989,
 		"lon": -0.8885083067,
 		"url": "https://www.inaturalist.org/observations/202396334",
@@ -232,7 +232,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202396554,
 		"scientific_name": "Araucaria araucana",
-		"name": "monkey-puzzle",
+		"title": "Monkey-Puzzle",
 		"lat": 52.22408893,
 		"lon": -0.8882626366,
 		"url": "https://www.inaturalist.org/observations/202396554",
@@ -242,7 +242,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202396851,
 		"scientific_name": "Sequoia sempervirens",
-		"name": "coast redwood",
+		"title": "Coast Redwood",
 		"lat": 52.22389521,
 		"lon": -0.8881946978,
 		"url": "https://www.inaturalist.org/observations/202396851",
@@ -252,7 +252,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202396981,
 		"scientific_name": "Taxodium distichum",
-		"name": "baldcypress",
+		"title": "Bald Cypress",
 		"lat": 52.2238676,
 		"lon": -0.8879876119,
 		"url": "https://www.inaturalist.org/observations/202396981",
@@ -262,7 +262,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202815919,
 		"scientific_name": "× hesperotropsis leylandii",
-		"name": "Leyland cypress",
+		"title": "Leyland Cypress",
 		"lat": 52.22466594,
 		"lon": -0.8881752682,
 		"url": "https://www.inaturalist.org/observations/202815919",
@@ -272,7 +272,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202816653,
 		"scientific_name": "Metasequoia glyptostroboides",
-		"name": "dawn redwood",
+		"title": "Dawn Redwood",
 		"lat": 52.22442969,
 		"lon": -0.8880252022,
 		"url": "https://www.inaturalist.org/observations/202816653",
@@ -282,7 +282,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202817925,
 		"scientific_name": "Prunus serrulata",
-		"name": "Japanese Cherry",
+		"title": "Japanese Cherry",
 		"lat": 52.224522,
 		"lon": -0.8880583056,
 		"url": "https://www.inaturalist.org/observations/202817925",
@@ -292,7 +292,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202819115,
 		"scientific_name": "Paulownia tomentosa",
-		"name": "princess tree",
+		"title": "Princess Tree",
 		"lat": 52.22439347,
 		"lon": -0.8878621681,
 		"url": "https://www.inaturalist.org/observations/202819115",
@@ -302,7 +302,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202819759,
 		"scientific_name": "Aesculus hippocastanum",
-		"name": "horse-chestnut",
+		"title": "Horse-Chestnut",
 		"lat": 52.223875,
 		"lon": -0.8871352175,
 		"url": "https://www.inaturalist.org/observations/202819759",
@@ -312,7 +312,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202820147,
 		"scientific_name": "Ginkgo biloba",
-		"name": "ginkgo",
+		"title": "Ginkgo",
 		"lat": 52.22402086,
 		"lon": -0.8873155693,
 		"url": "https://www.inaturalist.org/observations/202820147",
@@ -322,7 +322,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202821988,
 		"scientific_name": "Fagus sylvatica",
-		"name": "European beech",
+		"title": "European Beech",
 		"lat": 52.22396079,
 		"lon": -0.8871512429,
 		"url": "https://www.inaturalist.org/observations/202821988",
@@ -332,7 +332,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202822184,
 		"scientific_name": "Fraxinus",
-		"name": "ashes",
+		"title": "Ash",
 		"lat": 52.22412405,
 		"lon": -0.8871650567,
 		"url": "https://www.inaturalist.org/observations/202822184",
@@ -342,7 +342,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202822660,
 		"scientific_name": "Quercus robur",
-		"name": "English oak",
+		"title": "English Oak",
 		"lat": 52.22432422,
 		"lon": -0.8869633373,
 		"url": "https://www.inaturalist.org/observations/202822660",
@@ -352,7 +352,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202823106,
 		"scientific_name": "Carpinus",
-		"name": "hornbeams",
+		"title": "Hornbeam",
 		"lat": 52.22439602,
 		"lon": -0.8867291124,
 		"url": "https://www.inaturalist.org/observations/202823106",
@@ -362,7 +362,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202823906,
 		"scientific_name": "Prunus avium",
-		"name": "wild cherry",
+		"title": "Wild Cherry",
 		"lat": 52.22447968,
 		"lon": -0.8871720166,
 		"url": "https://www.inaturalist.org/observations/202823906",
@@ -372,7 +372,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202824312,
 		"scientific_name": "Pinus nigra laricio",
-		"name": "Corsican Pine",
+		"title": "Corsican Pine",
 		"lat": 52.22454324,
 		"lon": -0.8873398453,
 		"url": "https://www.inaturalist.org/observations/202824312",
@@ -382,7 +382,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202824365,
 		"scientific_name": "",
-		"name": "",
+		"title": "",
 		"lat": 52.22446864,
 		"lon": -0.8871484065,
 		"url": "https://www.inaturalist.org/observations/202824365",
@@ -392,7 +392,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202824825,
 		"scientific_name": "Thuja plicata",
-		"name": "western redcedar",
+		"title": "Western Redcedar",
 		"lat": 52.22447491,
 		"lon": -0.8873601897,
 		"url": "https://www.inaturalist.org/observations/202824825",
@@ -402,7 +402,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202825452,
 		"scientific_name": "Pinoideae",
-		"name": "pines, spruces, larches, and allies",
+		"title": "pines",
 		"lat": 52.22450951,
 		"lon": -0.8876501141,
 		"url": "https://www.inaturalist.org/observations/202825452",
@@ -412,7 +412,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202826473,
 		"scientific_name": "Prunus laurocerasus",
-		"name": "Cherry laurel",
+		"title": "Cherry Laurel",
 		"lat": 52.22456594,
 		"lon": -0.8873503136,
 		"url": "https://www.inaturalist.org/observations/202826473",
@@ -422,7 +422,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202826575,
 		"scientific_name": "Rhododendron maximum",
-		"name": "great rhododendron",
+		"title": "Great Rhododendron",
 		"lat": 52.22462089,
 		"lon": -0.887326459,
 		"url": "https://www.inaturalist.org/observations/202826575",
@@ -432,7 +432,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202827664,
 		"scientific_name": "Acer palmatum",
-		"name": "Japanese maple",
+		"title": "Japanese Maple",
 		"lat": 52.2247752,
 		"lon": -0.8874056615,
 		"url": "https://www.inaturalist.org/observations/202827664",
@@ -442,7 +442,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202828158,
 		"scientific_name": "Bambusoideae",
-		"name": "bamboos, canes, and allies",
+		"title": "Bamboo",
 		"lat": 52.22478616,
 		"lon": -0.8875131517,
 		"url": "https://www.inaturalist.org/observations/202828158",
@@ -452,7 +452,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202828171,
 		"scientific_name": "",
-		"name": "",
+		"title": "",
 		"lat": 52.2246181,
 		"lon": -0.8872556188,
 		"url": "https://www.inaturalist.org/observations/202828171",
@@ -462,7 +462,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202828556,
 		"scientific_name": "Syringa",
-		"name": "Lilacs",
+		"title": "Lilac",
 		"lat": 52.22477993,
 		"lon": -0.8874434951,
 		"url": "https://www.inaturalist.org/observations/202828556",
@@ -472,7 +472,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202829367,
 		"scientific_name": "Acer palmatum",
-		"name": "Japanese maple",
+		"title": "Japanese Maple",
 		"lat": 52.22494154,
 		"lon": -0.8876607651,
 		"url": "https://www.inaturalist.org/observations/202829367",
@@ -482,7 +482,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202829637,
 		"scientific_name": "Quercus frainetto",
-		"name": "Hungarian Oak",
+		"title": "Hungarian Oak",
 		"lat": 52.22497769,
 		"lon": -0.8874970837,
 		"url": "https://www.inaturalist.org/observations/202829637",
@@ -492,7 +492,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202829900,
 		"scientific_name": "",
-		"name": "",
+		"title": "",
 		"lat": 52.22480278,
 		"lon": -0.8873428998,
 		"url": "https://www.inaturalist.org/observations/202829900",
@@ -502,7 +502,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202830316,
 		"scientific_name": "Corylus avellana",
-		"name": "common hazel",
+		"title": "Common Hazel",
 		"lat": 52.22493438,
 		"lon": -0.8878940221,
 		"url": "https://www.inaturalist.org/observations/202830316",
@@ -512,7 +512,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202830662,
 		"scientific_name": "Chamaecyparis lawsoniana",
-		"name": "Lawson's cypress",
+		"title": "Lawson's Cypress",
 		"lat": 52.22506211,
 		"lon": -0.8878066655,
 		"url": "https://www.inaturalist.org/observations/202830662",
@@ -522,7 +522,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202831510,
 		"scientific_name": "Garrya elliptica",
-		"name": "Coast silk tassel",
+		"title": "Coast Silk Tassel",
 		"lat": 52.22531036,
 		"lon": -0.8882049226,
 		"url": "https://www.inaturalist.org/observations/202831510",
@@ -532,7 +532,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202832295,
 		"scientific_name": "Acer pseudoplatanus",
-		"name": "sycamore maple",
+		"title": "Sycamore Maple",
 		"lat": 52.22469432,
 		"lon": -0.8884118498,
 		"url": "https://www.inaturalist.org/observations/202832295",
@@ -542,7 +542,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202967637,
 		"scientific_name": "Buxus sempervirens",
-		"name": "common box",
+		"title": "Common Box Tree",
 		"lat": 52.22540397,
 		"lon": -0.8875886114,
 		"url": "https://www.inaturalist.org/observations/202967637",
@@ -552,7 +552,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202968012,
 		"scientific_name": "Viburnum rhytidophyllum",
-		"name": "Leatherleaf viburnum",
+		"title": "Leatherleaf Viburnum",
 		"lat": 52.22543757,
 		"lon": -0.8881715902,
 		"url": "https://www.inaturalist.org/observations/202968012",
@@ -562,7 +562,7 @@ export const trees = [
 	{
 		"inaturalist_observation_id": 202968312,
 		"scientific_name": "Ribes sanguineum",
-		"name": "Red-flowering Currant",
+		"title": "Red-flowering Currant",
 		"lat": 52.22526986,
 		"lon": -0.8882187121,
 		"url": "https://www.inaturalist.org/observations/202968312",

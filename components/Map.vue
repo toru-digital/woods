@@ -18,7 +18,9 @@ const zoom = ref(18);
 				v-for="tree in trees"
 				:key="tree.inaturalist_observation_id"
 				:lat-lng="[tree.lat, tree.lon]"
-			></LMarker>
+			>
+				<LTooltip direction="top">{{ tree.title }}!!</LTooltip>
+			</LMarker>
 		</LMap>
 	</div>
 </template>
