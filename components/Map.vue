@@ -26,11 +26,12 @@ const zoom = ref(18);
 
 <template>
 	<div style="height: 100vh; width: 100vw">
-		<LMap ref="map" :zoom="zoom" :center="[tree.lat, tree.lon]">
+		<LMap ref="map" :zoom="zoom" :center="[user_data.lat, user_data.lon]">
 			<LTileLayer
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				attribution='&amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
 				layer-type="base"
+				max-zoom="30"
 				name="OpenStreetMap"
 			/>
 			<LMarker
