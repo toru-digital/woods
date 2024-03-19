@@ -1,6 +1,25 @@
 <script setup>
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 import { trees } from "../data/trees";
+
+const user_data = reactive({
+	log: "...",
+	lat: -1,
+	lon: -1,
+});
+
+const locationHandler = function (position) {
+	console.log(position);
+	const { latitude, longitude } = position.coords;
+	user_data.lat = latitude;
+	user_data.lon = longitude;
+};
+
+onNuxtReady(async () => {
+	if (!process.client || !navigator.geolocation) return;
+
+	navigator.geolocation.getCurrentPosition(locationHandler);
+});
 
 const zoom = ref(18);
 </script>
@@ -21,6 +40,13 @@ const zoom = ref(18);
 			>
 				<LPopup>{{ tree.title }}</LPopup>
 			</LMarker>
+
+			<LCircleMarker
+				radius="10"
+				color="red"
+				:lat-lng="[user_data.lat, user_data.lon]"
+			>
+			</LCircleMarker>
 		</LMap>
 	</div>
 </template>
