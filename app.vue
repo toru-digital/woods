@@ -14,7 +14,7 @@ const state = reactive({
 
 <template>
 	<div class="w-full h-screen flex flex-col">
-		<section class="shrink h-full overflow-y-auto">
+		<section class="shrink grow overflow-y-auto">
 			<Home v-if="state.screen_index == 0" />
 			<Trees v-if="state.screen_index == 1" />
 			<Quest v-if="state.screen_index == 2" />
