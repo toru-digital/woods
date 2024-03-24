@@ -12,8 +12,19 @@ const state = reactive({
 });
 </script>
 
+<style>
+html,
+body,
+#__nuxt,
+#__layout {
+	height: 100% !important;
+	width: 100% !important;
+	background: #fafafa;
+}
+</style>
+
 <template>
-	<div class="w-full h-screen flex flex-col">
+	<div class="w-full h-full flex flex-col">
 		<section class="shrink grow overflow-y-auto">
 			<Home v-if="state.screen_index == 0" />
 			<Trees v-if="state.screen_index == 1" />
