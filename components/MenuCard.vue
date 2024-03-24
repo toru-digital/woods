@@ -32,7 +32,7 @@ const icons = {
 		<img
 			:src="`/images/` + title + `.svg`"
 			class="h-8 w-8 inline-block mb-1"
-			:class="{ 'text-blue-500': active, 'text-slate-400': !active }"
+			:class="{ 'opacity-100': active, 'opacity-30': !active }"
 		/>
 	</div>
 </template>
