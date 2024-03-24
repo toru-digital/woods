@@ -13,9 +13,11 @@ const props = defineProps({
 <template>
 	<div v-for="tree in getTreesById(tree_id)">
 		<div
-			class="w-full h-[320px] bg-slate-200 bg-cover bg-center cursor-pointer flex items-end justify-center p-2 mt-2"
+			class="w-full h-[320px] bg-slate-200 bg-cover bg-center cursor-pointer flex items-end justify-center"
 			:style="`background-image: url(` + tree.img + `)`"
 		/>
-		<h1 class="text-3xl mt-2">{{ tree.title }}</h1>
+		<div class="px-2 py-2">
+			<h1 class="text-3xl mt-2">{{ tree.title }}</h1>
+		</div>
 	</div>
 </template>
