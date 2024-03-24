@@ -16,21 +16,17 @@ const props = defineProps({
 </script>
 
 <template>
-	<li class="me-2">
-		<a
-			href="#"
-			class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg group"
-			:class="{
-				'border-gray-300 text-slate-600 border-slate-600': active,
-				'': !active,
-			}"
-		>
-			<img
-				:src="`/icons/20dp/` + icon"
-				class="w-4 h-4 me-2 inline-block mb-1"
-				:class="{ 'opacity-100': active, 'opacity-30': !active }"
-			/>
-			{{ title }}
-		</a>
-	</li>
+	<button
+		class="py-2 px-4 no-underline rounded-full bg-blue font-bold text-sm btn-primary"
+		:class="{
+			'bg-slate-900 text-slate-100': active,
+			'bg-blue-100 text-slate-900': !active,
+		}"
+	>
+		<img
+			:src="`/icons/20dp/` + (active ? 'white' : 'black') + `/` + icon"
+			class="w-4 h-4 inline-block mb-1"
+		/>
+		{{ title }}
+	</button>
 </template>

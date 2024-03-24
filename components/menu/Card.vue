@@ -34,7 +34,7 @@ const icons = {
 		class="bg-slate-100 cursor-pointer w-full justify-center inline-block text-center pt-3 pb-5"
 	>
 		<img
-			:src="`/icons/40dp/` + icon"
+			:src="`/icons/40dp/black/` + icon"
 			class="h-8 w-8 inline-block mb-1"
 			:class="{ 'opacity-100': active, 'opacity-30': !active }"
 		/>

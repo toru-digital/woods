@@ -16,7 +16,7 @@ const state = reactive({
 	<secion class="flex flex-col w-full h-full">
 		<div class="border-b border-gray-200 dark:border-gray-700 shrink-0">
 			<ul
-				class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
+				class="flex flex-wrap gap-2 text-sm font-medium text-center text-gray-500 p-3"
 			>
 				<TreesTab
 					:title="screen.title"
