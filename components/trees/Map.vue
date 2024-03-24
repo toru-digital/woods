@@ -9,7 +9,6 @@ const user_data = reactive({
 });
 
 const locationHandler = function (position) {
-	console.log(position);
 	const { latitude, longitude } = position.coords;
 	user_data.lat = latitude;
 	user_data.lon = longitude;
