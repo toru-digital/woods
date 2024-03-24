@@ -38,8 +38,14 @@ const onSelectTree = (tree_id) => {
 				v-on:select-tree="onSelectTree"
 				v-if="state.screen_index == 0"
 			/>
-			<TreesNear v-if="state.screen_index == 1" />
-			<TreesMap v-if="state.screen_index == 2" />
+			<TreesNear
+				v-on:select-tree="onSelectTree"
+				v-if="state.screen_index == 1"
+			/>
+			<TreesMap
+				v-on:select-tree="onSelectTree"
+				v-if="state.screen_index == 2"
+			/>
 		</div>
 	</section>
 	<section class="flex flex-col w-full h-full" v-if="state.tree_id != -1">

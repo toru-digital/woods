@@ -1,17 +1,35 @@
 <script setup>
 import { ref, reactive } from "vue";
 import { getTrees } from "../../data/trees";
+import { getDistance } from "../../data/utils";
 
 const user_data = reactive({
 	log: "...",
-	lat: 52.224723,
-	lon: -0.887954,
+	lat: 0,
+	lon: 0,
 });
+
+const delapre_position = [52.224723, -0.887954];
 
 const locationHandler = function (position) {
 	const { latitude, longitude } = position.coords;
-	user_data.lat = latitude;
-	user_data.lon = longitude;
+
+	const distance = getDistance(
+		delapre_position[0],
+		delapre_position[1],
+		latitude,
+		longitude
+	);
+
+	if (distance < 1) {
+		user_data.lat = latitude;
+		user_data.lon = longitude;
+	}
+};
+
+const getMapCenter = () => {
+	if (user_data.lat == 0 && user_data.lon == 0) return delapre_position;
+	return [user_data.lat, user_data.lon];
 };
 
 onNuxtReady(async () => {
@@ -24,7 +42,7 @@ const zoom = ref(18);
 </script>
 
 <template>
-	<LMap ref="map" :zoom="zoom" :center="[user_data.lat, user_data.lon]">
+	<LMap ref="map" :zoom="zoom" :center="getMapCenter()">
 		<LTileLayer
 			url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			attribution='&amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
@@ -37,12 +55,21 @@ const zoom = ref(18);
 			:key="tree.inaturalist_observation_id"
 			:lat-lng="[tree.lat, tree.lon]"
 		>
-			<LPopup>{{ tree.title }}</LPopup>
+			<LPopup>
+				<div
+					class="cursor-pointer text-lg"
+					v-on:click="$emit('select-tree', tree.inaturalist_observation_id)"
+				>
+					<img :src="tree.img" class="w-32 h-32 object-cover rounded-lg" />
+					{{ tree.title }}
+				</div>
+			</LPopup>
 		</LMarker>
 
 		<LCircleMarker
 			radius="10"
 			color="red"
+			:if="user_data.lat != 0 && user_data.lon != 0"
 			:lat-lng="[user_data.lat, user_data.lon]"
 		>
 		</LCircleMarker>
