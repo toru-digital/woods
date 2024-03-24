@@ -9,26 +9,20 @@ const state = reactive({
 </script>
 
 <template>
-	<div class="w-full h-screen">
-		<section class="z-0 relative">
+	<div class="w-full h-screen flex flex-col">
+		<section class="shrink h-full overflow-y-auto">
 			<Home v-if="state.screen_index == 0" />
 			<Trees v-if="state.screen_index == 1" />
 			<Quest v-if="state.screen_index == 2" />
 		</section>
-		<!-- <section id="bottom-navigation" class="md:hidden block fixed inset-x-0 bottom-0 z-10 bg-white shadow"> // if shown only tablet/mobile-->
-		<section
-			id="bottom-navigation"
-			class="block fixed inset-x-0 bottom-0 z-10 bg-white shadow"
-		>
-			<div id="tabs" class="flex justify-between">
-				<MenuCard
-					:title="screen.title"
-					v-for="(screen, index) in screens"
-					@click="state.screen_index = index"
-					:active="index === state.screen_index"
-					:key="screen.title"
-				/>
-			</div>
+		<section class="flex justify-between shrink-0">
+			<MenuCard
+				:title="screen.title"
+				v-for="(screen, index) in screens"
+				@click="state.screen_index = index"
+				:active="index === state.screen_index"
+				:key="screen.title"
+			/>
 		</section>
 	</div>
 </template>
