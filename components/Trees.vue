@@ -30,8 +30,8 @@ const state = reactive({
 		</div>
 		<div class="shrink h-full overflow-y-auto">
 			<TreesGrid v-if="state.screen_index == 0" />
-			<TreesMap v-if="state.screen_index == 1" />
-			<TreesNear v-if="state.screen_index == 2" />
+			<TreesNear v-if="state.screen_index == 1" />
+			<TreesMap v-if="state.screen_index == 2" />
 		</div>
 	</secion>
 </template>
