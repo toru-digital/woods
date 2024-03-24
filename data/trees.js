@@ -571,6 +571,11 @@ const trees = [
 	}
 ]
 
+export const getTreesById = id => {
+	return trees
+		.filter (t => t.inaturalist_observation_id == id)
+};
+
 export const getTrees = () => {
 	const sort_on = "title"
 	return trees

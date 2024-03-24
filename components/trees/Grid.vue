@@ -9,6 +9,7 @@ import { getTrees } from "../../data/trees";
 		<TreesGridBlock
 			v-for="tree in getTrees()"
 			:image="tree.img"
+			v-on:click="$emit('select-tree', tree.inaturalist_observation_id)"
 			:title="tree.title"
 			:key="tree.inaturalist_observation_id"
 		/>
