@@ -27,7 +27,7 @@ const state = reactive({
 			/>
 		</ul>
 	</div>
-	<TreesGrid />
-	<TreesMap />
-	<TreesNear />
+	<TreesGrid v-if="state.screen_index == 0" />
+	<TreesMap v-if="state.screen_index == 1" />
+	<TreesNear v-if="state.screen_index == 2" />
 </template>

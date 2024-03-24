@@ -1,4 +1,4 @@
-export const trees = [
+const trees = [
 	{
 		"inaturalist_observation_id": 124626725,
 		"scientific_name": "Pterocarya fraxinifolia",
@@ -570,3 +570,14 @@ export const trees = [
 		"distance": -1
 	}
 ]
+
+export const getTrees = () => {
+	const sort_on = "title"
+	return trees.sort((a, b) =>
+		a[sort_on] > b[sort_on]
+			? 1
+			: b[sort_on] > a[sort_on]
+			? -1
+			: 0
+	);
+};
