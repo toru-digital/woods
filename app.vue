@@ -1,7 +1,11 @@
 <script setup>
 import { reactive } from "vue";
 
-const screens = [{ title: "Home" }, { title: "Trees" }, { title: "Quest" }];
+const screens = [
+	{ title: "Home", icon: "Home.svg" },
+	{ title: "Trees", icon: "Trees.svg" },
+	{ title: "Quest", icon: "Quest.svg" },
+];
 
 const state = reactive({
 	screen_index: 0,
@@ -18,6 +22,7 @@ const state = reactive({
 		<section class="flex justify-between shrink-0">
 			<MenuCard
 				:title="screen.title"
+				:icon="screen.icon"
 				v-for="(screen, index) in screens"
 				@click="state.screen_index = index"
 				:active="index === state.screen_index"

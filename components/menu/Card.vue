@@ -11,6 +11,10 @@ const props = defineProps({
 		type: String,
 		required: true,
 	},
+	icon: {
+		type: String,
+		required: true,
+	},
 	active: {
 		type: Boolean,
 		required: true,
@@ -30,7 +34,7 @@ const icons = {
 		class="bg-slate-100 cursor-pointer w-full justify-center inline-block text-center pt-3 pb-5"
 	>
 		<img
-			:src="`/images/` + title + `.svg`"
+			:src="`/icons/40dp/` + icon"
 			class="h-8 w-8 inline-block mb-1"
 			:class="{ 'opacity-100': active, 'opacity-30': !active }"
 		/>
