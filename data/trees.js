@@ -595,7 +595,6 @@ const getTreesWithinInDistancRange = (user_lat,user_lon,d1,d2) => {
 	return trees
 		.map (t => {
 			t.distance = getDistance (user_lat, user_lon, t.lat, t.lon)
-			t.title = t.distance
 			return t
 		})
 		.filter (t => t.distance >= d1/1000 && t.distance <= d2/1000)
