@@ -6,8 +6,6 @@ const deg2rad = (degrees) => {
 export const getDistance = (lat1, lon1, lat2, lon2) => {
 	if (lat2 == 0 && lon2 == 0) return "...";
 
-	console.log (lat1, lon1, lat2, lon2)
-
 	const R = 6371; // Radius of the earth in km
 	const dLat = deg2rad(lat2 - lat1); // deg2rad below
 	const dLon = deg2rad(lon2 - lon1);
