@@ -12,7 +12,7 @@ const props = defineProps({
 </script>
 
 <template>
-	<div class="shadow-lg w-full bg-white rounded-sm py-6 pr-6 pl-9">
+	<div class="w-full h-[100px] bg-slate-200 rounded-lg">
 		{{ title }}
 	</div>
 </template>
