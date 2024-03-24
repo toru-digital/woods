@@ -3,5 +3,8 @@ const props = defineProps({});
 </script>
 
 <template>
-	<h2 class="text-xl text-center mt-8">Delapre Tree Walk</h2>
+	<section class="flex flex-col px-4 py-4">
+		<h2 class="text-xl">Delapre Tree Walk</h2>
+		<p>Content coming soon</p>
+	</section>
 </template>
