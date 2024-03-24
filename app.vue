@@ -1,7 +1,7 @@
 <script setup>
 import { reactive } from "vue";
 
-const screens = [{ title: "Home" }];
+const screens = [{ title: "Home" }, { title: "Trees" }];
 
 const state = reactive({
 	screen_index: 0,
@@ -12,6 +12,7 @@ const state = reactive({
 	<div class="w-full h-screen">
 		<section class="z-0 relative">
 			<Home v-if="state.screen_index == 0" />
+			<Trees v-if="state.screen_index == 1" />
 		</section>
 		<!-- <section id="bottom-navigation" class="md:hidden block fixed inset-x-0 bottom-0 z-10 bg-white shadow"> // if shown only tablet/mobile-->
 		<section
