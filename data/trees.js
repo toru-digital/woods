@@ -574,21 +574,21 @@ const trees = [
 	{
 		"inaturalist_observation_id": 1,
 		"scientific_name": "z Behind",
-		"title": "Behind",
+		"title": "z Behind",
 		"lat": 52.208653227000774,
 		"lon": -0.8962303939160998,
 		"url": "https://www.inaturalist.org/observations/202968312",
-		"img": "https://static.inaturalist.org/photos/358540670/medium.jpg",
+		"img": "https://placehold.co/600x400?text=Behind",
 		"distance": -1
 	},
 	{
 		"inaturalist_observation_id": 2,
 		"scientific_name": "z Infront",
-		"title": "Infront",
+		"title": "z Infront",
 		"lat": 52.20809421608868,
 		"lon": -0.8969087289229427,
 		"url": "https://www.inaturalist.org/observations/202968312",
-		"img": "https://static.inaturalist.org/photos/358540670/medium.jpg",
+		"img": "https://placehold.co/600x400?text=Infront",
 		"distance": -1
 	}
 ];
