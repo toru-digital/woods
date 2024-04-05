@@ -570,8 +570,40 @@ const trees = [
 		"url": "https://www.inaturalist.org/observations/202968312",
 		"img": "https://static.inaturalist.org/photos/358540670/medium.jpg",
 		"distance": -1
+	},
+	{
+		"inaturalist_observation_id": 1,
+		"scientific_name": "Behind",
+		"title": "Behind",
+		"lat": 52.208653227000774,
+		"lon": -0.8962303939160998,
+		"url": "https://www.inaturalist.org/observations/202968312",
+		"img": "https://static.inaturalist.org/photos/358540670/medium.jpg",
+		"distance": -1
+	},
+	{
+		"inaturalist_observation_id": 2,
+		"scientific_name": "Infront",
+		"title": "Infront",
+		"lat": 52.20809421608868,
+		"lon": -0.8969087289229427,
+		"url": "https://www.inaturalist.org/observations/202968312",
+		"img": "https://static.inaturalist.org/photos/358540670/medium.jpg",
+		"distance": -1
 	}
-]
+];
+
+export const getTreesWithDistance = (lat, lon) => {
+	return trees
+		.map (tree => {
+			tree.distance = getDistance (lat, lon, tree.lat, tree.lon)
+			return tree
+		});
+}
+
+export const getTreeById = id => {
+	return trees.find (t => t.inaturalist_observation_id == id)
+}
 
 export const getTreesById = id => {
 	return trees
