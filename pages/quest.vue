@@ -9,6 +9,7 @@
 				class="w-full h-full grid place-items-center"
 			>
 				<img
+					class='flex-1 aspect-square min-w-[340px] w-[20vw]'
 					:style="
 						'transform: rotate(' +
 						($store.state.northern_axis - calculateBearing(
@@ -57,7 +58,7 @@
 		selected_tree.value = getTreeById(store.state.active_inaturalist_observation_id);
 
 		if (selected_tree.value == null) {
-			router.push("/");
+			router.push("/trees");
 		}
 	});
 </script>
