@@ -29,6 +29,11 @@ export default {
 			fontSize: {
 				tiny: '0.5rem',
 			},
+			fontFamily: {
+				sig: ['Sigmar One', 'ui-serif', 'serif'],
+				mont: ['Montserrat', 'sans-serif'],
+				sans: ['"Arial"', 'sans-serif']
+			}
 		},
 	},
 	plugins: [],

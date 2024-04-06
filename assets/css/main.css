@@ -9,8 +9,3 @@ body,
 	height: 100vh !important;
 	width: 100vw !important;
 }
-
-* {
-	font-family: "Sigmar One";
-	font-size: 18px;
-}
