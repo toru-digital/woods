@@ -4,7 +4,29 @@ import Path from 'path';
 
 export default defineNuxtConfig({
 	app: {
-		pageTransition: { name: 'page', mode: 'out-in' }
+		pageTransition: { name: 'page', mode: 'out-in' },
+		head: {
+			meta: [{
+				name: "theme-color",
+				content: "#033336"
+			}],
+			link: [{
+				rel: "icon",
+				sizes: "any",
+				href: "/favicon.ico"
+			},{
+				rel: "icon",
+				type: "image/svg+xml",
+				href: "/favicon.svg"
+			},{
+				rel: "icon",
+				type: "apple-touch-icon",
+				href: "/apple-touch-icon.png"
+			},{
+				rel: "manifest",
+				href: "/site.webmanifest"
+			}],
+		}
 	},
 	modules: ['nuxt3-leaflet', "@nuxt/image"],
 	devtools: { enabled: true },
