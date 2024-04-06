@@ -5,6 +5,7 @@
 Explore the woods
 
 http://localhost:3000/
+http://localhost:3000/style
 https://main--classy-florentine-11ac94.netlify.app
 https://app.netlify.com/sites/classy-florentine-11ac94/deploys
 
