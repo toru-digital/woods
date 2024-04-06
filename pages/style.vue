@@ -40,17 +40,17 @@
 				<div
 					class="border border-grey w-[200px] h-[100px] p-2 bg-black text-white"
 				>
-					bg-black
+					black
 				</div>
 				<div
 					class="border border-grey w-[200px] h-[100px] p-2 bg-grey-100"
 				>
-					bg-grey-100
+					grey-100
 				</div>
 				<div
 					class="border border-grey w-[200px] h-[100px] p-2 bg-white"
 				>
-					bg-white
+					white
 				</div>
 			</div>
 			<hr class="my-4 border border-grey" />
