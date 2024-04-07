@@ -4,7 +4,7 @@
 			<Header />
 		</div>
 		<div
-			class="body bg-body max-w-screen overflow-y-scroll h-[calc(100dvh-160px)]"
+			class="body bg-body max-w-screen overflow-y-auto h-[calc(100dvh-160px)]"
 		>
 			<slot />
 		</div>
