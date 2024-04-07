@@ -14,13 +14,16 @@
 
 <script setup>
 import { getTrees } from "../data/trees";
-import { useStore } from 'vuex';
+import { useStore } from "vuex";
 
 const store = useStore();
 const router = useRouter();
 
 const onTreeClickedOn = function (tree) {
-	store.commit("setActiveInaturalistObservationId", tree.inaturalist_observation_id);
-	router.push("/quest");
+	store.commit(
+		"setActiveInaturalistObservationId",
+		tree.inaturalist_observation_id
+	);
+	router.push("/trail");
 };
 </script>

@@ -1,10 +1,10 @@
 <template>
-	<div class="w-screen h-[100dvh] flex flex-col bg-overflow">
+	<div class="w-screen flex flex-col bg-overflow">
 		<div class="header bg-header h-[80px]">
 			<Header />
 		</div>
 		<div
-			class="body bg-body max-w-screen overflow-y-scroll h-[calc(100vh-160px)]"
+			class="body bg-body max-w-screen overflow-y-scroll h-[calc(100dvh-160px)]"
 		>
 			<slot />
 		</div>
