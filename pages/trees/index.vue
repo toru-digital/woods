@@ -24,6 +24,6 @@ const onTreeClickedOn = function (tree) {
 		"setActiveInaturalistObservationId",
 		tree.inaturalist_observation_id
 	);
-	router.push("/trail");
+	router.push("/trees/" + tree.inaturalist_observation_id);
 };
 </script>
