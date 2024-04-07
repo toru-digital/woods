@@ -1,5 +1,5 @@
 export default [
-	{ title: "Home", icon: "Home.svg", path: '/' },
-	{ title: "Trees", icon: "Trees.svg", path: '/trees' },
-	{ title: "Quest", icon: "Quest.svg", path: '/quest' },
+	{ title: "Home", icon: "home.png", path: '/' },
+	{ title: "Trees", icon: "trees.png", path: '/trees' },
+	{ title: "Trails", icon: "trails.png", path: '/trails' },
 ];

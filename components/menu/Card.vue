@@ -25,9 +25,13 @@ const props = defineProps({
 			class="cursor-pointer w-full justify-center inline-block text-center pt-3 pb-5"
 		>
 			<img
-				:src="`/icons/40dp/white/` + icon"
-				class="h-8 w-8 inline-block mb-1"
-				:class="{ 'opacity-100': active, 'opacity-30': !active }"
+				:src="
+					`/theme/nav-` +
+					(active ? `active` : `inactive`) +
+					`/` +
+					icon
+				"
+				class="h-8 w-auto inline-block mb-1"
 			/>
 		</div>
 	</router-link>
