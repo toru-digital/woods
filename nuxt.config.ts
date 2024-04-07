@@ -8,7 +8,7 @@ export default defineNuxtConfig({
 		head: {
 			meta: [{
 				name: "theme-color",
-				content: "#033336"
+				content: "#0A2D2F"
 			}],
 			link: [{
 				rel: "icon",
