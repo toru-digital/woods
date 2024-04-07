@@ -21,17 +21,49 @@
 					src="/theme/title-block/bottom.png"
 					class="absolute bottom-0 w-full"
 				/>
-				<div class="relative">
-					<h1>jji{{ selected_tree.title }}</h1>
-					<h1>jji{{ selected_tree.title }}</h1>
-					<h1>jji{{ selected_tree.title }}</h1>
+				<div class="relative p-3">
+					<h1
+						class="font-sig text-white text-3xl relative uppercase leading-9"
+					>
+						{{ selected_tree.title }}
+					</h1>
 				</div>
 			</div>
 
-			<br />
-			<p>...</p>
+			<div class="p-3 mt-2">
+				<h1
+					class="font-sig text-forest-900 text-lg uppercase leading-9"
+				>
+					Description
+				</h1>
+				<p class="font-mont text-sm">
+					Common holly (Ilex aquifolium) is an evergreen tree native
+					to Europe, North Africa, and Southwest Asia. It has glossy,
+					spiny leaves and produces bright red berries in autumn.
+					Commonly associated with Christmas decorations due to its
+					red berries and glossy foliage. It holds symbolic importance
+					in various cultural and religious traditions.
+				</p>
+			</div>
 			<img src="/images/temp-tree-2.jpg" />
-			<p>...</p>
+			<div class="p-3 mt-2">
+				<p class="font-mont text-sm">
+					Provides habitat and food for wildlife, with birds consuming
+					its berries and using the dense foliage for shelter and
+					nesting. Hardy and adaptable, growing in various soil types
+					and tolerating different conditions, including urban
+					environments. Propagated from seeds or cuttings.
+					Historically used for woodwork, dye-making, and medicinal
+					purposes (although mildly toxic if ingested in large
+					quantities).
+				</p>
+				<h1
+					class="font-sig text-forest-900 text-lg uppercase leading-9 mt-4"
+				>
+					Leaf
+				</h1>
+			</div>
+
 			<img src="/images/temp-tree-3.jpg" />
 			<p>...</p>
 		</div>
