@@ -60,6 +60,10 @@ ngrok http http://localhost:3000
 this will give you a public endpoint which you can open on your phone.
 the address will look something like https://xxxx-xxxx-xxxx-xxxx-xxxx-xxxx-xxxx-xxxx-xxxx.ngrok-free.app
 
+You'll need the latest version of NGROK, and then you need to set your token...
+
+https://dashboard.ngrok.com/get-started/setup/macos
+
 ## links
 
 -   https://dev.to/orkhanjafarovr/real-compass-on-mobile-browsers-with-javascript-3emi
