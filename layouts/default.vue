@@ -8,7 +8,9 @@
 		>
 			<slot />
 		</div>
-		<div class="footer bg-footer h-[80px] flex flex-row">
+		<div
+			class="footer bg-footer h-[80px] flex flex-row gap-20 justify-center"
+		>
 			<MenuCard
 				v-for="screen in menu"
 				:key="screen.title"
