@@ -1,7 +1,7 @@
 <template>
 	<transition name="fade">
 		<section>
-			<img src="/images/home-hero-bg.jpg" class="w-full" />
+			<HeroBlock image="/images/hero-bg.jpg" />
 			<p>ewk</p>
 		</section>
 	</transition>
