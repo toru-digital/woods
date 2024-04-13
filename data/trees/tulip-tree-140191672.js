@@ -5,6 +5,5 @@ export default {
 	"slug" : "tulip-tree-140191672",
 	"lat": 52.22466667,
 	"lon": -0.8882383333,
-	"url": "https://www.inaturalist.org/observations/140191672",
 	"img": "https://static.inaturalist.org/photos/239936807/medium.jpg",
 }

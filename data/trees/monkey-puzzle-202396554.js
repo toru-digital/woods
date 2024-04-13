@@ -5,6 +5,5 @@ export default {
 	"slug" : "monkey-puzzle-202396554",
 	"lat": 52.22408893,
 	"lon": -0.8882626366,
-	"url": "https://www.inaturalist.org/observations/202396554",
 	"img": "https://static.inaturalist.org/photos/357450315/medium.jpg",
 }

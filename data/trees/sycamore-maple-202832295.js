@@ -5,6 +5,5 @@ export default {
 	"slug" : "sycamore-maple-202832295",
 	"lat": 52.22469432,
 	"lon": -0.8884118498,
-	"url": "https://www.inaturalist.org/observations/202832295",
 	"img": "https://static.inaturalist.org/photos/358277645/medium.jpg",
 }
