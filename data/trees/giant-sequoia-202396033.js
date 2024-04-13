@@ -7,7 +7,13 @@ export default {
 	"lon": -0.8886648465,
 	"images": [
 		{
+			"type": "image",
 			"source" : "https://static.inaturalist.org/photos/357449389/medium.jpg"
+		},
+		{
+			"type": "text",
+			"title": "Description",
+			"content" : "The giant sequoia is the world's most massive tree, and also the tallest. It is native to the western slopes of the Sierra Nevada mountains of California. The oldest known giant sequoia based on ring count is 3,200 years old."
 		}
 	],
 }

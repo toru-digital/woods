@@ -5,12 +5,15 @@ export default {
 	"slug" : "ash-202822184",
 	"lat": 52.22412405,
 	"lon": -0.8871650567,
-	"imgages": [
+	"content": [
 		{
-			"source" : "https://static.inaturalist.org/photos/358259389/medium.jpg"
+			"type": "image",
+			"source" : "https://static.inaturalist.org/photos/358259389/medium.jpg",
+		},
+		{
+			"type": "text",
+			"title": "Description",
+			"content" : "Ash trees are in the genus Fraxinus and are commonly found in Europe, Asia and North America. They are deciduous trees that can grow up to 35m tall. The leaves are compound and usually have 5-9 leaflets. The bark is smooth and pale grey on young trees, becoming rough and darker with age."
 		}
 	],
-	"copy" : [
-		"123"
-	]	
 }

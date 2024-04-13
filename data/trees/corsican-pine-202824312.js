@@ -7,7 +7,13 @@ export default {
 	"lon": -0.8873398453,
 	"images": [
 		{
+			"type": "image",
 			"source" : "https://static.inaturalist.org/photos/358349899/medium.jpg"
+		},
+		{
+			"type": "text",
+			"title": "Description",
+			"content" : "..."
 		}
 	],
 }
