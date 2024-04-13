@@ -7,5 +7,4 @@ export default {
 	"lon": -0.8886648465,
 	"url": "https://www.inaturalist.org/observations/202396033",
 	"img": "https://static.inaturalist.org/photos/357449389/medium.jpg",
-	"distance": -1
 }

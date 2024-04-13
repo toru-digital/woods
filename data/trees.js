@@ -20,7 +20,7 @@ import {default as t202824825} from "./trees/western-redcedar-202824825"
 import {default as t126346432} from "./trees/white-willow-126346432"
 import {default as t202823906} from "./trees/wild-cherry-202823906"
 
-const trees = [
+const trees_raw = [
 	t202822184,
 	t126191404,
 	t202042854,
@@ -41,6 +41,19 @@ const trees = [
 	t126346432,
 	t202823906
 ];
+
+const trees = trees_raw.map(t => Object.assign({
+	"inaturalist_observation_id": 123,
+	"scientific_name": "...",
+	"title": "...",
+	"slug" : "not-set",
+	"lat": 0,
+	"lon": 0,
+	"url": "",
+	"img": "",
+	"distance": -1,
+	"copy" : ["..."],
+}, t));
 
 export const getTreesWithDistance = (lat, lon) => {
 	return trees
