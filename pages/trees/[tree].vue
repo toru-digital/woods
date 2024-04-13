@@ -7,12 +7,12 @@
 
 			<div v-for="(content, i) in selected_tree.content" :key="i">
 				<TreeText
-					v-if="(content.type = 'text')"
+					v-if="content.type == 'text'"
 					:title="content.title"
 					:text="content.content"
 				/>
 				<TreeImage
-					v-if="(content.type = 'image')"
+					v-if="content.type == 'image'"
 					:title="content.title"
 					:source="content.source"
 				/>

@@ -8,8 +8,8 @@ const props = defineProps({
 </script>
 
 <template>
-	<div class="relative">
-		<img :src="image" />
+	<div class="relative w-full">
+		<img :src="image" class="w-full" />
 		<img
 			src="/theme/title-block/top-left.png"
 			class="absolute bottom-0 left-0 w-[47px]"
