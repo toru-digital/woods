@@ -2,33 +2,8 @@
 	<section>
 		<div v-if="selected_tree == null" class="p-4">...</div>
 		<div v-else>
-			<div class="relative">
-				<img src="/images/temp-tree-1.jpg" />
-				<img
-					src="/theme/title-block/top-left.png"
-					class="absolute bottom-0 left-0"
-				/>
-				<img
-					src="/theme/title-block/top-right.png"
-					class="absolute bottom-0 right-0"
-				/>
-			</div>
-			<div
-				style="background-image: url(/theme/title-block/middle.png)"
-				class="relative pb-8"
-			>
-				<img
-					src="/theme/title-block/bottom.png"
-					class="absolute bottom-0 w-full"
-				/>
-				<div class="relative p-3">
-					<h1
-						class="font-sig text-white text-3xl relative uppercase leading-9"
-					>
-						{{ selected_tree.title }}
-					</h1>
-				</div>
-			</div>
+			<TreeBanner :image="selected_tree.img" />
+			<TreeTitle :title="selected_tree.title" />
 
 			<div class="p-3 mt-2">
 				<h1
@@ -36,9 +11,9 @@
 				>
 					Description
 				</h1>
-				<p v-for="copy in selected_tree.copy" class="font-mont text-sm">
+				<!-- <p v-for="copy in selected_tree.copy" class="font-mont text-sm">
 					{{ copy }}
-				</p>
+				</p> -->
 			</div>
 			<img src="/images/temp-tree-2.jpg" />
 			<div class="p-3 mt-2">

@@ -49,10 +49,9 @@ const trees = trees_raw.map(t => Object.assign({
 	"slug" : "not-set",
 	"lat": 0,
 	"lon": 0,
-	"url": "",
 	"img": "",
 	"distance": -1,
-	"copy" : ["..."],
+	"content" : [],
 }, t));
 
 export const getTreesWithDistance = (lat, lon) => {

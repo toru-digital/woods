@@ -5,11 +5,8 @@ export default {
 	"slug" : "ash-202822184",
 	"lat": 52.22412405,
 	"lon": -0.8871650567,
+	"img" : "https://static.inaturalist.org/photos/358259389/medium.jpg",
 	"content": [
-		{
-			"type": "image",
-			"source" : "https://static.inaturalist.org/photos/358259389/medium.jpg",
-		},
 		{
 			"type": "text",
 			"title": "Description",
