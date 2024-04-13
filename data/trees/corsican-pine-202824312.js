@@ -5,5 +5,9 @@ export default {
 	"slug" : "corsican-pine-202824312",
 	"lat": 52.22454324,
 	"lon": -0.8873398453,
-	"img": "https://static.inaturalist.org/photos/358349899/medium.jpg",
+	"images": [
+		{
+			"source" : "https://static.inaturalist.org/photos/358349899/medium.jpg"
+		}
+	],
 }

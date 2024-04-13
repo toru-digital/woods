@@ -5,5 +5,9 @@ export default {
 	"slug" : "giant-sequoia-202396033",
 	"lat": 52.22394029,
 	"lon": -0.8886648465,
-	"img": "https://static.inaturalist.org/photos/357449389/medium.jpg",
+	"images": [
+		{
+			"source" : "https://static.inaturalist.org/photos/357449389/medium.jpg"
+		}
+	],
 }

@@ -5,5 +5,9 @@ export default {
 	"slug" : "hungarian-oak-202829637",
 	"lat": 52.22497769,
 	"lon": -0.8874970837,
-	"img": "https://static.inaturalist.org/photos/358273211/medium.jpg",
+	"images": [
+		{
+			"source" : "https://static.inaturalist.org/photos/358273211/medium.jpg"
+		}
+	],
 }

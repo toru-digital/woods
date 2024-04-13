@@ -5,5 +5,9 @@ export default {
 	"slug" : "bloodwood-126191404",
 	"lat": 52.22533381,
 	"lon": -0.8888622746,
-	"img": "https://static.inaturalist.org/photos/214088707/medium.jpg"
+	"images": [
+		{
+			"source" : "https://static.inaturalist.org/photos/214088707/medium.jpg"
+		}
+	]
 }
