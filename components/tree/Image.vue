@@ -12,8 +12,8 @@ const props = defineProps({
 </script>
 
 <template>
-	<div class="p-3 w-full">
-		<h1 class="font-sig text-forest-900 text-lg uppercase leading-9">
+	<div class="w-full">
+		<h1 class="font-sig text-forest-900 text-lg uppercase leading-9 p-3">
 			{{ title }}
 		</h1>
 		<img :src="source" class="w-full" />

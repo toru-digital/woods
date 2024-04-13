@@ -62,19 +62,15 @@
 </template>
 
 <script setup>
-import { getTrees, getTreeById } from "../data/trees.js";
+import { getTreeById } from "../data/trees.js";
 import { calculateBearing, getDistance } from "../data/utils.js";
-import { useStore } from "vuex";
 
-const store = useStore();
 const router = useRouter();
 
 const selected_tree = ref(null);
 
 onMounted(function () {
-	selected_tree.value = getTreeById(
-		store.state.active_inaturalist_observation_id
-	);
+	selected_tree.value = getTreeById(route.params.tree);
 
 	if (selected_tree.value == null) {
 		router.push("/trees");

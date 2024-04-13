@@ -3,7 +3,13 @@
 		<div v-if="selected_tree == null" class="p-4">...</div>
 		<div v-else>
 			<TreeBanner :image="selected_tree.img" />
-			<TreeTitle :title="selected_tree.title" />
+			<TreeTitle
+				:title="selected_tree.title"
+				:subtitle="selected_tree.scientific_name"
+				:find_route="
+					'/find/' + selected_tree.inaturalist_observation_id
+				"
+			/>
 
 			<div v-for="(content, i) in selected_tree.content" :key="i">
 				<TreeText
