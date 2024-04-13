@@ -1,15 +1,15 @@
 <template>
-	<div class="w-screen flex flex-col bg-overflow">
-		<div class="header bg-header h-[80px]">
+	<div class="w-screen flex flex-col bg-overflow items-center">
+		<div class="header bg-header h-[80px] max-w-lg w-full">
 			<Header />
 		</div>
 		<div
-			class="body bg-body max-w-screen overflow-y-auto h-[calc(100dvh-160px)]"
+			class="body bg-body w-full max-w-lg overflow-y-auto h-[calc(100dvh-160px)]"
 		>
 			<slot />
 		</div>
 		<div
-			class="footer bg-footer h-[80px] flex flex-row gap-20 justify-center"
+			class="footer bg-footer h-[80px] w-full max-w-lg flex flex-row gap-20 justify-center"
 		>
 			<MenuCard
 				v-for="screen in menu"
