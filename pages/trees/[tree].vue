@@ -5,27 +5,18 @@
 			<TreeBanner :image="selected_tree.img" />
 			<TreeTitle :title="selected_tree.title" />
 
-			<div class="p-3 mt-2">
-				<h1
-					class="font-sig text-forest-900 text-lg uppercase leading-9"
-				>
-					Description
-				</h1>
-				<!-- <p v-for="copy in selected_tree.copy" class="font-mont text-sm">
-					{{ copy }}
-				</p> -->
+			<div v-for="(content, i) in selected_tree.content" :key="i">
+				<TreeText
+					v-if="(content.type = 'text')"
+					:title="content.title"
+					:text="content.content"
+				/>
+				<TreeImage
+					v-if="(content.type = 'image')"
+					:title="content.title"
+					:source="content.source"
+				/>
 			</div>
-			<img src="/images/temp-tree-2.jpg" />
-			<div class="p-3 mt-2">
-				<h1
-					class="font-sig text-forest-900 text-lg uppercase leading-9 mt-4"
-				>
-					Leaf
-				</h1>
-			</div>
-
-			<img src="/images/temp-tree-3.jpg" />
-			<p>...</p>
 		</div>
 	</section>
 </template>
