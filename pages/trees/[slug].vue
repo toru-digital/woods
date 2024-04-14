@@ -2,8 +2,8 @@
 	<section>
 		<div v-if="selected_tree == null" class="p-4">...</div>
 		<div v-else>
-			<TreeBanner :image="selected_tree.img" />
-			<TreeTitle
+			<TreeBanner
+				:image="selected_tree.img"
 				:title="selected_tree.title"
 				:subtitle="selected_tree.scientific_name"
 				:find_route="
@@ -32,11 +32,11 @@ const store = useStore();
 const route = useRoute();
 import { useStore } from "vuex";
 
-import { getTrees, getTreeById } from "../data/trees.js";
+import { getTreeBySlug } from "../data/trees.js";
 const selected_tree = ref(null);
 
 onMounted(function () {
-	selected_tree.value = getTreeById(route.params.tree);
+	selected_tree.value = getTreeBySlug(route.params.slug);
 
 	if (selected_tree.value == null) {
 		router.push("/trees");

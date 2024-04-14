@@ -66,6 +66,10 @@ export const getTreeById = id => {
 	return trees.find (t => t.inaturalist_observation_id == id)
 }
 
+export const getTreeBySlug = slug => {
+	return trees.find (t => t.slug == slug)
+}
+
 export const getTreesById = id => {
 	return trees
 		.filter (t => t.inaturalist_observation_id == id)

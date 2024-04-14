@@ -1,23 +1,22 @@
 <script setup>
+import { useStore } from "vuex";
+
+const store = useStore();
+const router = useRouter();
+
 definePageMeta({
 	layout: "trees",
 });
 
-// import { useStore } from "vuex";
-// const store = useStore();
-// const router = useRouter();
-// const onTreeClickedOn = function (tree) {
-// 	store.commit(
-// 		"setActiveInaturalistObservationId",
-// 		tree.inaturalist_observation_id
-// 	);
-// 	router.push("/trees/" + tree.inaturalist_observation_id);
-// };
+const onSelectTree = function (tree_slug) {
+	router.push("/trees/" + tree_slug);
+};
 </script>
 
 <template>
 	<section class="flex flex-col w-full h-full">
-		<p>Trees!</p>
-		<div class="shrink h-full overflow-y-auto"></div>
+		<div class="shrink h-full overflow-y-auto">
+			<TreesGrid v-on:select-tree="onSelectTree" />
+		</div>
 	</section>
 </template>
