@@ -19,30 +19,4 @@
 	</div>
 </template>
 
-<script setup>
-import { useRouter } from "vue-router";
-const router = useRouter();
-
-const enableFullscreen = () => {
-	document.body.webkitRequestFullscreen();
-
-	if (
-		!(
-			document.fullscreenElement ||
-			document.webkitFullscreenElement ||
-			document.mozFullScreenElement
-		)
-	) {
-		router.push("/setup");
-	}
-};
-
-onMounted(function () {
-	window.addEventListener("touchend", enableFullscreen);
-	document.body.webkitRequestFullscreen();
-});
-
-onUnmounted(function () {
-	window.removeEventListener("touchend", enableFullscreen);
-});
-</script>
+<script setup></script>
