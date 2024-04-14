@@ -19,12 +19,12 @@ const props = defineProps({
 	<button
 		class="py-2 px-4 no-underline rounded-full bg-blue font-bold text-sm btn-primary"
 		:class="{
-			'bg-slate-900 text-slate-100': active,
-			'bg-blue-100 text-slate-900': !active,
+			'bg-slate-900 text-slate-100': !active,
+			'bg-blue-100 text-slate-900': active,
 		}"
 	>
 		<img
-			:src="`/icons/20dp/` + (active ? 'white' : 'black') + `/` + icon"
+			:src="`/icons/20dp/` + (active ? 'black' : 'white') + `/` + icon"
 			class="w-4 h-4 inline-block mb-1"
 		/>
 		{{ title }}

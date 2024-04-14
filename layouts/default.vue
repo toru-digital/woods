@@ -35,11 +35,11 @@ const enableFullscreen = () => {
 };
 
 onMounted(function () {
-	window.addEventListener("touchend", enableFullscreen);
-	document.body.webkitRequestFullscreen();
+	// window.addEventListener("touchend", enableFullscreen);
+	// document.body.webkitRequestFullscreen();
 });
 
 onUnmounted(function () {
-	window.removeEventListener("touchend", enableFullscreen);
+	// window.removeEventListener("touchend", enableFullscreen);
 });
 </script>
