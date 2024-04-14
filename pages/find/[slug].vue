@@ -62,15 +62,16 @@
 </template>
 
 <script setup>
-import { getTreeById } from "../data/trees.js";
+import { getTreeBySlug } from "../data/trees.js";
 import { calculateBearing, getDistance } from "../data/utils.js";
 
 const router = useRouter();
+const route = useRoute();
 
 const selected_tree = ref(null);
 
 onMounted(function () {
-	selected_tree.value = getTreeById(route.params.tree);
+	selected_tree.value = getTreeBySlug(route.params.slug);
 
 	if (selected_tree.value == null) {
 		router.push("/trees");

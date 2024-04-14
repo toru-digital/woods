@@ -57,10 +57,13 @@ const zoom = ref(18);
 		>
 			<LPopup>
 				<div
-					class="cursor-pointer text-lg"
-					v-on:click="$emit('select-tree', tree.inaturalist_observation_id)"
+					class="cursor-pointer text-lg font-bold text-mont"
+					v-on:click="$emit('select-tree', tree.slug)"
 				>
-					<img :src="tree.img" class="w-32 h-32 object-cover rounded-lg" />
+					<img
+						:src="tree.img"
+						class="w-32 h-32 object-cover rounded-lg"
+					/>
 					{{ tree.title }}
 				</div>
 			</LPopup>

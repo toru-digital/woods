@@ -1,4 +1,6 @@
 <script setup>
+const router = useRouter();
+
 const props = defineProps({
 	title: {
 		type: String,

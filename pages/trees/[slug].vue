@@ -6,9 +6,7 @@
 				:image="selected_tree.img"
 				:title="selected_tree.title"
 				:subtitle="selected_tree.scientific_name"
-				:find_route="
-					'/find/' + selected_tree.inaturalist_observation_id
-				"
+				:find_route="'/find/' + selected_tree.slug"
 			/>
 
 			<div v-for="(content, i) in selected_tree.content" :key="i">
@@ -28,11 +26,12 @@
 </template>
 
 <script setup>
+import { useStore } from "vuex";
+import { getTreeBySlug } from "../data/trees.js";
+
 const store = useStore();
 const route = useRoute();
-import { useStore } from "vuex";
 
-import { getTreeBySlug } from "../data/trees.js";
 const selected_tree = ref(null);
 
 onMounted(function () {
