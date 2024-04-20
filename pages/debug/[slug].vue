@@ -9,7 +9,7 @@
 		<div v-else>
 			<div class="relative overflow-x-auto">
 				<table
-					class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+					class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
 				>
 					<tbody>
 						<tr
@@ -17,7 +17,7 @@
 						>
 							<th
 								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
 							>
 								Title
 							</th>
@@ -28,7 +28,7 @@
 						>
 							<th
 								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
 							>
 								Slug
 							</th>
@@ -39,7 +39,7 @@
 						>
 							<th
 								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
 							>
 								Tree Lat
 							</th>
@@ -48,7 +48,7 @@
 						<tr class="bg-white dark:bg-gray-800">
 							<th
 								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
 							>
 								Tree Lon
 							</th>
@@ -57,7 +57,7 @@
 						<tr class="bg-white dark:bg-gray-800">
 							<th
 								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
 							>
 								Northern Axis
 							</th>
@@ -69,7 +69,7 @@
 						<tr class="bg-white dark:bg-gray-800">
 							<th
 								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
 							>
 								Your Lat
 							</th>
@@ -81,7 +81,7 @@
 						<tr class="bg-white dark:bg-gray-800">
 							<th
 								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
 							>
 								Your Lon
 							</th>
@@ -93,7 +93,7 @@
 						<tr class="bg-white dark:bg-gray-800">
 							<th
 								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
 							>
 								Bearing to tree
 							</th>
@@ -112,7 +112,7 @@
 						<tr class="bg-white dark:bg-gray-800">
 							<th
 								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
 							>
 								Northern Bearing - Bearing to tree
 							</th>
@@ -132,7 +132,7 @@
 						<tr class="bg-white dark:bg-gray-800">
 							<th
 								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
 							>
 								Distance to Tree
 							</th>
