@@ -13,152 +13,17 @@
 				>
 					<tbody>
 						<tr
+							v-for="row in getRows()"
+							:key="row.title"
 							class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
 						>
 							<th
 								scope="row"
 								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
 							>
-								Title
+								{{ row.label }}
 							</th>
-							<td class="px-6 py-4">{{ selected_tree.title }}</td>
-						</tr>
-						<tr
-							class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-						>
-							<th
-								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
-							>
-								Slug
-							</th>
-							<td class="px-6 py-4">{{ selected_tree.slug }}</td>
-						</tr>
-						<tr
-							class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-						>
-							<th
-								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
-							>
-								Tree Lat
-							</th>
-							<td class="px-6 py-4">{{ selected_tree.lat }}</td>
-						</tr>
-						<tr class="bg-white dark:bg-gray-800">
-							<th
-								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
-							>
-								Tree Lon
-							</th>
-							<td class="px-6 py-4">{{ selected_tree.lon }}</td>
-						</tr>
-						<tr class="bg-white dark:bg-gray-800">
-							<th
-								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
-							>
-								Northern Axis
-							</th>
-							<td class="px-6 py-4">
-								{{ $store.state.northern_axis }}
-							</td>
-						</tr>
-
-						<tr class="bg-white dark:bg-gray-800">
-							<th
-								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
-							>
-								Your Lat
-							</th>
-							<td class="px-6 py-4">
-								{{ $store.state.latitude }}
-							</td>
-						</tr>
-
-						<tr class="bg-white dark:bg-gray-800">
-							<th
-								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
-							>
-								Your Lon
-							</th>
-							<td class="px-6 py-4">
-								{{ $store.state.longitude }}
-							</td>
-						</tr>
-
-						<tr class="bg-white dark:bg-gray-800">
-							<th
-								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
-							>
-								Your Bearing
-							</th>
-							<td class="px-6 py-4">
-								{{
-									calculateBearing(
-										$store.state.latitude,
-										$store.state.longitude,
-										selected_tree.lat,
-										selected_tree.lon
-									)
-								}}
-							</td>
-						</tr>
-
-						<tr class="bg-white dark:bg-gray-800">
-							<th
-								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
-							>
-								Northern Bearing - Your Bearing
-							</th>
-							<td class="px-6 py-4">
-								{{
-									$store.state.northern_axis -
-									calculateBearing(
-										$store.state.latitude,
-										$store.state.longitude,
-										selected_tree.lat,
-										selected_tree.lon
-									)
-								}}
-							</td>
-						</tr>
-
-						<tr class="bg-white dark:bg-gray-800">
-							<th
-								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
-							>
-								Distance to Tree
-							</th>
-							<td class="px-6 py-4">
-								{{
-									getDistance(
-										$store.state.latitude,
-										$store.state.longitude,
-										selected_tree.lat,
-										selected_tree.lon
-									)
-								}}
-								KM
-							</td>
-						</tr>
-
-						<tr class="bg-white dark:bg-gray-800">
-							<th
-								scope="row"
-								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
-							>
-								Last Permission Error
-							</th>
-							<td class="px-6 py-4">
-								{{ $store.state.setPermissionsLastError }}
-							</td>
+							<td class="px-6 py-4">{{ row.value }}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -170,11 +35,80 @@
 <script setup>
 import { getTreeBySlug } from "../data/trees.js";
 import { calculateBearing, getDistance } from "../data/utils.js";
+import { useStore } from "vuex";
 
 const router = useRouter();
 const route = useRoute();
+const store = useStore();
 
 const selected_tree = ref(null);
+
+const getRows = function () {
+	// if (selected_tree == undefined) return [];
+
+	const bearing = calculateBearing(
+		store.state.latitude,
+		store.state.longitude,
+		selected_tree.lat,
+		selected_tree.lon
+	);
+
+	const bearing_difference = store.state.northern_axis - bearing;
+
+	const distance_to_tree = getDistance(
+		store.state.latitude,
+		store.state.longitude,
+		selected_tree.lat,
+		selected_tree.lon
+	);
+
+	return [
+		{
+			label: "Title",
+			value: selected_tree.title,
+		},
+		{
+			label: "Slug",
+			value: selected_tree.slug,
+		},
+		{
+			label: "Tree Lat",
+			value: selected_tree.lat,
+		},
+		{
+			label: "Tree Lon",
+			value: selected_tree.lon,
+		},
+		{
+			label: "Your Latitude",
+			value: store.state.latitude,
+		},
+		{
+			label: "Your Longitude",
+			value: store.state.longitude,
+		},
+		{
+			label: "Northern Axis",
+			value: store.state.northern_axis,
+		},
+		{
+			label: "Your Bearing",
+			value: bearing,
+		},
+		{
+			label: "Northern - Your Bearing",
+			value: bearing_difference,
+		},
+		{
+			label: "Distance to Tree",
+			value: distance_to_tree + " KM",
+		},
+		{
+			label: "Last Permission Errror",
+			value: store.state.setPermissionsLastError,
+		},
+	];
+};
 
 onMounted(function () {
 	selected_tree.value = getTreeBySlug(route.params?.slug);
