@@ -9,8 +9,7 @@ export default createStore({
 		permissions_last_error: '',
 		latitude: 0,
 		longitude: 0,
-		northern_axis: 0,
-		active_inaturalist_observation_id: null,
+		northern_axis: 0
     } as IStore
   },
   mutations: {
@@ -31,9 +30,6 @@ export default createStore({
 	},
 	setNorthernAxis: function (state: IStore, value: number) {
 		state.northern_axis = value;
-	},
-	setActiveInaturalistObservationId: function (state: IStore, value: number | null) {
-		state.active_inaturalist_observation_id = value;
-	},
+	}
   },
 });

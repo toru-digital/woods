@@ -72,9 +72,8 @@ const router = useRouter();
 const selected_tree = ref(null);
 
 onMounted(function () {
-	selected_tree.value = getTreeById(
-		store.state.active_inaturalist_observation_id
-	);
+	// selected_tree.value = getTreeById(
+	// );
 
 	if (selected_tree.value == null) {
 		router.push("/trees");
