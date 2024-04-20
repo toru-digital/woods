@@ -95,7 +95,7 @@
 								scope="row"
 								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
 							>
-								Bearing to tree
+								Your Bearing
 							</th>
 							<td class="px-6 py-4">
 								{{
@@ -114,7 +114,7 @@
 								scope="row"
 								class="px-6 py-4 font-medium text-gray-900 dark:text-white"
 							>
-								Northern Bearing - Bearing to tree
+								Northern Bearing - Your Bearing
 							</th>
 							<td class="px-6 py-4">
 								{{
@@ -145,6 +145,7 @@
 										selected_tree.lon
 									)
 								}}
+								KM
 							</td>
 						</tr>
 					</tbody>
