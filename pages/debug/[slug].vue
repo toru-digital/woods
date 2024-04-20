@@ -13,7 +13,7 @@
 				>
 					<tbody>
 						<tr
-							v-for="row in getRows()"
+							v-for="row in rows"
 							:key="row.title"
 							class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
 						>
@@ -36,6 +36,7 @@
 import { getTreeBySlug } from "../data/trees.js";
 import { calculateBearing, getDistance } from "../data/utils.js";
 import { useStore } from "vuex";
+import { reactive } from "vue";
 
 const router = useRouter();
 const route = useRoute();
@@ -44,7 +45,8 @@ const store = useStore();
 const selected_tree = ref(null);
 
 const getRows = function () {
-	// if (selected_tree == undefined) return [];
+	if (selected_tree == undefined) return [];
+	console.log("selected_tree", selected_tree, selected_tree);
 
 	const bearing = calculateBearing(
 		store.state.latitude,
@@ -65,11 +67,11 @@ const getRows = function () {
 	return [
 		{
 			label: "Title",
-			value: selected_tree.title,
+			value: selected_tree.title + "!!",
 		},
 		{
 			label: "Slug",
-			value: selected_tree.slug,
+			value: selected_tree.slug + "ewwe",
 		},
 		{
 			label: "Tree Lat",
@@ -110,8 +112,12 @@ const getRows = function () {
 	];
 };
 
+const rows = reactive(getRows());
+
 onMounted(function () {
 	selected_tree.value = getTreeBySlug(route.params?.slug);
+
+	console.log(selected_tree.value);
 
 	if (selected_tree.value == null) {
 		router.push("/trees");
