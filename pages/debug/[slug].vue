@@ -7,10 +7,148 @@
 			<p class="w-full p-8 text-lg">...loading</p>
 		</div>
 		<div v-else>
-			<div class="w-full h-16 grid place-items-center">
-				<p class="w-full p-8 text-lg">
-					Debug {{ selected_tree ? selected_tree.title : "" }}
-				</p>
+			<div class="relative overflow-x-auto">
+				<table
+					class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+				>
+					<tbody>
+						<tr
+							class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+						>
+							<th
+								scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+							>
+								Title
+							</th>
+							<td class="px-6 py-4">{{ selected_tree.title }}</td>
+						</tr>
+						<tr
+							class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+						>
+							<th
+								scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+							>
+								Slug
+							</th>
+							<td class="px-6 py-4">{{ selected_tree.slug }}</td>
+						</tr>
+						<tr
+							class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+						>
+							<th
+								scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+							>
+								Tree Lat
+							</th>
+							<td class="px-6 py-4">{{ selected_tree.lat }}</td>
+						</tr>
+						<tr class="bg-white dark:bg-gray-800">
+							<th
+								scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+							>
+								Tree Lon
+							</th>
+							<td class="px-6 py-4">{{ selected_tree.lon }}</td>
+						</tr>
+						<tr class="bg-white dark:bg-gray-800">
+							<th
+								scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+							>
+								Northern Axis
+							</th>
+							<td class="px-6 py-4">
+								{{ $store.state.northern_axis }}
+							</td>
+						</tr>
+
+						<tr class="bg-white dark:bg-gray-800">
+							<th
+								scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+							>
+								Your Lat
+							</th>
+							<td class="px-6 py-4">
+								{{ $store.state.latitude }}
+							</td>
+						</tr>
+
+						<tr class="bg-white dark:bg-gray-800">
+							<th
+								scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+							>
+								Your Lon
+							</th>
+							<td class="px-6 py-4">
+								{{ $store.state.longitude }}
+							</td>
+						</tr>
+
+						<tr class="bg-white dark:bg-gray-800">
+							<th
+								scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+							>
+								Bearing to tree
+							</th>
+							<td class="px-6 py-4">
+								{{
+									calculateBearing(
+										$store.state.latitude,
+										$store.state.longitude,
+										selected_tree.lat,
+										selected_tree.lon
+									)
+								}}
+							</td>
+						</tr>
+
+						<tr class="bg-white dark:bg-gray-800">
+							<th
+								scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+							>
+								Northern Bearing - Bearing to tree
+							</th>
+							<td class="px-6 py-4">
+								{{
+									$store.state.northern_axis -
+									calculateBearing(
+										$store.state.latitude,
+										$store.state.longitude,
+										selected_tree.lat,
+										selected_tree.lon
+									)
+								}}
+							</td>
+						</tr>
+
+						<tr class="bg-white dark:bg-gray-800">
+							<th
+								scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+							>
+								Distance to Tree
+							</th>
+							<td class="px-6 py-4">
+								{{
+									getDistance(
+										$store.state.latitude,
+										$store.state.longitude,
+										selected_tree.lat,
+										selected_tree.lon
+									)
+								}}
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</section>
@@ -18,6 +156,7 @@
 
 <script setup>
 import { getTreeBySlug } from "../data/trees.js";
+import { calculateBearing, getDistance } from "../data/utils.js";
 
 const router = useRouter();
 const route = useRoute();
