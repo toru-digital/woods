@@ -1,5 +1,3 @@
-# <<<<<<< Updated upstream
-
 # woods
 
 Explore the woods

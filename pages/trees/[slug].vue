@@ -1,10 +1,10 @@
 <template>
 	<section>
-		<div v-if="selected_tree == null" class="p-4">...</div>
+		<div v-if="selected_tree == null" class="p-4">{{ tree_slug }}</div>
 		<div v-else>
 			<TreeBanner
 				:image="selected_tree.img"
-				:title="selected_tree.title"
+				:title="tree_slug"
 				:subtitle="selected_tree.scientific_name"
 				:find_route="'/find/' + selected_tree.slug"
 			/>
@@ -26,19 +26,17 @@
 </template>
 
 <script setup>
-import { useStore } from "vuex";
-import { getTreeBySlug } from "../data/trees.js";
-
-const store = useStore();
 const route = useRoute();
-
-const selected_tree = ref(null);
-
-onMounted(function () {
-	selected_tree.value = getTreeBySlug(route.params.slug);
-
-	if (selected_tree.value == null) {
-		router.push("/trees");
-	}
+const slug = route.params.slug;
+const { data: selected_tree } = await useFetch(`/api/tree/${slug}`, {
+	key: slug,
 });
+
+// onMounted(function () {
+// 	selected_tree.value = getTreeBySlug(route.params.slug);
+
+// 	if (selected_tree.value == null) {
+// 		router.push("/trees");
+// 	}
+// });
 </script>
