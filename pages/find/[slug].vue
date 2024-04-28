@@ -29,6 +29,21 @@
 						"
 						:src="'/icons/arrow.svg'"
 					/>
+					<img
+						class="flex-1 aspect-square min-w-[340px] w-[20vw]"
+						:style="
+							'transform: rotate(' +
+							(calculateBearing(
+								$store.state.latitude,
+								$store.state.longitude,
+								tree.lat,
+								tree.lon
+							) -
+								$store.state.orientation_alpha) +
+							'deg)'
+						"
+						:src="'/icons/arrow.svg'"
+					/>
 				</div>
 			</div>
 			<div>
