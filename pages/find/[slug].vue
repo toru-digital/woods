@@ -4,11 +4,6 @@
 			<p class="w-full p-8 text-lg">...loading</p>
 		</div>
 		<div v-else>
-			<div class="w-full h-16 grid place-items-center">
-				<p class="w-full p-8 text-lg">
-					{{ tree ? tree.title : "" }}
-				</p>
-			</div>
 			<div class="flex flex-1 overflow-hidden">
 				<div
 					v-if="tree != null"
@@ -18,28 +13,20 @@
 						class="flex-1 aspect-square min-w-[340px] w-[20vw]"
 						:style="
 							'transform: rotate(' +
-							($store.state.orientation_alpha -
-								calculateBearing(
-									$store.state.latitude,
-									$store.state.longitude,
-									tree.lat,
-									tree.lon
-								)) +
-							'deg)'
-						"
-						:src="'/icons/arrow.svg'"
-					/>
-					<img
-						class="flex-1 aspect-square min-w-[340px] w-[20vw]"
-						:style="
-							'transform: rotate(' +
-							(calculateBearing(
-								$store.state.latitude,
-								$store.state.longitude,
-								tree.lat,
-								tree.lon
-							) -
-								$store.state.orientation_alpha) +
+							($store.state.orientation_absolute
+								? $store.state.orientation_alpha -
+								  calculateBearing(
+										$store.state.latitude,
+										$store.state.longitude,
+										tree.lat,
+										tree.lon
+								  )
+								: calculateBearing(
+										$store.state.latitude,
+										$store.state.longitude,
+										tree.lat,
+										tree.lon
+								  ) - $store.state.orientation_alpha) +
 							'deg)'
 						"
 						:src="'/icons/arrow.svg'"
@@ -47,7 +34,7 @@
 				</div>
 			</div>
 			<div>
-				<p>
+				<p class="text-center text-bold text-2xl">
 					{{
 						tree == null
 							? "?"
@@ -58,14 +45,13 @@
 									tree.lon
 							  )
 					}}
-					meters
+					KM to {{ tree.title }}
 				</p>
-				<router-link
-					:to="'/debug/' + tree.slug"
-					class="cursor-pointer mt-2 text-blue-500"
-				>
-					debug
-				</router-link>
+				<p class="text-center cursor-pointer mt-2 text-blue-500">
+					<router-link :to="'/debug/' + tree.slug">
+						debug
+					</router-link>
+				</p>
 			</div>
 		</div>
 	</section>
