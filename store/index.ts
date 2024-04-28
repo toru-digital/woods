@@ -29,7 +29,7 @@ export default createStore({
 		state.longitude = value;
 	},
 	setOrientationAlpha: function (state: IStore, value: number) {
-		if (state.orientation_initial_offset == -1l) {
+		if (state.orientation_initial_offset == -1) {
 			state.orientation_initial_offset = value;
 		}
 		state.orientation_alpha = value;
