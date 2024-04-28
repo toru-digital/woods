@@ -18,7 +18,7 @@
 						class="flex-1 aspect-square min-w-[340px] w-[20vw]"
 						:style="
 							'transform: rotate(' +
-							($store.state.northern_axis -
+							($store.state.orientation_alpha -
 								calculateBearing(
 									$store.state.latitude,
 									$store.state.longitude,

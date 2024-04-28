@@ -34,9 +34,11 @@
 							</td>
 						</tr>
 						<tr class="debug-tr">
-							<th class="debug-th" scope="row">Northern Axis</th>
+							<th class="debug-th" scope="row">
+								Orientation Alpha
+							</th>
 							<td class="debug-td">
-								{{ $store.state.northern_axis }}
+								{{ $store.state.orientation_alpha }}
 							</td>
 						</tr>
 						<tr class="debug-tr">
@@ -62,11 +64,11 @@
 						</tr>
 						<tr class="debug-tr">
 							<th class="debug-th" scope="row">
-								Northern Axis - Your Bearing
+								Alpha - Your Bearing
 							</th>
 							<td class="debug-td">
 								{{
-									$store.state.northern_axis -
+									$store.state.orientation_alpha -
 									calculateBearing(
 										store.state.latitude,
 										store.state.longitude,

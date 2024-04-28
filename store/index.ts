@@ -9,8 +9,8 @@ export default createStore({
 		permissions_last_error: '',
 		latitude: 0,
 		longitude: 0,
-		northern_axis: 0,
-		orientation_absolute: false
+		orientation_alpha: 0,
+		orientation_absolute: true
     } as IStore
   },
   mutations: {
@@ -29,8 +29,8 @@ export default createStore({
 	setLongitude: function (state: IStore, value: number) {
 		state.longitude = value;
 	},
-	setNorthernAxis: function (state: IStore, value: number) {
-		state.northern_axis = value;
+	setOrientationAlpha: function (state: IStore, value: number) {
+		state.orientation_alpha = value;
 	},
 	setOrientationAbsolute: function (state: IStore, value: boolean) {
 		state.orientation_absolute = value;

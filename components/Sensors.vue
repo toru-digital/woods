@@ -116,7 +116,7 @@ export default defineComponent({
 		onGetDeviceOrientation: function (event: any) {
 			console.log(event);
 			this.$store.commit(
-				"setNorthernAxis",
+				"setOrientationAlpha",
 				event.webkitCompassHeading || Math.abs(event.alpha - 360)
 			);
 			this.$store.commit(
