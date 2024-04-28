@@ -1,12 +1,6 @@
 <template>
-	<section class="flex flex-col w-full h-full flex-col">
-		<div
-			v-if="selected_tree == null"
-			class="w-full h-16 grid place-items-center"
-		>
-			<p class="w-full p-8 text-lg">...loading</p>
-		</div>
-		<div v-else>
+	<!-- <section class="flex flex-col w-full h-full flex-col">
+		<div>
 			<div class="relative overflow-x-auto">
 				<table
 					class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
@@ -29,97 +23,89 @@
 				</table>
 			</div>
 		</div>
-	</section>
+	</section> -->
 </template>
 
 <script setup>
-import { getTreeBySlug } from "../data/trees.js";
-import { useStore } from "vuex";
-import { reactive } from "vue";
+// const { data: trees } = await useFetch("/api/trees");
+// import { useStore } from "vuex";
+// import { reactive } from "vue";
 
-const router = useRouter();
-const route = useRoute();
-const store = useStore();
+// const route = useRoute();
+// const store = useStore();
+// const slug = ${route.params?.slug}
 
-const selected_tree = ref(null);
+// const getRows = function () {
+// 	if (selected_tree == undefined) return [];
+// 	console.log("selected_tree", selected_tree, selected_tree);
 
-const getRows = function () {
-	if (selected_tree == undefined) return [];
-	console.log("selected_tree", selected_tree, selected_tree);
+// 	const bearing = calculateBearing(
+// 		store.state.latitude,
+// 		store.state.longitude,
+// 		selected_tree.lat,
+// 		selected_tree.lon
+// 	);
 
-	const bearing = calculateBearing(
-		store.state.latitude,
-		store.state.longitude,
-		selected_tree.lat,
-		selected_tree.lon
-	);
+// 	const bearing_difference = store.state.northern_axis - bearing;
 
-	const bearing_difference = store.state.northern_axis - bearing;
+// 	const distance_to_tree = getDistance(
+// 		store.state.latitude,
+// 		store.state.longitude,
+// 		selected_tree.lat,
+// 		selected_tree.lon
+// 	);
 
-	const distance_to_tree = getDistance(
-		store.state.latitude,
-		store.state.longitude,
-		selected_tree.lat,
-		selected_tree.lon
-	);
+// 	return [
+// 		{
+// 			label: "Title",
+// 			value: selected_tree.title + "!!",
+// 		},
+// 		{
+// 			label: "Slug",
+// 			value: selected_tree.slug + "ewwe",
+// 		},
+// 		{
+// 			label: "Tree Lat",
+// 			value: selected_tree.lat,
+// 		},
+// 		{
+// 			label: "Tree Lon",
+// 			value: selected_tree.lon,
+// 		},
+// 		{
+// 			label: "Your Latitude",
+// 			value: store.state.latitude,
+// 		},
+// 		{
+// 			label: "Your Longitude",
+// 			value: store.state.longitude,
+// 		},
+// 		{
+// 			label: "Northern Axis",
+// 			value: store.state.northern_axis,
+// 		},
+// 		{
+// 			label: "Your Bearing",
+// 			value: bearing,
+// 		},
+// 		{
+// 			label: "Northern - Your Bearing",
+// 			value: bearing_difference,
+// 		},
+// 		{
+// 			label: "Distance to Tree",
+// 			value: distance_to_tree + " KM",
+// 		},
+// 		{
+// 			label: "Last Permission Errror",
+// 			value: store.state.setPermissionsLastError,
+// 		},
+// 	];
+// };
 
-	return [
-		{
-			label: "Title",
-			value: selected_tree.title + "!!",
-		},
-		{
-			label: "Slug",
-			value: selected_tree.slug + "ewwe",
-		},
-		{
-			label: "Tree Lat",
-			value: selected_tree.lat,
-		},
-		{
-			label: "Tree Lon",
-			value: selected_tree.lon,
-		},
-		{
-			label: "Your Latitude",
-			value: store.state.latitude,
-		},
-		{
-			label: "Your Longitude",
-			value: store.state.longitude,
-		},
-		{
-			label: "Northern Axis",
-			value: store.state.northern_axis,
-		},
-		{
-			label: "Your Bearing",
-			value: bearing,
-		},
-		{
-			label: "Northern - Your Bearing",
-			value: bearing_difference,
-		},
-		{
-			label: "Distance to Tree",
-			value: distance_to_tree + " KM",
-		},
-		{
-			label: "Last Permission Errror",
-			value: store.state.setPermissionsLastError,
-		},
-	];
-};
+// const rows = reactive(getRows());
 
-const rows = reactive(getRows());
-
-onMounted(function () {
-	selected_tree.value = getTreeBySlug(route.params?.slug);
-
-	console.log(selected_tree.value);
-
-	if (selected_tree.value == null) {
-		router.push("/trees");
-	}
-});
+// const { data: selected_tree } = await useFetch(
+// 	`/api/tree/${slug}`,{key: slug,}
+// );
 </script>

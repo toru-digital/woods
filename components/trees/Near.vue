@@ -1,5 +1,4 @@
 <script setup>
-import { getTreeDistanceGroups } from "../../data/trees";
 const user_data = reactive({
 	lat: 0,
 	lon: 0,
@@ -24,7 +23,9 @@ onNuxtReady(async () => {
 		<p>Loading...</p>
 	</div>
 	<div v-else>
-		<div v-for="group in getTreeDistanceGroups(user_data.lat, user_data.lon)">
+		<div
+			v-for="group in getTreeDistanceGroups(user_data.lat, user_data.lon)"
+		>
 			<div class="gap-2 pt-2 px-2">
 				<p>{{ group.title }}</p>
 			</div>
@@ -34,7 +35,9 @@ onNuxtReady(async () => {
 				<TreesGridBlock
 					v-for="tree in group.trees"
 					:image="tree.img"
-					v-on:click="$emit('select-tree', tree.inaturalist_observation_id)"
+					v-on:click="
+						$emit('select-tree', tree.inaturalist_observation_id)
+					"
 					:title="tree.title"
 					:key="tree.inaturalist_observation_id"
 				/>
@@ -42,7 +45,9 @@ onNuxtReady(async () => {
 		</div>
 		<div
 			class="pt-2 px-2"
-			v-if="getTreeDistanceGroups(user_data.lat, user_data.lon).length == 0"
+			v-if="
+				getTreeDistanceGroups(user_data.lat, user_data.lon).length == 0
+			"
 		>
 			<p>No trees within 1km</p>
 		</div>

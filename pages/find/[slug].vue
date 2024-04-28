@@ -60,18 +60,11 @@
 </template>
 
 <script setup>
-import { getTreeBySlug } from "../data/trees.js";
+const slug = route.params?.slug;
+const { data: selected_tree } = await useFetch(`/api/tree/${slug}`, {
+	key: slug,
+});
 
 const router = useRouter();
 const route = useRoute();
-
-const selected_tree = ref(null);
-
-onMounted(function () {
-	selected_tree.value = getTreeBySlug(route.params?.slug);
-
-	if (selected_tree.value == null) {
-		router.push("/trees");
-	}
-});
 </script>

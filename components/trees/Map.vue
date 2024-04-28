@@ -1,6 +1,6 @@
 <script setup>
 import { ref, reactive } from "vue";
-import { getTrees } from "../../data/trees";
+import { getDistance } from "../../data/utils";
 
 const user_data = reactive({
 	log: "...",
@@ -50,7 +50,7 @@ const zoom = ref(18);
 			name="OpenStreetMap"
 		/>
 		<LMarker
-			v-for="tree in getTrees()"
+			v-for="tree in trees"
 			:key="tree.inaturalist_observation_id"
 			:lat-lng="[tree.lat, tree.lon]"
 		>

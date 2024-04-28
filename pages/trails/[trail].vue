@@ -62,7 +62,6 @@
 </template>
 
 <script setup>
-import { getTrees, getTreeById } from "../data/trees.js";
 import { useStore } from "vuex";
 
 const store = useStore();

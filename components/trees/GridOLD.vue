@@ -1,6 +1,6 @@
 <script setup>
 import { reactive } from "vue";
-import { trees } from "../data/trees";
+const { data: trees } = await useFetch("/api/trees");
 
 const user_data = reactive({
 	lat: 0,
@@ -33,10 +33,14 @@ const updateMyPosition = function () {
 	user_data.log += "updateMyPosition. ";
 	if (!process.client || !navigator.geolocation) return;
 	user_data.log += "callMade. ";
-	navigator.geolocation.getCurrentPosition(onReceiveLocation, onLocationError, {
-		enableHighAccuracy: true,
-		maximumAge: 100,
-	});
+	navigator.geolocation.getCurrentPosition(
+		onReceiveLocation,
+		onLocationError,
+		{
+			enableHighAccuracy: true,
+			maximumAge: 100,
+		}
+	);
 };
 
 const deg2rad = (degrees) => {
