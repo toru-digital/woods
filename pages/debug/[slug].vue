@@ -2,6 +2,7 @@
 	<section class="flex flex-col w-full h-full flex-col">
 		<div>
 			<div class="relative overflow-x-auto">
+				<TreesCompass />
 				<table class="debug-table">
 					<tbody>
 						<tr class="debug-tr">
@@ -36,6 +37,14 @@
 							<th class="debug-th" scope="row">Northern Axis</th>
 							<td class="debug-td">
 								{{ $store.state.northern_axis }}
+							</td>
+						</tr>
+						<tr class="debug-tr">
+							<th class="debug-th" scope="row">
+								Orientation Absolute
+							</th>
+							<td class="debug-td">
+								{{ $store.state.orientation_absolute }}
 							</td>
 						</tr>
 						<tr class="debug-tr">

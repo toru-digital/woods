@@ -32,6 +32,7 @@ export default defineComponent({
 				navigator.userAgent.match(/AppleWebKit/);
 
 			if (is_ios) {
+				console.log("ONE");
 				DeviceOrientationEvent.requestPermission()
 					.then(function (response: any) {
 						if (response === "granted") {
@@ -116,8 +117,13 @@ export default defineComponent({
 			console.log(event);
 			this.$store.commit(
 				"setNorthernAxis",
-				event.webkitCompassHeading || event.alpha
+				event.webkitCompassHeading || Math.abs(event.alpha - 360)
 			);
+			this.$store.commit(
+				"setOrientationAbsolute",
+				event.absolute || false
+			);
+			this.$store.commit("setPermissionsLastError", "ok");
 		},
 		onGetDevicePosition: function (event: any) {
 			if (
@@ -126,16 +132,16 @@ export default defineComponent({
 			) {
 				this.$store.commit("setPermissionsLastError", "");
 				this.$store.commit("setPermissionsHasGps", true);
-				this.$store.commit("setWorldPositions", [
-					{
-						id: 1,
-						title: "North Pole",
-						position: {
-							latitude: 90,
-							longitude: 0,
-						},
-					},
-				] as IWorldPosition[]);
+				// this.$store.commit("setWorldPositions", [
+				// 	{
+				// 		id: 1,
+				// 		title: "North Pole",
+				// 		position: {
+				// 			latitude: 90,
+				// 			longitude: 0,
+				// 		},
+				// 	},
+				// ] as IWorldPosition[]);
 			}
 
 			this.$store.commit("setLatitude", event.coords.latitude);

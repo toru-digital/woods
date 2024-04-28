@@ -5,4 +5,5 @@ export interface IStore {
 	latitude: number;
 	longitude: number;
 	northern_axis: number;
+	orientation_absolute: boolean;
 }
