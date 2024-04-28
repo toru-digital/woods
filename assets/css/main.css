@@ -9,3 +9,21 @@ body,
 	height: 100dvh !important;
 	width: 100vw !important;
 }
+
+@layer components {
+	.debug-table {
+		@apply w-full text-sm text-left text-gray-500 dark:text-gray-400;
+	}
+
+	.debug-tr {
+		@apply bg-white border-b dark:bg-gray-800 dark:border-gray-700;
+	}
+
+	.debug-th {
+		@apply px-6 py-4 font-medium text-gray-900 dark:text-white;
+	}
+
+	.debug-td {
+		@apply px-6 py-4
+	}
+}
