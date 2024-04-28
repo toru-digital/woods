@@ -1,6 +1,5 @@
 <script setup>
 import { ref, reactive } from "vue";
-import { getDistance } from "../../data/utils";
 
 const user_data = reactive({
 	log: "...",

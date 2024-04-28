@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import menu from "@data/menu";
+const { data: menu } = await useFetch("/api/menu");
 
 const route = useRoute();
 
