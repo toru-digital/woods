@@ -8,9 +8,7 @@ export default createStore({
 		permissions_has_compass: false,
 		permissions_last_error: '',
 		latitude: 0,
-		longitude: 0,
-		orientation_alpha: 0,
-		orientation_absolute: true
+		longitude: 0
     } as IStore
   },
   mutations: {
@@ -30,6 +28,9 @@ export default createStore({
 		state.longitude = value;
 	},
 	setOrientationAlpha: function (state: IStore, value: number) {
+		if (state.orientation_initial_offset === null) {
+			state.orientation_initial_offset = value;
+		}
 		state.orientation_alpha = value;
 	},
 	setOrientationAbsolute: function (state: IStore, value: boolean) {

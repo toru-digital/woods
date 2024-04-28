@@ -43,6 +43,14 @@
 						</tr>
 						<tr class="debug-tr">
 							<th class="debug-th" scope="row">
+								Orientation Initial Offset
+							</th>
+							<td class="debug-td">
+								{{ $store.state.orientation_initial_offset }}
+							</td>
+						</tr>
+						<tr class="debug-tr">
+							<th class="debug-th" scope="row">
 								Orientation Absolute
 							</th>
 							<td class="debug-td">
