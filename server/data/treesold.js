@@ -1,5 +1,3 @@
-import { getDistance } from "./utils";
-
 import {default as t202822184} from "./trees/ash-202822184"
 import {default as t126191404} from "./trees/bloodwood-126191404"
 import {default as t202042854} from "./trees/blue-atlas-cedar-202042854"

@@ -32,7 +32,6 @@ export const getCompassAngle = (lat1, lon1, lat2, lon2) => {
 	return angle;
 }
 
-
 export const bearing = (lat1, lng1, lat2, lng2) => {
 	var dLon = toRad(lng2 - lng1);
 	lat1 = toRad(lat1);

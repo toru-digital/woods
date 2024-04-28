@@ -34,7 +34,6 @@
 
 <script setup>
 import { getTreeBySlug } from "../data/trees.js";
-import { calculateBearing, getDistance } from "../data/utils.js";
 import { useStore } from "vuex";
 import { reactive } from "vue";
 

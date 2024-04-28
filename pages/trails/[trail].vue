@@ -63,7 +63,6 @@
 
 <script setup>
 import { getTrees, getTreeById } from "../data/trees.js";
-import { calculateBearing, getDistance } from "../data/utils.js";
 import { useStore } from "vuex";
 
 const store = useStore();

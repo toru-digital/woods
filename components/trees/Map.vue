@@ -1,7 +1,6 @@
 <script setup>
 import { ref, reactive } from "vue";
 import { getTrees } from "../../data/trees";
-import { getDistance } from "../../data/utils";
 
 const user_data = reactive({
 	log: "...",

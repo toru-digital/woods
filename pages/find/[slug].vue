@@ -61,7 +61,6 @@
 
 <script setup>
 import { getTreeBySlug } from "../data/trees.js";
-import { calculateBearing, getDistance } from "../data/utils.js";
 
 const router = useRouter();
 const route = useRoute();
