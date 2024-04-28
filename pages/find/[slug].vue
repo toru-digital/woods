@@ -1,20 +1,17 @@
 <template>
 	<section class="flex flex-col w-full h-full flex-col">
-		<div
-			v-if="selected_tree == null"
-			class="w-full h-16 grid place-items-center"
-		>
+		<div v-if="tree == null" class="w-full h-16 grid place-items-center">
 			<p class="w-full p-8 text-lg">...loading</p>
 		</div>
 		<div v-else>
 			<div class="w-full h-16 grid place-items-center">
 				<p class="w-full p-8 text-lg">
-					{{ selected_tree ? selected_tree.title : "" }}
+					{{ tree ? tree.title : "" }}
 				</p>
 			</div>
 			<div class="flex flex-1 overflow-hidden">
 				<div
-					v-if="selected_tree != null"
+					v-if="tree != null"
 					class="w-full h-full grid place-items-center"
 				>
 					<img
@@ -25,8 +22,8 @@
 								calculateBearing(
 									$store.state.latitude,
 									$store.state.longitude,
-									selected_tree.lat,
-									selected_tree.lon
+									tree.lat,
+									tree.lon
 								)) +
 							'deg)'
 						"
@@ -37,19 +34,19 @@
 			<div>
 				<p>
 					{{
-						selected_tree == null
+						tree == null
 							? "?"
 							: getDistance(
 									$store.state.latitude,
 									$store.state.longitude,
-									selected_tree.lat,
-									selected_tree.lon
+									tree.lat,
+									tree.lon
 							  )
 					}}
 					meters
 				</p>
 				<router-link
-					:to="'/debug/' + selected_tree.slug"
+					:to="'/debug/' + tree.slug"
 					class="cursor-pointer mt-2 text-blue-500"
 				>
 					debug
@@ -60,11 +57,9 @@
 </template>
 
 <script setup>
+const route = useRoute();
 const slug = route.params?.slug;
-const { data: selected_tree } = await useFetch(`/api/tree/${slug}`, {
+const { data: tree } = await useFetch(`/api/tree/${slug}`, {
 	key: slug,
 });
-
-const router = useRouter();
-const route = useRoute();
 </script>

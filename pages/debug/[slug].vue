@@ -1,5 +1,5 @@
 <template>
-	<!-- <section class="flex flex-col w-full h-full flex-col">
+	<section class="flex flex-col w-full h-full flex-col">
 		<div>
 			<div class="relative overflow-x-auto">
 				<table
@@ -23,89 +23,85 @@
 				</table>
 			</div>
 		</div>
-	</section> -->
+	</section>
 </template>
 
 <script setup>
-// const { data: trees } = await useFetch("/api/trees");
-// import { useStore } from "vuex";
-// import { reactive } from "vue";
+import { useStore } from "vuex";
 
-// const route = useRoute();
-// const store = useStore();
-// const slug = ${route.params?.slug}
+const route = useRoute();
+const store = useStore();
+const slug = route.params?.slug;
+const { data: tree } = await useFetch(`/api/tree/${slug}`, {
+	key: slug,
+});
 
-// const getRows = function () {
-// 	if (selected_tree == undefined) return [];
-// 	console.log("selected_tree", selected_tree, selected_tree);
+const getRows = function () {
+	console.log("tree");
+	return [];
+	const bearing = calculateBearing(
+		store.state.latitude,
+		store.state.longitude,
+		tree.lat,
+		tree.lon
+	);
 
-// 	const bearing = calculateBearing(
-// 		store.state.latitude,
-// 		store.state.longitude,
-// 		selected_tree.lat,
-// 		selected_tree.lon
-// 	);
+	const bearing_difference = store.state.northern_axis - bearing;
 
-// 	const bearing_difference = store.state.northern_axis - bearing;
+	const distance_to_tree = getDistance(
+		store.state.latitude,
+		store.state.longitude,
+		tree.lat,
+		tree.lon
+	);
 
-// 	const distance_to_tree = getDistance(
-// 		store.state.latitude,
-// 		store.state.longitude,
-// 		selected_tree.lat,
-// 		selected_tree.lon
-// 	);
+	return [
+		{
+			label: "Title",
+			value: tree.title + "!!",
+		},
+		{
+			label: "Slug",
+			value: tree.slug + "ewwe",
+		},
+		{
+			label: "Tree Lat",
+			value: tree.lat,
+		},
+		{
+			label: "Tree Lon",
+			value: tree.lon,
+		},
+		{
+			label: "Your Latitude",
+			value: store.state.latitude,
+		},
+		{
+			label: "Your Longitude",
+			value: store.state.longitude,
+		},
+		{
+			label: "Northern Axis",
+			value: store.state.northern_axis,
+		},
+		{
+			label: "Your Bearing",
+			value: bearing,
+		},
+		{
+			label: "Northern - Your Bearing",
+			value: bearing_difference,
+		},
+		{
+			label: "Distance to Tree",
+			value: distance_to_tree + " KM",
+		},
+		{
+			label: "Last Permission Errror",
+			value: store.state.setPermissionsLastError,
+		},
+	];
+};
 
-// 	return [
-// 		{
-// 			label: "Title",
-// 			value: selected_tree.title + "!!",
-// 		},
-// 		{
-// 			label: "Slug",
-// 			value: selected_tree.slug + "ewwe",
-// 		},
-// 		{
-// 			label: "Tree Lat",
-// 			value: selected_tree.lat,
-// 		},
-// 		{
-// 			label: "Tree Lon",
-// 			value: selected_tree.lon,
-// 		},
-// 		{
-// 			label: "Your Latitude",
-// 			value: store.state.latitude,
-// 		},
-// 		{
-// 			label: "Your Longitude",
-// 			value: store.state.longitude,
-// 		},
-// 		{
-// 			label: "Northern Axis",
-// 			value: store.state.northern_axis,
-// 		},
-// 		{
-// 			label: "Your Bearing",
-// 			value: bearing,
-// 		},
-// 		{
-// 			label: "Northern - Your Bearing",
-// 			value: bearing_difference,
-// 		},
-// 		{
-// 			label: "Distance to Tree",
-// 			value: distance_to_tree + " KM",
-// 		},
-// 		{
-// 			label: "Last Permission Errror",
-// 			value: store.state.setPermissionsLastError,
-// 		},
-// 	];
-// };
-
-// const rows = reactive(getRows());
-
-// const { data: selected_tree } = await useFetch(
-// 	`/api/tree/${slug}`,{key: slug,}
-// );
+const rows = reactive(getRows());
 </script>
