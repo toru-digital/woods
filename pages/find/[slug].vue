@@ -48,6 +48,10 @@
 					KM to {{ tree.title }}
 				</p>
 				<p class="text-center cursor-pointer mt-2 text-blue-500">
+					<router-link :to="'/trees/' + tree.slug">
+						Back
+					</router-link>
+					|
 					<router-link :to="'/debug/' + tree.slug">
 						debug
 					</router-link>

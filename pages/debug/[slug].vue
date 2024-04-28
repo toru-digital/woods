@@ -3,6 +3,9 @@
 		<div>
 			<div class="relative overflow-x-auto">
 				<TreesCompass />
+				<p class="text-center cursor-pointer mt-2 text-blue-500">
+					<router-link :to="'/find/' + tree.slug"> Back </router-link>
+				</p>
 				<table class="debug-table">
 					<tbody>
 						<tr class="debug-tr">
