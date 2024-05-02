@@ -1,5 +1,5 @@
 <template>
-	<div class="android-sensors"></div>
+	<div class="ios-sensors"></div>
 </template>
 
 <script lang="ts">
