@@ -9,7 +9,7 @@ const user_data = reactive({
 	compass_style: "",
 });
 
-const isIOS =
+const isIOS = navigator != null && navigator.userAgent != null &&
 	navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
 	navigator.userAgent.match(/AppleWebKit/);
 
