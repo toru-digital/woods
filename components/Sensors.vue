@@ -1,7 +1,7 @@
 <template>
 	<div class="sensors">
 		<AndroidSensors v-if='checkAndroid()' />
-		<IosSensors v-if='checkIpad() || checkIphone()' />
+		<IosSensors v-else-if='checkIpad() || checkIphone() || checkIsApple()' />
 	</div>
 </template>
 
@@ -54,8 +54,15 @@
 					return;
 				}
 				
-				const u = navigator.userAgent;
 				return !!u.match(/iPad/i);
+			},
+			checkIsApple: function () {
+				if (!navigator || !navigator.userAgent) {
+					return;
+				}
+				
+				const u = navigator.userAgent;
+				return u.includes('Safari');
 			},
 			checkMobile: function () {
 				if (!navigator || !navigator.userAgent) {
