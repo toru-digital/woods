@@ -49,5 +49,6 @@ export default defineNuxtConfig({
 		"@static": Path.resolve(__dirname, "./static"),
 		"@store": Path.resolve(__dirname, "./store"),
 		"@interfaces": Path.resolve(__dirname, "./interfaces"),
-	}
+	},
+	ssr: false
 })

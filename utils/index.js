@@ -52,3 +52,16 @@ export const calculateBearing = (lat1, lon1, lat2, lon2) => {
 	bearing = (bearing + 360) % 360; // Ensure bearing is between 0 and 360 degrees
 	return bearing;
 }
+
+export const getIsIOS = () => {
+	return navigator != null &&
+	navigator.userAgent != null &&
+	navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
+	navigator.userAgent.match(/AppleWebKit/)
+}
+
+export const getIsAndroid = () => {
+	if (!navigator || !navigator.userAgent) return false;
+	const u = navigator.userAgent;
+	return !!u.match(/Android/i);
+}

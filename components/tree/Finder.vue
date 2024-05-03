@@ -10,72 +10,40 @@ const props = defineProps({
 const user_data = reactive({
 	log: "...",
 	deg: 0,
-	compass_style: "",
 });
 
-const isIOS =
-	navigator != null &&
-	navigator.userAgent != null &&
-	navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
-	navigator.userAgent.match(/AppleWebKit/);
-
-let pointDegree;
-
-const calcDegreeToPoint = function (latitude, longitude) {
-	// Qibla geolocation
-	const point = {
-		lat: 21.422487,
-		lng: 39.826206,
-	};
-
-	const phiK = (point.lat * Math.PI) / 180.0;
-	const lambdaK = (point.lng * Math.PI) / 180.0;
-	const phi = (latitude * Math.PI) / 180.0;
-	const lambda = (longitude * Math.PI) / 180.0;
-	const psi =
-		(180.0 / Math.PI) *
-		Math.atan2(
-			Math.sin(lambdaK - lambda),
-			Math.cos(phi) * Math.tan(phiK) -
-				Math.sin(phi) * Math.cos(lambdaK - lambda)
-		);
-	return Math.round(psi);
-};
-
-const locationHandler = function (position) {
-	console.log(position);
-	const { latitude, longitude } = position.coords;
-	pointDegree = calcDegreeToPoint(latitude, longitude);
-
-	if (pointDegree < 0) {
-		pointDegree = pointDegree + 360;
-	}
-};
-
-onNuxtReady(async () => {
-	if (!process.client || !navigator.geolocation) return;
-
-	navigator.geolocation.getCurrentPosition(locationHandler);
-
-	if (!isIOS) {
-		window.addEventListener("deviceorientationabsolute", handler, true);
-	}
-});
+const isIOS = getIsIOS();
+const isAndroid = getIsAndroid();
 
 const startCompass = function () {
 	user_data.log = "START";
-	if (!isIOS) return;
+	const testing = true;
 
-	DeviceOrientationEvent.requestPermission()
-		.then((response) => {
-			console.log(response);
-			if (response === "granted") {
-				window.addEventListener("deviceorientation", handler, true);
-			} else {
-				alert("has to be allowed!");
-			}
-		})
-		.catch(() => alert("not supported"));
+	if (isIOS) {
+		console.log("ONE");
+		DeviceOrientationEvent.requestPermission()
+			.then((response) => {
+				if (response === "granted") {
+					window.addEventListener("deviceorientation", handler, true);
+				} else {
+					alert("has to be allowed!");
+				}
+			})
+			.catch(() => alert("not supported"));
+	} else if (isAndroid) {
+		console.log("TWO");
+		window.addEventListener("deviceorientationabsolute", handler, true);
+	} else if (testing) {
+		console.log("THREE");
+		setInterval(rotate, 1000);
+	}
+};
+
+const rotate = function () {
+	console.log("ROTATE");
+	user_data.deg = (user_data.deg + 5) % 360;
+
+	user_data.log = Math.round(user_data.deg) + "°";
 };
 
 const handler = function (e) {
@@ -83,8 +51,7 @@ const handler = function (e) {
 	user_data.deg = user_data.deg =
 		e.webkitCompassHeading || Math.abs(e.alpha - 360);
 
-	user_data.log = user_data.deg + "@";
-	user_data.compass_style = `transform: translate(-50%, -50%) rotate(${-user_data.deg}deg)`;
+	user_data.log = Math.round(user_data.deg) + "°";
 };
 </script>
 
@@ -95,18 +62,19 @@ const handler = function (e) {
 			:style="{
 				transform: `translate(-50%, -50%) rotate(${-user_data.deg}deg)`,
 			}"
-		/>
-		<div
-			class="compass-arrow"
-			:style="{
-				transform: `translate(-50%, -50%) rotate(${calculateBearing(
-					$store.state.latitude,
-					$store.state.longitude,
-					tree.lat,
-					tree.lon
-				)}deg)`,
-			}"
-		/>
+		>
+			<div
+				class="compass-arrow"
+				:style="{
+					transform: `translate(-50%, -50%) rotate(${calculateBearing(
+						$store.state.latitude,
+						$store.state.longitude,
+						tree.lat,
+						tree.lon
+					)}deg)`,
+				}"
+			/>
+		</div>
 	</div>
 	<div class="mt-10">
 		<h2 class="text-center">log: {{ user_data.log }}</h2>
@@ -158,7 +126,7 @@ const handler = function (e) {
 }
 
 .compass .compass-circle {
-	background-image: url(/images/compass.jpg);
+	background-image: url(/images/compass.png);
 }
 
 .compass .compass-arrow {
