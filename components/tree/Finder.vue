@@ -14,13 +14,13 @@ const user_data = reactive({
 
 const isIOS = getIsIOS();
 const isAndroid = getIsAndroid();
+const testInterval = null;
 
 const startCompass = function () {
 	user_data.log = "START";
 	const testing = true;
 
 	if (isIOS) {
-		console.log("ONE");
 		DeviceOrientationEvent.requestPermission()
 			.then((response) => {
 				if (response === "granted") {
@@ -31,16 +31,13 @@ const startCompass = function () {
 			})
 			.catch(() => alert("not supported"));
 	} else if (isAndroid) {
-		console.log("TWO");
 		window.addEventListener("deviceorientationabsolute", handler, true);
 	} else if (testing) {
-		console.log("THREE");
-		setInterval(rotate, 1000);
+		testInterval = setInterval(rotate, 1000);
 	}
 };
 
 const rotate = function () {
-	console.log("ROTATE");
 	user_data.deg = (user_data.deg + 5) % 360;
 
 	user_data.log = Math.round(user_data.deg) + "°";
@@ -53,6 +50,12 @@ const handler = function (e) {
 
 	user_data.log = Math.round(user_data.deg) + "°";
 };
+
+onUnmounted(function () {
+	window.removeEventListener("deviceorientation", handler, true);
+	window.removeEventListener("deviceorientationabsolute", handler, true);
+	clearInterval(testInterval);
+});
 </script>
 
 <template>
