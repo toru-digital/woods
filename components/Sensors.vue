@@ -34,42 +34,27 @@ export default defineComponent({
 	},
 	methods: {
 		checkIphone: function () {
-			if (!navigator || !navigator.userAgent) {
-				return;
-			}
-
+			if (!navigator || !navigator.userAgent) return false;
 			const u = navigator.userAgent;
 			return !!u.match(/iPhone/i);
 		},
 		checkAndroid: function () {
-			if (!navigator || !navigator.userAgent) {
-				return;
-			}
-
+			if (!navigator || !navigator.userAgent) return false;
 			const u = navigator.userAgent;
 			return !!u.match(/Android/i);
 		},
 		checkIpad: function () {
-			if (!navigator || !navigator.userAgent) {
-				return;
-			}
-
+			if (!navigator || !navigator.userAgent) return false;
 			const u = navigator.userAgent;
 			return !!u.match(/iPad/i);
 		},
 		checkIsApple: function () {
-			if (!navigator || !navigator.userAgent) {
-				return;
-			}
-
+			if (!navigator || !navigator.userAgent) return false;
 			const u = navigator.userAgent;
 			return u.includes("Safari");
 		},
 		checkMobile: function () {
-			if (!navigator || !navigator.userAgent) {
-				return;
-			}
-
+			if (!navigator || !navigator.userAgent) return false;
 			const u = navigator.userAgent;
 			return !!u.match(/Android/i) || !!u.match(/iPhone/i);
 		},
