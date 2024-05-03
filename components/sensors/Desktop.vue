@@ -5,7 +5,7 @@
 <script lang="ts">
 export default defineComponent({
 	mounted: function () {
-		this.$store.commit("setNorthernAxis", 0);
+		this.$store.commit("setOrientationAlpha", 0);
 	},
 });
 </script>
