@@ -4,6 +4,7 @@ export interface IStore {
 	permissions_last_error: string;
 	latitude: number;
 	longitude: number;
-	northern_axis: number;
-	orientation_absolute: boolean;
+	orientation_alpha?: number;
+	orientation_initial_offset?: number;
+	orientation_absolute?: boolean;
 }

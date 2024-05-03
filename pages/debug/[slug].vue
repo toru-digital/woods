@@ -3,6 +3,9 @@
 		<div>
 			<div class="relative overflow-x-auto">
 				<TreesCompass />
+				<p class="text-center cursor-pointer mt-2 text-blue-500">
+					<router-link :to="'/find/' + tree.slug"> Back </router-link>
+				</p>
 				<table class="debug-table">
 					<tbody>
 						<tr class="debug-tr">
@@ -34,9 +37,19 @@
 							</td>
 						</tr>
 						<tr class="debug-tr">
-							<th class="debug-th" scope="row">Northern Axis</th>
+							<th class="debug-th" scope="row">
+								Orientation Alpha
+							</th>
 							<td class="debug-td">
-								{{ $store.state.northern_axis }}
+								{{ $store.state.orientation_alpha }}
+							</td>
+						</tr>
+						<tr class="debug-tr">
+							<th class="debug-th" scope="row">
+								Orientation Initial Offset
+							</th>
+							<td class="debug-td">
+								{{ $store.state.orientation_initial_offset }}
 							</td>
 						</tr>
 						<tr class="debug-tr">
@@ -62,11 +75,11 @@
 						</tr>
 						<tr class="debug-tr">
 							<th class="debug-th" scope="row">
-								Northern Axis - Your Bearing
+								Alpha - Your Bearing
 							</th>
 							<td class="debug-td">
 								{{
-									$store.state.northern_axis -
+									$store.state.orientation_alpha -
 									calculateBearing(
 										store.state.latitude,
 										store.state.longitude,
