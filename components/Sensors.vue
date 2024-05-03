@@ -1,20 +1,12 @@
 <template>
 	<div class="sensors">
-		<AndroidSensors v-if="checkAndroid()" />
-		<IosSensors v-else-if="checkIpad() || checkIphone()" />
+		<SensorsAndroid v-if="checkAndroid()" />
+		<IosSensorsIos v-else-if="checkIpad() || checkIphone()" />
 	</div>
 </template>
 
 <script lang="ts">
-import type { IWorldPosition } from "../interfaces/IWorldPosition";
-import AndroidSensors from "./_sensors/AndroidSensors.vue";
-import IosSensors from "./_sensors/IosSensors.vue";
-
 export default defineComponent({
-	components: {
-		AndroidSensors,
-		IosSensors,
-	},
 	data: function () {
 		return {
 			position_watcher: null,
