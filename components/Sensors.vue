@@ -1,7 +1,8 @@
 <template>
 	<div class="sensors">
 		<SensorsAndroid v-if="checkAndroid()" />
-		<IosSensorsIos v-else-if="checkIpad() || checkIphone()" />
+		<SensorsIos v-else-if="checkIpad() || checkIphone()" />
+		<SensorsDesktop v-else />
 	</div>
 </template>
 
