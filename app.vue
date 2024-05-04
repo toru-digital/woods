@@ -25,4 +25,5 @@ useSeoMeta({
 			rel="stylesheet"
 		/>
 	</NuxtLayout>
+	<Services />
 </template>
