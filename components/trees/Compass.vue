@@ -60,16 +60,16 @@ const startCompass = function () {
 	user_data.log = "START";
 	if (!isIOS) return;
 
-	DeviceOrientationEvent.requestPermission()
-		.then((response) => {
-			console.log(response);
-			if (response === "granted") {
-				window.addEventListener("deviceorientation", handler, true);
-			} else {
-				alert("has to be allowed!");
-			}
-		})
-		.catch(() => alert("not supported"));
+	//DeviceOrientationEvent.requestPermission()
+	//	.then((response) => {
+	//		console.log(response);
+	//		if (response === "granted") {
+	//			window.addEventListener("deviceorientation", handler, true);
+	//		} else {
+	//			alert("has to be allowed!");
+	//		}
+	//	})
+	//	.catch(() => alert("not supported"));
 };
 
 const handler = function (e) {
