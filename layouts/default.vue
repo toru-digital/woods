@@ -10,9 +10,6 @@
 		>
 			<FooterMenu />
 		</div>
-		<div class="hidden">
-			<Sensors />
-		</div>
 	</div>
 </template>
 
