@@ -1,5 +1,7 @@
 <script setup>
-import { ref, reactive } from "vue";
+import { reactive } from "vue";
+
+const { data: trees } = await useFetch("/api/trees");
 
 const user_data = reactive({
 	log: "...",
@@ -35,17 +37,15 @@ onNuxtReady(async () => {
 
 	navigator.geolocation.getCurrentPosition(locationHandler);
 });
-
-const zoom = ref(18);
 </script>
 
 <template>
-	<LMap ref="map" :zoom="zoom" :center="getMapCenter()">
+	<LMap :zoom="18" :center="getMapCenter()">
 		<LTileLayer
 			url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			attribution='&amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
 			layer-type="base"
-			max-zoom="30"
+			:max-zoom="30"
 			name="OpenStreetMap"
 		/>
 		<LMarker
@@ -68,7 +68,7 @@ const zoom = ref(18);
 		</LMarker>
 
 		<LCircleMarker
-			radius="10"
+			:radius="10"
 			color="red"
 			:if="user_data.lat != 0 && user_data.lon != 0"
 			:lat-lng="[user_data.lat, user_data.lon]"

@@ -4,7 +4,7 @@
 		<div v-else>
 			<TreeBanner
 				:image="tree.img"
-				:title="tree.slug"
+				:title="tree.title"
 				:subtitle="tree.scientific_name"
 				:find_route="'/find/' + tree.slug"
 			/>

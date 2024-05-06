@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 
 const props = defineProps({
 	tree: {
@@ -11,11 +11,45 @@ const user_data = reactive({
 	error: "",
 	deg: 0,
 	is_initiated: false,
+	log: "...",
+	lat: 0,
+	lon: 0,
 });
+
+const delapre_position = [52.224723, -0.887954];
+
+const locationHandler = function (position) {
+	const { latitude, longitude } = position.coords;
+
+	const distance = getDistance(
+		delapre_position[0],
+		delapre_position[1],
+		latitude,
+		longitude
+	);
+
+	if (distance < 1) {
+		user_data.lat = latitude;
+		user_data.lon = longitude;
+	}
+};
 
 const isIOS = getIsIOS();
 const isAndroid = getIsAndroid();
 let testInterval = null;
+
+const getMapCenter = () => {
+	if (user_data.lat == 0 && user_data.lon == 0) return delapre_position;
+	return [user_data.lat, user_data.lon];
+};
+
+onNuxtReady(async () => {
+	if (!process.client || !navigator.geolocation) return;
+
+	navigator.geolocation.getCurrentPosition(locationHandler);
+});
+
+const zoom = ref(16);
 
 const startCompass = function () {
 	const testing = true;
@@ -50,6 +84,11 @@ const handler = function (e) {
 	user_data.deg = user_data.deg =
 		e.webkitCompassHeading || Math.abs(e.alpha - 360);
 };
+
+onMounted(() => {
+	const container = L.DomUtil.get("map");
+	if (container != null) container._leaflet_id = null;
+});
 
 onUnmounted(function () {
 	window.removeEventListener("deviceorientation", handler, true);
@@ -122,13 +161,51 @@ onUnmounted(function () {
 
 		<p class="text-center text-red-500">{{ user_data.error }}&nbsp;</p>
 	</div>
+
+	<LMap id="map" :zoom="zoom" :center="getMapCenter()">
+		<LTileLayer
+			url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+			attribution='&amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+			layer-type="base"
+			:max-zoom="30"
+			name="OpenStreetMap"
+		/>
+		<LMarker :lat-lng="[tree.lat, tree.lon]">
+			<LPopup>
+				<div
+					class="cursor-pointer text-lg font-bold text-mont"
+					v-on:click="$emit('select-tree', tree.slug)"
+				>
+					<img
+						:src="tree.img"
+						class="w-32 h-32 object-cover rounded-lg"
+					/>
+					{{ tree.title }}
+				</div>
+			</LPopup>
+		</LMarker>
+
+		<LCircleMarker
+			:radius="10"
+			color="red"
+			:if="user_data.lat != 0 && user_data.lon != 0"
+			:lat-lng="[user_data.lat, user_data.lon]"
+		>
+		</LCircleMarker>
+	</LMap>
 </template>
 
 <style scoped>
+#map {
+	height: 260px !important;
+	border: 10px solid #f3f3f3;
+}
+
 .compass {
 	position: relative;
 	width: 320px;
 	height: 320px;
+	overflow: hidden;
 	border-radius: 50%;
 	margin: auto;
 }
