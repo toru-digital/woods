@@ -128,14 +128,14 @@ onUnmounted(function () {
 			</button>
 		</div>
 	</div>
-	<div class="mt-6">
+	<div class="mt-4">
 		<p
-			class="text-center text-bold text-2xl text-slate-300"
+			class="text-center text-bold text-xl text-slate-300"
 			v-if="tree == null || $store.state.latitude == 0"
 		>
 			...
 		</p>
-		<p class="text-center text-bold text-2xl" v-else>
+		<p class="text-center text-bold text-xl" v-else>
 			{{
 				getDistance(
 					$store.state.latitude,
@@ -198,7 +198,6 @@ onUnmounted(function () {
 <style scoped>
 #map {
 	height: 260px !important;
-	border: 10px solid #f3f3f3;
 }
 
 .compass {

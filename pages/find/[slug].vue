@@ -4,7 +4,7 @@
 			<p class="w-full p-8 text-lg">...loading</p>
 		</div>
 		<div v-else>
-			<div class="p-10">
+			<div class="py-4">
 				<TreeFinder :tree="tree" />
 			</div>
 			<div>
