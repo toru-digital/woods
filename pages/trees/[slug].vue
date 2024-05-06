@@ -1,10 +1,10 @@
 <template>
 	<section>
-		<div v-if="tree == null" class="p-4">{{ tree_slug }}</div>
+		<div v-if="tree == null" class="p-4">...</div>
 		<div v-else>
 			<TreeBanner
 				:image="tree.img"
-				:title="tree_slug"
+				:title="tree.slug"
 				:subtitle="tree.scientific_name"
 				:find_route="'/find/' + tree.slug"
 			/>
