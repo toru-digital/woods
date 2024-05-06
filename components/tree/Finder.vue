@@ -104,7 +104,20 @@ onUnmounted(function () {
 					tree.lat,
 					tree.lon
 				)
-			}}KM to {{ tree.title }}
+			}}KM
+			<span v-if="user_data.is_initiated">
+				{{
+					toOrdinal(
+						calculateBearing(
+							$store.state.latitude,
+							$store.state.longitude,
+							tree.lat,
+							tree.lon
+						)
+					)
+				}}
+			</span>
+			to {{ tree.title }}
 		</p>
 
 		<p class="text-center text-red-500">{{ user_data.error }}&nbsp;</p>
