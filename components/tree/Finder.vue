@@ -5,6 +5,12 @@ const props = defineProps({
 	tree: {
 		required: true,
 	},
+	back_link: {
+		required: true,
+	},
+	debug_link: {
+		required: true,
+	},
 });
 
 const user_data = reactive({
@@ -21,17 +27,15 @@ const delapre_position = [52.224723, -0.887954];
 const locationHandler = function (position) {
 	const { latitude, longitude } = position.coords;
 
-	const distance = getDistance(
-		delapre_position[0],
-		delapre_position[1],
-		latitude,
-		longitude
-	);
+	// const distance = getDistance(
+	// 	delapre_position[0],
+	// 	delapre_position[1],
+	// 	latitude,
+	// 	longitude
+	// );
 
-	if (distance < 1) {
-		user_data.lat = latitude;
-		user_data.lon = longitude;
-	}
+	user_data.lat = latitude;
+	user_data.lon = longitude;
 };
 
 const isIOS = getIsIOS();
@@ -96,10 +100,8 @@ onUnmounted(function () {
 	clearInterval(testInterval);
 	user_data.is_initiated = false;
 });
-</script>
 
-<template>
-	<div class="compass">
+/*<div class="compass">
 		<div
 			class="compass-circle"
 			v-if="user_data.is_initiated"
@@ -161,43 +163,52 @@ onUnmounted(function () {
 
 		<p class="text-center text-red-500">{{ user_data.error }}&nbsp;</p>
 	</div>
+*/
+</script>
 
-	<LMap id="map" :zoom="zoom" :center="getMapCenter()">
-		<LTileLayer
-			url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-			attribution='&amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-			layer-type="base"
-			:max-zoom="30"
-			name="OpenStreetMap"
-		/>
-		<LMarker :lat-lng="[tree.lat, tree.lon]">
-			<LPopup>
-				<div
-					class="cursor-pointer text-lg font-bold text-mont"
-					v-on:click="$emit('select-tree', tree.slug)"
-				>
-					<img
-						:src="tree.img"
-						class="w-32 h-32 object-cover rounded-lg"
-					/>
-					{{ tree.title }}
-				</div>
-			</LPopup>
-		</LMarker>
-
-		<LCircleMarker
-			:radius="10"
-			color="red"
-			:if="user_data.lat != 0 && user_data.lon != 0"
-			:lat-lng="[user_data.lat, user_data.lon]"
+<template>
+	<div class="w-full h-full bg-slate-100 relative">
+		<LMap
+			id="map"
+			:zoom="zoom"
+			:center="getMapCenter()"
+			:options="{ zoomControl: false, attributionControl: false }"
 		>
-		</LCircleMarker>
-	</LMap>
+			<LTileLayer
+				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+				attribution='&amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+				layer-type="base"
+				:max-zoom="30"
+				name="OpenStreetMap"
+			/>
+			<LMarker :lat-lng="[tree.lat, tree.lon]">
+				<LPopup>
+					<div
+						class="cursor-pointer text-lg font-bold text-mont"
+						v-on:click="$emit('select-tree', tree.slug)"
+					>
+						<img
+							:src="tree.img"
+							class="w-32 h-32 object-cover rounded-lg"
+						/>
+						{{ tree.title }}
+					</div>
+				</LPopup>
+			</LMarker>
+			<LCircleMarker
+				:radius="10"
+				color="red"
+				:if="user_data.lat != 0 && user_data.lon != 0"
+				:lat-lng="[user_data.lat, user_data.lon]"
+			>
+			</LCircleMarker>
+		</LMap>
+	</div>
 </template>
 
 <style scoped>
 #map {
-	height: 260px !important;
+	height: 100%;
 }
 
 .compass {
