@@ -1,6 +1,8 @@
 <script setup>
 import { reactive, ref } from "vue";
 
+const map = ref(null);
+
 const props = defineProps({
 	tree: {
 		required: true,
@@ -41,6 +43,7 @@ const locationHandler = function (position) {
 const isIOS = getIsIOS();
 const isAndroid = getIsAndroid();
 let testInterval = null;
+let position_interval = null;
 
 const getMapCenter = () => {
 	if (user_data.lat == 0 && user_data.lon == 0) return delapre_position;
@@ -89,6 +92,25 @@ const handler = function (e) {
 		e.webkitCompassHeading || Math.abs(e.alpha - 360);
 };
 
+const updateMap = () => {
+	let top_left = [
+		Math.max(user_data.lat, props.tree.lat),
+		Math.max(user_data.lon, props.tree.lon),
+	];
+
+	const bottom_right = [
+		Math.min(user_data.lat, props.tree.lat),
+		Math.min(user_data.lon, props.tree.lon),
+	];
+
+	const height = bottom_right[0] - top_left[0];
+	top_left[0] -= height;
+
+	const bounds = [top_left, bottom_right];
+
+	map.value.leafletObject.fitBounds(bounds);
+};
+
 onMounted(() => {
 	const container = L.DomUtil.get("map");
 	if (container != null) container._leaflet_id = null;
@@ -98,8 +120,14 @@ onUnmounted(function () {
 	window.removeEventListener("deviceorientation", handler, true);
 	window.removeEventListener("deviceorientationabsolute", handler, true);
 	clearInterval(testInterval);
+	clearInterval(position_interval);
+
 	user_data.is_initiated = false;
 });
+
+const mapInitialized = function () {
+	position_interval = setInterval(updateMap, 1000);
+};
 
 /*<div class="compass">
 		<div
@@ -170,8 +198,11 @@ onUnmounted(function () {
 	<div class="w-full h-full bg-slate-100 relative">
 		<LMap
 			id="map"
+			ref="map"
 			:zoom="zoom"
+			:v-if="user_data.lat != 0 && user_data.lon != 0"
 			:center="getMapCenter()"
+			@ready="mapInitialized"
 			:options="{ zoomControl: false, attributionControl: false }"
 		>
 			<LTileLayer
