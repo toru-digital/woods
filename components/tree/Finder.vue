@@ -134,75 +134,11 @@ onUnmounted(function () {
 
 	user_data.is_initiated = false;
 });
-
-/*<div class="compass">
-		<div
-			class="compass-circle"
-			v-if="user_data.is_initiated"
-			:style="{
-				transform: `translate(-50%, -50%) rotate(${-user_data.deg}deg)`,
-			}"
-		>
-			<div
-				class="compass-arrow"
-				:style="{
-					transform: `translate(-50%, -50%) rotate(${calculateBearing(
-						$store.state.latitude,
-						$store.state.longitude,
-						tree.lat,
-						tree.lon
-					)}deg)`,
-				}"
-			/>
-		</div>
-		<div v-else class="compass-blank">
-			<button
-				class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-				@click="startCompass"
-			>
-				Start compass
-			</button>
-		</div>
-	</div>
-	<div class="mt-4">
-		<p
-			class="text-center text-bold text-xl text-slate-300"
-			v-if="tree == null || $store.state.latitude == 0"
-		>
-			...
-		</p>
-		<p class="text-center text-bold text-xl" v-else>
-			{{
-				getDistance(
-					$store.state.latitude,
-					$store.state.longitude,
-					tree.lat,
-					tree.lon
-				)
-			}}KM
-			<span v-if="user_data.is_initiated">
-				{{
-					toOrdinal(
-						calculateBearing(
-							$store.state.latitude,
-							$store.state.longitude,
-							tree.lat,
-							tree.lon
-						)
-					)
-				}}
-			</span>
-			to {{ tree.title }}
-		</p>
-
-		<p class="text-center text-red-500">{{ user_data.error }}&nbsp;</p>
-	</div>
-*/
 </script>
 
 <template>
-	<div class="w-full h-full bg-black relative">
-		<ClientOnly>
+	<ClientOnly>
+		<div class="w-full h-full bg-black relative">
 			<LMap
 				id="map"
 				ref="map"
@@ -247,17 +183,91 @@ onUnmounted(function () {
 					/>
 				</LMarker>
 			</LMap>
-		</ClientOnly>
-	</div>
+			<div class="compass-container">...</div>
+		</div>
+
+		<!-- <div class="compass absolute">
+			<div
+				class="compass-circle"
+				v-if="user_data.is_initiated"
+				:style="{
+					transform: `translate(-50%, -50%) rotate(${-user_data.deg}deg)`,
+				}"
+			>
+				<div
+					class="compass-arrow"
+					:style="{
+						transform: `translate(-50%, -50%) rotate(${calculateBearing(
+							$store.state.latitude,
+							$store.state.longitude,
+							tree.lat,
+							tree.lon
+						)}deg)`,
+					}"
+				/>
+			</div>
+			<div v-else class="compass-blank">
+				<button
+					class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+					@click="startCompass"
+				>
+					Start compass
+				</button>
+			</div>
+		</div>
+
+		<div class="mt-4">
+			<p
+				class="text-center text-bold text-xl text-slate-300"
+				v-if="tree == null || $store.state.latitude == 0"
+			>
+				...
+			</p>
+			<p class="text-center text-bold text-xl" v-else>
+				{{
+					getDistance(
+						$store.state.latitude,
+						$store.state.longitude,
+						tree.lat,
+						tree.lon
+					)
+				}}KM
+				<span v-if="user_data.is_initiated">
+					{{
+						toOrdinal(
+							calculateBearing(
+								$store.state.latitude,
+								$store.state.longitude,
+								tree.lat,
+								tree.lon
+							)
+						)
+					}}
+				</span>
+				to {{ tree.title }}
+			</p>
+
+			<p class="text-center text-red-500">{{ user_data.error }}&nbsp;</p>
+		</div>
+		 -->
+	</ClientOnly>
 </template>
 
 <style scoped>
-#map {
-	height: 100%;
+.compass-container {
+	width: 100% !important;
+	height: 50%;
+	position: absolute;
+	z-index: 20000;
+	background-color: red;
+	top: 0;
+	left: 0;
 }
 
 .compass {
-	position: relative;
+	position: absolute;
+	top: 10;
+	left: 10;
 	width: 320px;
 	height: 320px;
 	overflow: hidden;
