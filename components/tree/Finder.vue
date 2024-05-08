@@ -56,7 +56,7 @@ onNuxtReady(async () => {
 	navigator.geolocation.getCurrentPosition(locationHandler);
 });
 
-const zoom = ref(40);
+const zoom = ref(15);
 
 const startCompass = function () {
 	const testing = true;
@@ -92,15 +92,27 @@ const handler = function (e) {
 		e.webkitCompassHeading || Math.abs(e.alpha - 360);
 };
 
-const getBounds = () => {
+const getMapBounds = () => {
+	const user_pos_set = user_data.lat != 0 && user_data.lon != 0;
+
+	const tree_pos = {
+		lat: props.tree.lat,
+		lon: props.tree.lon,
+	};
+
+	const user_pos = {
+		lat: user_pos_set ? user_data.lat : tree_pos.lat,
+		lon: user_pos_set ? user_data.lon : tree_pos.lon,
+	};
+
 	let top_left = [
-		Math.max(user_data.lat, props.tree.lat),
-		Math.max(user_data.lon, props.tree.lon),
+		Math.max(user_pos.lat, tree_pos.lat),
+		Math.max(user_pos.lon, tree_pos.lon),
 	];
 
 	const bottom_right = [
-		Math.min(user_data.lat, props.tree.lat),
-		Math.min(user_data.lon, props.tree.lon),
+		Math.min(user_pos.lat, tree_pos.lat),
+		Math.min(user_pos.lon, tree_pos.lon),
 	];
 
 	const height = bottom_right[0] - top_left[0];
@@ -110,13 +122,8 @@ const getBounds = () => {
 };
 
 const updateMap = () => {
-	map.value.leafletObject.fitBounds(getBounds());
+	map.value.leafletObject.fitBounds(getMapBounds());
 };
-
-onMounted(() => {
-	const container = L.DomUtil.get("map");
-	if (container != null) container._leaflet_id = null;
-});
 
 onUnmounted(function () {
 	window.removeEventListener("deviceorientation", handler, true);
@@ -126,10 +133,6 @@ onUnmounted(function () {
 
 	user_data.is_initiated = false;
 });
-
-const mapInitialized = function () {
-	position_interval = setInterval(updateMap, 1000);
-};
 
 /*<div class="compass">
 		<div
@@ -197,26 +200,28 @@ const mapInitialized = function () {
 </script>
 
 <template>
-	<div class="w-full h-full bg-slate-100 relative">
+	<div class="w-full h-full bg-black relative">
 		<ClientOnly>
 			<LMap
 				id="map"
 				ref="map"
+				:center="getMapCenter()"
+				:bounds="getMapBounds()"
+				:paddingBottomRight="[0, 0]"
+				:paddingTopLeft="[0, 0]"
 				:zoom="zoom"
 				:v-if="user_data.lat != 0 && user_data.lon != 0"
-				:center="getMapCenter()"
-				@ready="mapInitialized"
 				:options="{ zoomControl: false, attributionControl: false }"
 			>
 				<LTileLayer
 					url="https://d1up0v8yxutj1v.cloudfront.net/{z}/{x}/{y}.png"
 					attribution='&amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
 					layer-type="base"
-					:max-zoom="30"
+					:max-zoom="18"
 					name="OpenStreetMap"
 				/>
 				<LRectangle
-					:bounds="getBounds()"
+					:bounds="getMapBounds()"
 					:fill="true"
 					color="#35495d"
 				/>
