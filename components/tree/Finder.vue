@@ -196,44 +196,46 @@ const mapInitialized = function () {
 
 <template>
 	<div class="w-full h-full bg-slate-100 relative">
-		<LMap
-			id="map"
-			ref="map"
-			:zoom="zoom"
-			:v-if="user_data.lat != 0 && user_data.lon != 0"
-			:center="getMapCenter()"
-			@ready="mapInitialized"
-			:options="{ zoomControl: false, attributionControl: false }"
-		>
-			<LTileLayer
-				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-				attribution='&amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-				layer-type="base"
-				:max-zoom="30"
-				name="OpenStreetMap"
-			/>
-			<LMarker :lat-lng="[tree.lat, tree.lon]">
-				<LPopup>
-					<div
-						class="cursor-pointer text-lg font-bold text-mont"
-						v-on:click="$emit('select-tree', tree.slug)"
-					>
-						<img
-							:src="tree.img"
-							class="w-32 h-32 object-cover rounded-lg"
-						/>
-						{{ tree.title }}
-					</div>
-				</LPopup>
-			</LMarker>
-			<LCircleMarker
-				:radius="10"
-				color="red"
-				:if="user_data.lat != 0 && user_data.lon != 0"
-				:lat-lng="[user_data.lat, user_data.lon]"
+		<ClientOnly>
+			<LMap
+				id="map"
+				ref="map"
+				:zoom="zoom"
+				:v-if="user_data.lat != 0 && user_data.lon != 0"
+				:center="getMapCenter()"
+				@ready="mapInitialized"
+				:options="{ zoomControl: false, attributionControl: false }"
 			>
-			</LCircleMarker>
-		</LMap>
+				<LTileLayer
+					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+					attribution='&amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+					layer-type="base"
+					:max-zoom="30"
+					name="OpenStreetMap"
+				/>
+				<LMarker :lat-lng="[tree.lat, tree.lon]">
+					<LPopup>
+						<div
+							class="cursor-pointer text-lg font-bold text-mont"
+							v-on:click="$emit('select-tree', tree.slug)"
+						>
+							<img
+								:src="tree.img"
+								class="w-32 h-32 object-cover rounded-lg"
+							/>
+							{{ tree.title }}
+						</div>
+					</LPopup>
+				</LMarker>
+				<LCircleMarker
+					:radius="10"
+					color="red"
+					:if="user_data.lat != 0 && user_data.lon != 0"
+					:lat-lng="[user_data.lat, user_data.lon]"
+				>
+				</LCircleMarker>
+			</LMap>
+		</ClientOnly>
 	</div>
 </template>
 
