@@ -56,7 +56,7 @@ onNuxtReady(async () => {
 	navigator.geolocation.getCurrentPosition(locationHandler);
 });
 
-const zoom = ref(16);
+const zoom = ref(40);
 
 const startCompass = function () {
 	const testing = true;
@@ -92,7 +92,7 @@ const handler = function (e) {
 		e.webkitCompassHeading || Math.abs(e.alpha - 360);
 };
 
-const updateMap = () => {
+const getBounds = () => {
 	let top_left = [
 		Math.max(user_data.lat, props.tree.lat),
 		Math.max(user_data.lon, props.tree.lon),
@@ -104,11 +104,13 @@ const updateMap = () => {
 	];
 
 	const height = bottom_right[0] - top_left[0];
-	top_left[0] -= height;
+	// top_left[0] -= height;
 
-	const bounds = [top_left, bottom_right];
+	return [top_left, bottom_right];
+};
 
-	map.value.leafletObject.fitBounds(bounds);
+const updateMap = () => {
+	map.value.leafletObject.fitBounds(getBounds());
 };
 
 onMounted(() => {
@@ -207,11 +209,16 @@ const mapInitialized = function () {
 				:options="{ zoomControl: false, attributionControl: false }"
 			>
 				<LTileLayer
-					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+					url="https://d1up0v8yxutj1v.cloudfront.net/{z}/{x}/{y}.png"
 					attribution='&amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
 					layer-type="base"
 					:max-zoom="30"
 					name="OpenStreetMap"
+				/>
+				<LRectangle
+					:bounds="getBounds()"
+					:fill="true"
+					color="#35495d"
 				/>
 				<LMarker :lat-lng="[tree.lat, tree.lon]">
 					<LPopup>
