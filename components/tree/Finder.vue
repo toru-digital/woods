@@ -226,6 +226,10 @@ onUnmounted(function () {
 					color="#35495d"
 				/>
 				<LMarker :lat-lng="[tree.lat, tree.lon]">
+					<LIcon
+						icon-url="/icons/tree_icon.png"
+						:icon-size="[35, 35]"
+					/>
 					<LPopup>
 						<div
 							class="cursor-pointer text-lg font-bold text-mont"
@@ -239,13 +243,15 @@ onUnmounted(function () {
 						</div>
 					</LPopup>
 				</LMarker>
-				<LCircleMarker
-					:radius="10"
-					color="red"
+				<LMarker
 					:if="user_data.lat != 0 && user_data.lon != 0"
 					:lat-lng="[user_data.lat, user_data.lon]"
 				>
-				</LCircleMarker>
+					<LIcon
+						icon-url="/icons/user_icon.png"
+						:icon-size="[35, 35]"
+					/>
+				</LMarker>
 			</LMap>
 		</ClientOnly>
 	</div>
