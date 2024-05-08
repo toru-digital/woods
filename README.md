@@ -78,3 +78,7 @@ https://dashboard.ngrok.com/get-started/setup/macos
 -   photos of trees are in sets with date stamps. take them from the same place and angle. show nearest photo to now.
 -   submit a tree, via insturalist. set it up there first. when it’s been validated we will add it.
 -   draw geo fences. outer woods. walled garden, outer woods. charter woods. delapre woods. the rookery.
+
+## TODO
+
+-   Add signed URLs to CF links to protect against others using our distribution.
