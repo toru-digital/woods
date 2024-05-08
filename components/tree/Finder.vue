@@ -115,8 +115,9 @@ const getMapBounds = () => {
 		Math.min(user_pos.lon, tree_pos.lon),
 	];
 
+	//force the markers to the botttom of the screen
 	const height = bottom_right[0] - top_left[0];
-	// top_left[0] -= height;
+	top_left[0] -= height * 2;
 
 	return [top_left, bottom_right];
 };
@@ -207,8 +208,6 @@ onUnmounted(function () {
 				ref="map"
 				:center="getMapCenter()"
 				:bounds="getMapBounds()"
-				:paddingBottomRight="[0, 0]"
-				:paddingTopLeft="[0, 0]"
 				:zoom="zoom"
 				:v-if="user_data.lat != 0 && user_data.lon != 0"
 				:options="{ zoomControl: false, attributionControl: false }"
@@ -219,11 +218,6 @@ onUnmounted(function () {
 					layer-type="base"
 					:max-zoom="18"
 					name="OpenStreetMap"
-				/>
-				<LRectangle
-					:bounds="getMapBounds()"
-					:fill="true"
-					color="#35495d"
 				/>
 				<LMarker :lat-lng="[tree.lat, tree.lon]">
 					<LIcon
