@@ -223,7 +223,7 @@ onUnmounted(function () {
 							...
 						</p>
 						<p
-							class="text-center text-bold text-xl text-white"
+							class="font-sig text-center text-bold text-xl text-white"
 							v-else
 						>
 							{{
@@ -246,11 +246,12 @@ onUnmounted(function () {
 									)
 								}}
 							</span>
-							to {{ tree.title }}
 						</p>
-
-						<p class="text-center text-red-500">
-							{{ user_data.error }}&nbsp;
+						<p class="font-mont text-center text-white">
+							to {{ tree.title }}
+							<span class="text-red-500">
+								{{ user_data.error }}&nbsp;
+							</span>
 						</p>
 					</div>
 				</div>
@@ -271,7 +272,7 @@ onUnmounted(function () {
 
 .compass-container .compass-bg {
 	background: #2cc17b;
-	padding: 10px;
+	padding: 20px;
 	width: 330px;
 	border-radius: 30px;
 	margin: 0 auto;
