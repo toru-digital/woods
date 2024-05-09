@@ -263,17 +263,17 @@ onUnmounted(function () {
 <style scoped>
 .compass-container {
 	width: 100% !important;
-	/* height: 50%; */
+	display: flex;
 	position: absolute;
 	z-index: 20000;
-	top: 20px;
+	top: 0;
 	left: 0;
+	padding: 20px;
 }
 
 .compass-container .compass-bg {
 	background: #2cc17b;
 	padding: 20px;
-	width: 330px;
 	border-radius: 30px;
 	margin: 0 auto;
 }
