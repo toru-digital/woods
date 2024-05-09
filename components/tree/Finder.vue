@@ -219,6 +219,10 @@ onUnmounted(function () {
 						class="back-button"
 						@click="router.push(back_link)"
 					></div>
+					<div
+						class="debug-button"
+						@click="router.push(debug_link)"
+					></div>
 
 					<div class="mt-4">
 						<p
@@ -284,16 +288,26 @@ onUnmounted(function () {
 	position: relative;
 }
 
-.compass-container .compass-bg .back-button {
-	background-image: url(/icons/back-green.png);
+.compass-container .compass-bg .back-button,
+.compass-container .compass-bg .debug-button {
 	width: 30px;
 	height: 30px;
 	background-size: contain;
 	background-repeat: no-repeat;
 	position: absolute;
 	top: 10px;
-	left: 10px;
 	cursor: pointer;
+}
+
+.compass-container .compass-bg .back-button {
+	background-image: url(/icons/back-green.png);
+	left: 10px;
+}
+
+.compass-container .compass-bg .debug-button {
+	background-image: url(/icons/debug.png);
+	right: 10px;
+	opacity: 0.25;
 }
 
 .compass {
