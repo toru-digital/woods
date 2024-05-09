@@ -296,7 +296,7 @@ onUnmounted(function () {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	transition: transform 0.1s ease-out;
+	/* transition: transform 0.1s ease-out; */
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
