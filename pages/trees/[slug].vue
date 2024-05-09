@@ -1,6 +1,6 @@
 <template>
 	<section>
-		<div v-if="tree == null" class="p-4">...</div>
+		<div v-if="tree == undefined" class="p-4">...</div>
 		<div v-else>
 			<TreeBanner
 				:image="tree.img"

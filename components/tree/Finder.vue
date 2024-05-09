@@ -2,6 +2,7 @@
 import { reactive, ref } from "vue";
 
 const map = ref(null);
+const router = useRouter();
 
 const props = defineProps({
 	tree: {
@@ -214,6 +215,10 @@ onUnmounted(function () {
 							</button>
 						</div>
 					</div>
+					<div
+						class="back-button"
+						@click="router.push(back_link)"
+					></div>
 
 					<div class="mt-4">
 						<p
@@ -276,6 +281,19 @@ onUnmounted(function () {
 	padding: 20px;
 	border-radius: 30px;
 	margin: 0 auto;
+	position: relative;
+}
+
+.compass-container .compass-bg .back-button {
+	background-image: url(/icons/back-green.png);
+	width: 30px;
+	height: 30px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	cursor: pointer;
 }
 
 .compass {

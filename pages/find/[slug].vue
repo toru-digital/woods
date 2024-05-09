@@ -1,7 +1,6 @@
 <template>
-	<div v-if="tree == null">...</div>
 	<TreeFinder
-		v-else
+		v-if="tree != null"
 		:tree="tree"
 		:back_link="'/trees/' + tree.slug"
 		:debug_link="'/debug/' + tree.slug"
