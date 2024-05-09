@@ -207,7 +207,7 @@ onUnmounted(function () {
 						</div>
 						<div v-else class="compass-blank">
 							<button
-								class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+								class="bg-transparent text-white font-semibold py-2 px-4 border border-white rounded"
 								@click="startCompass"
 							>
 								Start compass
@@ -302,17 +302,17 @@ onUnmounted(function () {
 }
 
 .compass .compass-circle {
-	background-image: url(/images/compass.png);
+	background-image: url(/icons/compass-green.png);
 }
 
 .compass .compass-blank {
-	background-image: url(/images/compass-blank.png);
+	background-image: url(/icons/compass-blank.png);
 	align-items: center;
 	justify-content: center;
 	display: flex;
 }
 
 .compass .compass-arrow {
-	background-image: url(/images/arrow.png);
+	background-image: url(/icons/arrow-green.png);
 }
 </style>
