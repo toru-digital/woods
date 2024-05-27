@@ -2,6 +2,10 @@ const deg2rad = (degrees) => {
 	var pi = Math.PI;
 	return degrees * (pi / 180);
 };
+  
+ const rad2Deg = radians => {
+	return radians * 180 / Math.PI;
+ }
 
 export const getDistance = (lat1, lon1, lat2, lon2) => {
 	if (lat2 == 0 && lon2 == 0) return "...";
@@ -32,25 +36,43 @@ export const getCompassAngle = (lat1, lon1, lat2, lon2) => {
 	return angle;
 }
 
-export const bearing = (lat1, lng1, lat2, lng2) => {
-	var dLon = toRad(lng2 - lng1);
-	lat1 = toRad(lat1);
-	lat2 = toRad(lat2);
-	var y = Math.sin(dLon) * Math.cos(lat2);
-	var x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon);
-	var rad = Math.atan2(y, x);
-	var brng = toDeg(rad);
+// export const calculateBearing = (lat1, lon1, lat2, lon2) => {
+// 	var dLon = lon2 - lon1;
+// 	var y = Math.sin(dLon) * Math.cos(lat2);
+// 	var x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon);
+// 	var bearing = Math.atan2(y, x);
+// 	bearing = bearing * (180 / Math.PI); // Convert radians to degrees
+// 	bearing = (bearing + 360) % 360; // Ensure bearing is between 0 and 360 degrees
+// 	return bearing;
+// }
+
+
+
+export const calculateBearing = (startLat, startLng, destLat, destLng) => {
+	startLat = deg2rad(startLat);
+	startLng = deg2rad(startLng);
+	destLat = deg2rad(destLat);
+	destLng = deg2rad(destLng);
+
+	const y = Math.sin(destLng - startLng) * Math.cos(destLat);
+	const x = Math.cos(startLat) * Math.sin(destLat) -
+			Math.sin(startLat) * Math.cos(destLat) * Math.cos(destLng - startLng);
+	let brng = Math.atan2(y, x);
+	brng = rad2Deg(brng);
 	return (brng + 360) % 360;
 }
 
-export const calculateBearing = (lat1, lon1, lat2, lon2) => {
-	var dLon = lon2 - lon1;
-	var y = Math.sin(dLon) * Math.cos(lat2);
-	var x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon);
-	var bearing = Math.atan2(y, x);
-	bearing = bearing * (180 / Math.PI); // Convert radians to degrees
-	bearing = (bearing + 360) % 360; // Ensure bearing is between 0 and 360 degrees
-	return bearing;
+export const toOrdinal = bearing => {
+	if (bearing >= 337.5 || bearing < 22.5) return "North";
+	if (bearing >= 22.5 && bearing < 67.5) return "NE";
+	if (bearing >= 67.5 && bearing < 112.5) return "Eeast";
+	if (bearing >= 112.5 && bearing < 157.5) return "SE";
+	if (bearing >= 157.5 && bearing < 202.5) return "South";
+	if (bearing >= 202.5 && bearing < 247.5) return "SW";
+	if (bearing >= 247.5 && bearing < 292.5) return "West";
+	if (bearing >= 292.5 && bearing < 337.5) return "NW";
+
+	return "";
 }
 
 export const toOrdinal = bearing => {

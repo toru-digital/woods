@@ -4,7 +4,6 @@ import Path from 'path';
 
 export default defineNuxtConfig({
 	app: {
-		pageTransition: { name: 'page', mode: 'out-in' },
 		head: {
 			meta: [{
 				name: "theme-color",
