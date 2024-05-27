@@ -23,10 +23,11 @@ const props = defineProps({
 	>
 		<div class="display-container">
 			<div class="display-bg">
-				<h3>You found the Tulip Tree!</h3>
+				<p class="font-bold">You found the Tulip Tree!</p>
 				<p>ekewje</p>
 				<p>ekewje</p>
 				<p>ekewje</p>
+				<div class="tick-icon"></div>
 			</div>
 		</div>
 	</div>
@@ -45,11 +46,23 @@ const props = defineProps({
 
 .display-container .display-bg {
 	background-color: rgba(255, 255, 255, 0.57);
-	padding: 20px;
+	padding: 50px 20px 20px 20px;
 	border-radius: 30px;
 	margin: 0 auto;
 	position: relative;
 	width: 100%;
 	backdrop-filter: blur(10px);
+}
+
+.display-container .display-bg .tick-icon {
+	width: 55px;
+	height: 55px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: -20px;
+	cursor: pointer;
+	background-image: url(/icons/tick-orange.png);
+	left: calc(50% - 27.5px);
 }
 </style>
