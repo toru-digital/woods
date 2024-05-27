@@ -36,31 +36,31 @@ export const getCompassAngle = (lat1, lon1, lat2, lon2) => {
 	return angle;
 }
 
-// export const calculateBearing = (lat1, lon1, lat2, lon2) => {
-// 	var dLon = lon2 - lon1;
-// 	var y = Math.sin(dLon) * Math.cos(lat2);
-// 	var x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon);
-// 	var bearing = Math.atan2(y, x);
-// 	bearing = bearing * (180 / Math.PI); // Convert radians to degrees
-// 	bearing = (bearing + 360) % 360; // Ensure bearing is between 0 and 360 degrees
-// 	return bearing;
-// }
-
-
-
-export const calculateBearing = (startLat, startLng, destLat, destLng) => {
-	startLat = deg2rad(startLat);
-	startLng = deg2rad(startLng);
-	destLat = deg2rad(destLat);
-	destLng = deg2rad(destLng);
-
-	const y = Math.sin(destLng - startLng) * Math.cos(destLat);
-	const x = Math.cos(startLat) * Math.sin(destLat) -
-			Math.sin(startLat) * Math.cos(destLat) * Math.cos(destLng - startLng);
-	let brng = Math.atan2(y, x);
-	brng = rad2Deg(brng);
-	return (brng + 360) % 360;
+// ST - IOS
+export const calculateBearing = (lat1, lon1, lat2, lon2) => {
+	var dLon = lon2 - lon1;
+	var y = Math.sin(dLon) * Math.cos(lat2);
+	var x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon);
+	var bearing = Math.atan2(y, x);
+	bearing = bearing * (180 / Math.PI); // Convert radians to degrees
+	bearing = (bearing + 360) % 360; // Ensure bearing is between 0 and 360 degrees
+	return bearing;
 }
+
+// CS - ANDROID
+// export const calculateBearing = (startLat, startLng, destLat, destLng) => {
+// 	startLat = deg2rad(startLat);
+// 	startLng = deg2rad(startLng);
+// 	destLat = deg2rad(destLat);
+// 	destLng = deg2rad(destLng);
+
+// 	const y = Math.sin(destLng - startLng) * Math.cos(destLat);
+// 	const x = Math.cos(startLat) * Math.sin(destLat) -
+// 			Math.sin(startLat) * Math.cos(destLat) * Math.cos(destLng - startLng);
+// 	let brng = Math.atan2(y, x);
+// 	brng = rad2Deg(brng);
+// 	return (brng + 360) % 360;
+// }
 
 export const toOrdinal = bearing => {
 	if (bearing >= 337.5 || bearing < 22.5) return "North";
