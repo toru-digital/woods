@@ -39,7 +39,7 @@ const props = defineProps({
 		<div class="grow-0">
 			<div
 				@click="() => router.push(find_route)"
-				class="bg-blaze-400 rounded-full px-6 py-2 text-white font-sig uppercase inline-block text-xl cursor-pointer select-none"
+				class="primary-button inline-block"
 			>
 				Find
 			</div>

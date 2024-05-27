@@ -54,6 +54,11 @@
 				</div>
 			</div>
 			<hr class="my-4 border border-grey" />
+			<div class="primary-button inline-block mb-2">primary-button</div>
+			<br />
+			<div class="secondary-button inline-block mb-2">
+				secondary-button
+			</div>
 		</section>
 	</transition>
 </template>

@@ -23,11 +23,13 @@ const props = defineProps({
 	>
 		<div class="display-container">
 			<div class="display-bg">
-				<p class="font-bold">You found the Tulip Tree!</p>
-				<p>ekewje</p>
-				<p>ekewje</p>
-				<p>ekewje</p>
 				<div class="tick-icon"></div>
+				<p class="font-bold">You found the Tulip Tree!</p>
+				<p>tree info</p>
+				<p>etc etc</p>
+				<p>etc etc</p>
+				<div class="secondary-button mt-4">Read More</div>
+				<div class="secondary-button mt-3">Back to Trees</div>
 			</div>
 		</div>
 	</div>
@@ -46,7 +48,7 @@ const props = defineProps({
 
 .display-container .display-bg {
 	background-color: rgba(255, 255, 255, 0.57);
-	padding: 50px 20px 20px 20px;
+	padding: 55px 20px 20px 20px;
 	border-radius: 30px;
 	margin: 0 auto;
 	position: relative;

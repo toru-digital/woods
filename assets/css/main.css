@@ -11,6 +11,14 @@ body,
 }
 
 @layer components {
+	.primary-button {
+		@apply bg-blaze-400 rounded-full px-6 py-2 text-white font-sig uppercase text-xl cursor-pointer select-none text-center;
+	}
+
+	.secondary-button {
+		@apply border-black border rounded-full px-6 py-2 text-black font-mont uppercase text-xs font-bold cursor-pointer select-none text-center;
+	}
+
 	.debug-table {
 		@apply w-full text-sm text-left text-gray-500 dark:text-gray-400;
 	}
@@ -24,6 +32,6 @@ body,
 	}
 
 	.debug-td {
-		@apply px-6 py-4
+		@apply px-6 py-4;
 	}
 }
