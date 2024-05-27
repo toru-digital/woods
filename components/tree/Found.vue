@@ -28,8 +28,18 @@ const props = defineProps({
 				<p>tree info</p>
 				<p>etc etc</p>
 				<p>etc etc</p>
-				<div class="secondary-button mt-4">Read More</div>
-				<div class="secondary-button mt-3">Back to Trees</div>
+				<div
+					@click="() => router.push(more_link)"
+					class="secondary-button mt-4"
+				>
+					Read More
+				</div>
+				<div
+					@click="() => router.push(back_link)"
+					class="secondary-button mt-3"
+				>
+					Back to Trees
+				</div>
 			</div>
 		</div>
 	</div>
