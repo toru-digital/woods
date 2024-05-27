@@ -1,10 +1,11 @@
 <template>
-	<TreeFinder
+	<!-- <TreeFinder
 		v-if="tree != null"
 		:tree="tree"
 		:back_link="'/trees/' + tree.slug"
 		:debug_link="'/debug/' + tree.slug"
-	/>
+	/> -->
+	HI
 </template>
 
 <script setup>

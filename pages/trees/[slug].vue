@@ -6,7 +6,7 @@
 				:image="tree.img"
 				:title="tree.title"
 				:subtitle="tree.scientific_name"
-				:find_route="'/find/' + tree.slug"
+				:find_route="'/trees/find/' + tree.slug"
 			/>
 
 			<div v-for="(content, i) in tree.content" :key="i">
