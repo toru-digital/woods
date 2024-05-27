@@ -198,8 +198,8 @@ onUnmounted(function () {
 								class="compass-arrow"
 								:style="{
 									transform: `translate(-50%, -50%) rotate(${calculateBearing(
-										$store.state.latitude,
-										$store.state.longitude,
+										user_data.lat,
+										user_data.lon,
 										tree.lat,
 										tree.lon
 									)}deg)`,
@@ -227,7 +227,7 @@ onUnmounted(function () {
 					<div class="mt-4">
 						<p
 							class="text-center text-bold text-xl text-white"
-							v-if="tree == null || $store.state.latitude == 0"
+							v-if="tree == null || user_data.lat == 0"
 						>
 							...
 						</p>
@@ -237,8 +237,8 @@ onUnmounted(function () {
 						>
 							{{
 								getDistance(
-									$store.state.latitude,
-									$store.state.longitude,
+									user_data.lat,
+									user_data.lon,
 									tree.lat,
 									tree.lon
 								)
@@ -247,8 +247,8 @@ onUnmounted(function () {
 								{{
 									toOrdinal(
 										calculateBearing(
-											$store.state.latitude,
-											$store.state.longitude,
+											user_data.lat,
+											user_data.lon,
 											tree.lat,
 											tree.lon
 										)

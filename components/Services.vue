@@ -11,7 +11,7 @@ export default defineComponent({
 			!this.$store.state.permissions_has_compass ||
 			!this.$store.state.permissions_has_fullscreen
 		) {
-			this.$router.push("/permissions");
+			// this.$router.push("/permissions");
 		}
 	},
 	methods: {
