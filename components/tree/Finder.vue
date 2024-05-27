@@ -281,7 +281,7 @@ onUnmounted(function () {
 }
 
 .compass-container .compass-bg {
-	background-color: rgba(255, 122, 65, 0.9);
+	background-color: rgba(255, 122, 65, 0.97);
 	padding: 20px;
 	border-radius: 30px;
 	margin: 0 auto;
