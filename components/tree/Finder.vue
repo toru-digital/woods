@@ -14,6 +14,9 @@ const props = defineProps({
 	debug_link: {
 		required: true,
 	},
+	found_link: {
+		required: true,
+	},
 });
 
 const user_data = reactive({
@@ -27,15 +30,23 @@ const user_data = reactive({
 
 const delapre_position = [52.224723, -0.887954];
 
+const checkFound = (distance) => {
+	if (distance < 0.02) {
+		router.push(props.found_link);
+	}
+};
+
 const locationHandler = function (position) {
 	const { latitude, longitude } = position.coords;
 
-	// const distance = getDistance(
-	// 	delapre_position[0],
-	// 	delapre_position[1],
-	// 	latitude,
-	// 	longitude
-	// );
+	const distance = getDistance(
+		delapre_position[0],
+		delapre_position[1],
+		latitude,
+		longitude
+	);
+
+	checkFound(distance);
 
 	user_data.lat = latitude;
 	user_data.lon = longitude;
@@ -55,6 +66,10 @@ onNuxtReady(async () => {
 	if (!process.client || !navigator.geolocation) return;
 
 	navigator.geolocation.getCurrentPosition(locationHandler);
+	position_interval = setInterval(() => {
+		navigator.geolocation.getCurrentPosition(locationHandler);
+		updateMap();
+	}, 1000);
 });
 
 const zoom = ref(15);

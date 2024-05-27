@@ -3,6 +3,7 @@
 		v-if="tree != null"
 		:tree="tree"
 		:back_link="'/trees/' + tree.slug"
+		:found_link="'/trees/found/' + tree.slug"
 		:debug_link="'/trees/debug/' + tree.slug"
 	/>
 </template>
