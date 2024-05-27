@@ -14,6 +14,9 @@ const props = defineProps({
 	debug_link: {
 		required: true,
 	},
+	found_link: {
+		required: true,
+	},
 });
 
 const user_data = reactive({
@@ -27,15 +30,23 @@ const user_data = reactive({
 
 const delapre_position = [52.224723, -0.887954];
 
+const checkFound = (distance) => {
+	if (distance < 0.02) {
+		router.push(props.found_link);
+	}
+};
+
 const locationHandler = function (position) {
 	const { latitude, longitude } = position.coords;
 
-	// const distance = getDistance(
-	// 	delapre_position[0],
-	// 	delapre_position[1],
-	// 	latitude,
-	// 	longitude
-	// );
+	const distance = getDistance(
+		delapre_position[0],
+		delapre_position[1],
+		latitude,
+		longitude
+	);
+
+	checkFound(distance);
 
 	user_data.lat = latitude;
 	user_data.lon = longitude;
@@ -55,6 +66,10 @@ onNuxtReady(async () => {
 	if (!process.client || !navigator.geolocation) return;
 
 	navigator.geolocation.getCurrentPosition(locationHandler);
+	position_interval = setInterval(() => {
+		navigator.geolocation.getCurrentPosition(locationHandler);
+		updateMap();
+	}, 1000);
 });
 
 const zoom = ref(15);
@@ -232,7 +247,7 @@ onUnmounted(function () {
 							...
 						</p>
 						<p
-							class="font-sig text-center text-bold text-xl text-white"
+							class="font-mont text-center text-bold text-xl text-white"
 							v-else
 						>
 							{{
@@ -281,11 +296,12 @@ onUnmounted(function () {
 }
 
 .compass-container .compass-bg {
-	background: #2cc17b;
+	background-color: rgba(255, 122, 65, 0.97);
 	padding: 20px;
 	border-radius: 30px;
 	margin: 0 auto;
 	position: relative;
+	width: 100%;
 }
 
 .compass-container .compass-bg .back-button,
@@ -295,18 +311,18 @@ onUnmounted(function () {
 	background-size: contain;
 	background-repeat: no-repeat;
 	position: absolute;
-	top: 10px;
+	top: 20px;
 	cursor: pointer;
 }
 
 .compass-container .compass-bg .back-button {
-	background-image: url(/icons/back-green.png);
-	left: 10px;
+	background-image: url(/icons/back-orange.png);
+	left: 20px;
 }
 
 .compass-container .compass-bg .debug-button {
 	background-image: url(/icons/debug.png);
-	right: 10px;
+	right: 20px;
 	opacity: 0.25;
 }
 
@@ -335,7 +351,7 @@ onUnmounted(function () {
 }
 
 .compass .compass-circle {
-	background-image: url(/icons/compass-green.png);
+	background-image: url(/icons/compass-orange.png);
 }
 
 .compass .compass-blank {
@@ -346,6 +362,6 @@ onUnmounted(function () {
 }
 
 .compass .compass-arrow {
-	background-image: url(/icons/arrow-green.png);
+	background-image: url(/icons/arrow-orange.png);
 }
 </style>
