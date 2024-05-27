@@ -232,7 +232,7 @@ onUnmounted(function () {
 							...
 						</p>
 						<p
-							class="font-sig text-center text-bold text-xl text-white"
+							class="font-mont text-center text-bold text-xl text-white"
 							v-else
 						>
 							{{
@@ -281,11 +281,12 @@ onUnmounted(function () {
 }
 
 .compass-container .compass-bg {
-	background: #ff7a41;
+	background-color: rgba(255, 122, 65, 0.9);
 	padding: 20px;
 	border-radius: 30px;
 	margin: 0 auto;
 	position: relative;
+	width: 100%;
 }
 
 .compass-container .compass-bg .back-button,
@@ -295,18 +296,18 @@ onUnmounted(function () {
 	background-size: contain;
 	background-repeat: no-repeat;
 	position: absolute;
-	top: 10px;
+	top: 20px;
 	cursor: pointer;
 }
 
 .compass-container .compass-bg .back-button {
 	background-image: url(/icons/back-orange.png);
-	left: 10px;
+	left: 20px;
 }
 
 .compass-container .compass-bg .debug-button {
 	background-image: url(/icons/debug.png);
-	right: 10px;
+	right: 20px;
 	opacity: 0.25;
 }
 
