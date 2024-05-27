@@ -281,7 +281,7 @@ onUnmounted(function () {
 }
 
 .compass-container .compass-bg {
-	background: #2cc17b;
+	background: #ff7a41;
 	padding: 20px;
 	border-radius: 30px;
 	margin: 0 auto;
@@ -300,7 +300,7 @@ onUnmounted(function () {
 }
 
 .compass-container .compass-bg .back-button {
-	background-image: url(/icons/back-green.png);
+	background-image: url(/icons/back-orange.png);
 	left: 10px;
 }
 
@@ -335,7 +335,7 @@ onUnmounted(function () {
 }
 
 .compass .compass-circle {
-	background-image: url(/icons/compass-green.png);
+	background-image: url(/icons/compass-orange.png);
 }
 
 .compass .compass-blank {
@@ -346,6 +346,6 @@ onUnmounted(function () {
 }
 
 .compass .compass-arrow {
-	background-image: url(/icons/arrow-green.png);
+	background-image: url(/icons/arrow-orange.png);
 }
 </style>
