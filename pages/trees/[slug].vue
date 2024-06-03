@@ -3,7 +3,7 @@
 		<div v-if="tree == undefined" class="p-4">...</div>
 		<div v-else>
 			<TreeBanner
-				:image="tree.img"
+				:images="tree.images"
 				:title="tree.title"
 				:subtitle="tree.scientific_name"
 				:find_route="'/trees/find/' + tree.slug"

@@ -12,9 +12,9 @@ const props = defineProps({
 			<div class="slides">
 				<div
 					class="bg-forest-900 bg-contain bg-center realtive bg-no-repeat"
-					:style="{ backgroundImage: `url(${image})` }"
+					:style="{ backgroundImage: `url(${image.src})` }"
 					v-for="(image, index) in images"
-					:key="image"
+					:key="index"
 				>
 					<div
 						class="absolute bottom-2 bg-forest-900 right-2 rounded-full text-white px-2 py-0"

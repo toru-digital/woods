@@ -34,7 +34,7 @@ onNuxtReady(async () => {
 			>
 				<TreesGridBlock
 					v-for="tree in group.trees"
-					:image="tree.img"
+					:image="tree.images[0].src"
 					v-on:click="
 						$emit('select-tree', tree.inaturalist_observation_id)
 					"

@@ -16,7 +16,7 @@ export const trees = trees_raw.map(t => Object.assign({
 	"slug" : "not-set",
 	"lat": 0,
 	"lon": 0,
-	"img": "",
+	"images": "",
 	"distance": -1,
 	"content" : [],
 }, t))

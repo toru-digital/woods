@@ -5,7 +5,14 @@ export default {
 	"slug" : "mulberry-140281316",
 	"lat": 52.22440833,
 	"lon": -0.8904916667,
-	"img" : "https://static.inaturalist.org/photos/240105711/medium.jpg",
+	"images" : [
+		{
+			"src" : "https://static.inaturalist.org/photos/240105711/medium.jpg"
+		},
+		{
+			"src" : "https://static.inaturalist.org/photos/240105711/medium.jpg"
+		}
+	],
 	"content": [
 		{
 			"type": "text",

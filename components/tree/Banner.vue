@@ -10,8 +10,8 @@ const props = defineProps({
 		type: String,
 		required: true,
 	},
-	image: {
-		type: String,
+	images: {
+		type: Array,
 		required: true,
 	},
 	find_route: {
@@ -47,10 +47,7 @@ const props = defineProps({
 	</div>
 
 	<div class="relative w-full">
-		<TreeGallery
-			:images="[image, image, image]"
-			class="w-full"
-		></TreeGallery>
+		<TreeGallery :images="images" class="w-full"></TreeGallery>
 	</div>
 	<div
 		style="background-image: url(/theme/title-block/middle.png)"

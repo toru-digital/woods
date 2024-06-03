@@ -5,7 +5,11 @@ export default {
 	"slug": "white-willow-126346432",
 	"lat": 52.22509667,
 	"lon": -0.8898866667,
-	"img" : "https://static.inaturalist.org/photos/214365706/medium.jpg",
+	"images" : [
+		{
+			"src" : "https://static.inaturalist.org/photos/214365706/medium.jpg"
+		}
+	],
 	"content": [
 		{
 			"type": "text",

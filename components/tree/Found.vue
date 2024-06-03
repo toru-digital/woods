@@ -19,7 +19,7 @@ const props = defineProps({
 <template>
 	<div
 		class="w-full h-full bg-black relative bg-cover bg-center"
-		:style="'background-image:url(' + tree.img + ')'"
+		:style="'background-image:url(' + tree.images[0].src + ')'"
 	>
 		<div class="display-container">
 			<div class="display-bg">

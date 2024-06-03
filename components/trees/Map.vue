@@ -59,7 +59,7 @@ onNuxtReady(async () => {
 					v-on:click="$emit('select-tree', tree.slug)"
 				>
 					<img
-						:src="tree.img"
+						:src="tree.images[0].src"
 						class="w-32 h-32 object-cover rounded-lg"
 					/>
 					{{ tree.title }}

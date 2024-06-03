@@ -5,7 +5,11 @@ export default {
 	"slug" : "tulip-tree-140191672",
 	"lat": 52.22466667,
 	"lon": -0.8882383333,
-	"img" : "https://static.inaturalist.org/photos/239936807/medium.jpg",
+	"images" : [
+		{
+			"src" : "https://static.inaturalist.org/photos/239936807/medium.jpg"
+		}
+	],
 	"content": [
 		{
 			"type": "text",
