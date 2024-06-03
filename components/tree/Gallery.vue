@@ -1,7 +1,7 @@
 <script setup>
 const props = defineProps({
-	image: {
-		type: String,
+	images: {
+		type: Array,
 		required: true,
 	},
 });
@@ -10,11 +10,14 @@ const props = defineProps({
 	<div>
 		<div class="slider">
 			<div class="slides">
-				<div id="slide-1">1</div>
-				<div id="slide-2">2</div>
-				<div id="slide-3">3</div>
-				<div id="slide-4">4</div>
-				<div id="slide-5">5</div>
+				<div
+					class="bg-cover bg-center"
+					:style="{ backgroundImage: `url(${image})` }"
+					v-for="(image, index) in images"
+					:key="image"
+				>
+					{{ index + 1 }}/{{ images.length }}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -56,6 +59,13 @@ const props = defineProps({
 	justify-content: center;
 	align-items: center;
 	font-size: 100px;
+
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+.slides::-webkit-scrollbar {
+	display: none;
 }
 
 img {

@@ -47,7 +47,10 @@ const props = defineProps({
 	</div>
 
 	<div class="relative w-full">
-		<TreeGallery :image="image" class="w-full"></TreeGallery>
+		<TreeGallery
+			:images="[image, image, image]"
+			class="w-full"
+		></TreeGallery>
 	</div>
 	<div
 		style="background-image: url(/theme/title-block/middle.png)"
