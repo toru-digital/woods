@@ -17,9 +17,20 @@ const props = defineProps({
 					:key="index"
 				>
 					<div
-						class="absolute bottom-2 bg-forest-900 right-2 rounded-full text-white px-2 py-0"
+						class="absolute w-full bottom-4 left-0 flex flex-row-reverse content-center"
 					>
-						{{ index + 1 }}/{{ images.length }}
+						<div
+							class="bg-forest-900 rounded-full text-white px-2 py-0 mr-1"
+						>
+							{{ index + 1 }}/{{ images.length }}
+						</div>
+						<div
+							v-for="(tag, index) in image.tags"
+							:key="index + 'tag'"
+							class="bg-forest-900 rounded-full text-white px-2 py-0 mr-1"
+						>
+							{{ tag }}
+						</div>
 					</div>
 				</div>
 			</div>

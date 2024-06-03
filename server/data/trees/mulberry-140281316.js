@@ -7,10 +7,12 @@ export default {
 	"lon": -0.8904916667,
 	"images" : [
 		{
-			"src" : "https://static.inaturalist.org/photos/240105711/medium.jpg"
+			"src" : "https://static.inaturalist.org/photos/240105711/medium.jpg",
+			"tags" : ["Dec"]
 		},
 		{
-			"src" : "https://static.inaturalist.org/photos/240105711/medium.jpg"
+			"src" : "https://static.inaturalist.org/photos/240105711/medium.jpg",
+			"tags" : ["Apr"]
 		}
 	],
 	"content": [
