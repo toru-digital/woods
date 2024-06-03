@@ -11,12 +11,16 @@ const props = defineProps({
 		<div class="slider">
 			<div class="slides">
 				<div
-					class="bg-cover bg-center"
+					class="bg-forest-900 bg-contain bg-center realtive bg-no-repeat"
 					:style="{ backgroundImage: `url(${image})` }"
 					v-for="(image, index) in images"
 					:key="image"
 				>
-					{{ index + 1 }}/{{ images.length }}
+					<div
+						class="absolute bottom-2 bg-forest-900 right-2 rounded-full text-white px-2 py-0"
+					>
+						{{ index + 1 }}/{{ images.length }}
+					</div>
 				</div>
 			</div>
 		</div>
@@ -49,16 +53,11 @@ const props = defineProps({
 	scroll-snap-align: start;
 	flex-shrink: 0;
 	width: 100%;
-	height: 300px;
-	background: #eee;
+	height: 400px;
 	transform-origin: center center;
 	transform: scale(1);
 	transition: transform 0.5s;
 	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 100px;
 
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */
@@ -66,14 +65,5 @@ const props = defineProps({
 
 .slides::-webkit-scrollbar {
 	display: none;
-}
-
-img {
-	object-fit: cover;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
 }
 </style>
