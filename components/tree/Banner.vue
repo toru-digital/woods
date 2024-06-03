@@ -48,6 +48,10 @@ const props = defineProps({
 
 	<div class="relative w-full">
 		<TreeGallery :images="images" class="w-full"></TreeGallery>
+		<div
+			@click="() => router.push('/trees')"
+			class="circle-button absolute top-5 left-2"
+		></div>
 	</div>
 	<div
 		style="background-image: url(/theme/title-block/middle.png)"
