@@ -14,16 +14,35 @@ const user_data = reactive({
 	lon: 0,
 });
 
-const getMapCenter = () => {
-	return [props.tree.lat, props.tree.lon];
-	// return delapre_position;
+const locationHandler = function (position) {
+	const { latitude, longitude } = position.coords;
+
+	const distance = getDistance(
+		props.tree.lat,
+		props.tree.lon,
+		latitude,
+		longitude
+	);
+
+	user_data.lat = latitude;
+	user_data.lon = longitude;
 };
+
+const tick = () => {
+	navigator.geolocation.getCurrentPosition(locationHandler);
+};
+
+onNuxtReady(async () => {
+	if (!process.client || !navigator.geolocation) return;
+	position_interval = setInterval(tick, 1000);
+	tick();
+});
 </script>
 <template>
 	<LMap
 		id="map"
 		ref="map"
-		:center="getMapCenter()"
+		:center="[tree.lat, tree.lon]"
 		:zoom="15"
 		:options="{ zoomControl: false, attributionControl: false }"
 	>
@@ -48,6 +67,12 @@ const getMapCenter = () => {
 					{{ tree.title }}
 				</div>
 			</LPopup>
+		</LMarker>
+		<LMarker
+			:if="user_data.lat != 0 && user_data.lon != 0"
+			:lat-lng="[user_data.lat, user_data.lon]"
+		>
+			<LIcon icon-url="/icons/user_icon.png" :icon-size="[35, 35]" />
 		</LMarker>
 	</LMap>
 </template>
