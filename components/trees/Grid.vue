@@ -3,7 +3,7 @@ const { data: trees } = await useFetch("/api/trees");
 </script>
 
 <template>
-	<div class="grid grid-cols-2 gap-4 p-4">
+	<div class="grid grid-cols-3 gap-3 p-3">
 		<TreesGridBlock
 			v-for="tree in trees"
 			:image="tree.images[0].src"
