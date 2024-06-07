@@ -1,5 +1,6 @@
 <script setup>
 import { reactive, ref } from "vue";
+import nuxtStorage from "nuxt-storage";
 
 const router = useRouter();
 
@@ -14,6 +15,19 @@ const props = defineProps({
 		required: true,
 	},
 });
+
+const setFound = (tree) => {
+	let found = nuxtStorage.localStorage.getData("found_trees");
+	if (found == null) found = [];
+	if (found.includes(tree.slug)) return;
+
+	found.push(tree.slug);
+	nuxtStorage.localStorage.setData("found_trees", found);
+};
+
+onMounted(function () {
+	setFound(props.tree);
+});
 </script>
 
 <template>
@@ -24,7 +38,7 @@ const props = defineProps({
 		<div class="display-container">
 			<div class="display-bg">
 				<div class="tick-icon"></div>
-				<p class="font-bold">You found the Tulip Tree!</p>
+				<p class="font-bold">You found the {{ tree.title }}!</p>
 				<p>tree info</p>
 				<p>etc etc</p>
 				<p>etc etc</p>
