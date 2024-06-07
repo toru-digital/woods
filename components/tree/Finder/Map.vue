@@ -31,10 +31,18 @@ const locationHandler = function (position) {
 	user_data.lon = longitude;
 };
 
+const locationError = function (error) {
+	alert("Error getting location");
+	console.log(error);
+};
+
 let maps_synced = false;
 
 const tick = () => {
-	navigator.geolocation.getCurrentPosition(locationHandler);
+	navigator.geolocation.getCurrentPosition(locationHandler, locationError, {
+		enableHighAccuracy: true,
+		maximumAge: 1000,
+	});
 	if (!maps_synced) syncMaps();
 };
 
@@ -43,7 +51,9 @@ const syncMaps = () => {
 	if (mainMap.value.leafletObject == undefined) return;
 	if (maps_synced) return;
 
-	mainMap.value.leafletObject.sync(topMap.value.leafletObject);
+	mainMap.value.leafletObject.sync(topMap.value.leafletObject, {
+		offsetFn: L.Sync.offsetHelper([0, 0], [0, 1]),
+	});
 
 	maps_synced = true;
 };
