@@ -31,6 +31,8 @@ const locationHandler = function (position) {
 const locationError = function (error) {
 	alert("Error getting location");
 	console.log(error);
+	navigator.geolocation.clearWatch(watchID);
+	watchID = null;
 };
 
 let maps_synced = false;
