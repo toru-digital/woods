@@ -76,14 +76,14 @@ export const toOrdinal = bearing => {
 }
 
 export const getIsIOS = () => {
-	return navigator != null &&
-	navigator.userAgent != null &&
-	navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
-	navigator.userAgent.match(/AppleWebKit/)
+	return !!navigator != null &&
+	!!navigator.userAgent != null &&
+	!!navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
+	!!navigator.userAgent.match(/AppleWebKit/)
 }
 
 export const getIsAndroid = () => {
-	if (!navigator || !navigator.userAgent) return false;
-	const u = navigator.userAgent;
-	return !!u.match(/Android/i);
+	return !!navigator && 
+		!!navigator.userAgent && 
+		!!navigator.userAgent.match(/Android/i)
 }

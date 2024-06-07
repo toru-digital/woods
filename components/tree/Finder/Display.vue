@@ -16,11 +16,58 @@ const props = defineProps({
 	},
 });
 
+const isIOS = getIsIOS();
+const isAndroid = getIsAndroid();
+let testInterval = null;
 const user_data = reactive({
 	is_initiated: false,
+	error: "",
+	deg: 0,
+});
+
+const startCompass = function () {
+	const testing = true;
+
+	if (isIOS) {
+		DeviceOrientationEvent.requestPermission()
+			.then((response) => {
+				if (response === "granted") {
+					window.addEventListener("deviceorientation", handler, true);
+					user_data.is_initiated = true;
+				} else {
+					user_data.error = "Compass permission not granted";
+				}
+			})
+			.catch(() => {
+				user_data.error = "Compass functionality not supported";
+			});
+	} else if (isAndroid) {
+		window.addEventListener("deviceorientationabsolute", handler, true);
+		user_data.is_initiated = true;
+	} else if (testing) {
+		testInterval = setInterval(rotate, 1000);
+		user_data.is_initiated = true;
+	}
+};
+
+const rotate = function () {
+	user_data.deg = (user_data.deg + 5) % 360;
+};
+
+const handler = function (e) {
+	user_data.deg = user_data.deg =
+		e.webkitCompassHeading || Math.abs(e.alpha - 360);
+};
+
+onUnmounted(function () {
+	user_data.is_initiated = false;
 });
 
 onUnmounted(function () {
+	window.removeEventListener("deviceorientation", handler, true);
+	window.removeEventListener("deviceorientationabsolute", handler, true);
+	clearInterval(testInterval);
+
 	user_data.is_initiated = false;
 });
 </script>

@@ -22,6 +22,12 @@ const user_data = reactive({
 	distance: -1,
 });
 
+// const checkFound = (distance) => {
+// 	if (distance < 0.02) {
+// 		router.push(props.found_link);
+// 	}
+// };
+
 const userPositionChanged = (position) => {
 	const [lat, lon] = position;
 
