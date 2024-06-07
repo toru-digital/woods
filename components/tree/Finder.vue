@@ -39,9 +39,13 @@ const userPositionChanged = (data) => {
 
 const getDistanceStr = () => {
 	if (user_data.distance < 0) return "...";
-	return (
-		user_data.distance + "km (" + Math.round(user_data.accuracy) + "m acc.)"
-	);
+
+	const distance =
+		user_data.distance < 0.5
+			? user_data.distance * 1000 + "m"
+			: user_data.distance + "km";
+
+	return distance + " (" + Math.round(user_data.accuracy) + "m acc.)";
 };
 </script>
 
