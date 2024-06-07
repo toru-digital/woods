@@ -103,6 +103,7 @@ onUnmounted(function () {
 				:center="[tree.lat, tree.lon]"
 				:bounds="getMapBounds()"
 				:zoom="15"
+				:maxZoom="17"
 				:zoomAnimation="false"
 				:options="{ zoomControl: false, attributionControl: false }"
 			>
@@ -128,12 +129,6 @@ onUnmounted(function () {
 						:icon-size="[35, 35]"
 					/>
 				</LMarker>
-				<LCircle
-					:if="user_data.lat != 0 && user_data.lon != 0"
-					:lat-lng="[user_data.lat, user_data.lon]"
-					:radius="user_data.accuracy"
-					:color="'blue'"
-				/>
 			</LMap>
 		</div>
 		<div class="map-container">
@@ -142,6 +137,7 @@ onUnmounted(function () {
 				:center="[tree.lat, tree.lon]"
 				:bounds="getMapBounds()"
 				:zoom="15"
+				:maxZoom="17"
 				:zoomAnimation="false"
 				:options="{ zoomControl: false, attributionControl: false }"
 			>
@@ -167,12 +163,6 @@ onUnmounted(function () {
 						:icon-size="[35, 35]"
 					/>
 				</LMarker>
-				<LCircle
-					:if="user_data.lat != 0 && user_data.lon != 0"
-					:lat-lng="[user_data.lat, user_data.lon]"
-					:radius="user_data.accuracy"
-					:color="'blue'"
-				/>
 			</LMap>
 		</div>
 	</div>
@@ -182,7 +172,6 @@ onUnmounted(function () {
 .maps {
 	width: 100%;
 	height: 100%;
-	background: red;
 	display: flex;
 	flex-direction: column;
 }
