@@ -76,6 +76,7 @@ onNuxtReady(async () => {
 
 const getMapBounds = () => {
 	const user_pos_set = user_data.lat != 0 && user_data.lon != 0;
+	const padding = 0.00005;
 
 	const user_pos = {
 		lat: user_pos_set ? user_data.lat : props.tree.lat,
@@ -84,12 +85,12 @@ const getMapBounds = () => {
 
 	return [
 		[
-			Math.max(user_pos.lat, props.tree.lat),
-			Math.max(user_pos.lon, props.tree.lon),
+			Math.min(user_pos.lat, props.tree.lat) - padding,
+			Math.min(user_pos.lon, props.tree.lon) - padding,
 		],
 		[
-			Math.min(user_pos.lat, props.tree.lat),
-			Math.min(user_pos.lon, props.tree.lon),
+			Math.max(user_pos.lat, props.tree.lat) + padding,
+			Math.max(user_pos.lon, props.tree.lon) + padding,
 		],
 	];
 };
@@ -106,7 +107,7 @@ onUnmounted(function () {
 				ref="map1"
 				:center="[tree.lat, tree.lon]"
 				:bounds="getMapBounds()"
-				:maxZoom="16"
+				:maxZoom="17"
 				:zoom="15"
 				:zoomAnimation="false"
 				:options="{ zoomControl: false, attributionControl: false }"
@@ -140,7 +141,7 @@ onUnmounted(function () {
 				ref="map2"
 				:center="[tree.lat, tree.lon]"
 				:bounds="getMapBounds()"
-				:maxZoom="16"
+				:maxZoom="17"
 				:zoom="15"
 				:zoomAnimation="false"
 				:options="{ zoomControl: false, attributionControl: false }"
@@ -180,8 +181,13 @@ onUnmounted(function () {
 	flex-direction: column;
 }
 
-.maps .map-container {
+.maps .map-container:first-child {
 	width: 100%;
-	height: 50%;
+	height: 320px;
+}
+
+.maps .map-container:last-child {
+	width: 100%;
+	height: calc(100% - 320px);
 }
 </style>
