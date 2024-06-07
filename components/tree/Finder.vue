@@ -1,4 +1,6 @@
 <script setup>
+const router = useRouter();
+
 const props = defineProps({
 	tree: {
 		required: true,
@@ -27,7 +29,12 @@ const distanceChanged = (distance) => {
 	<ClientOnly>
 		<div class="w-full h-full bg-black text-white relative">
 			<TreeFinderMap @distance-changed="distanceChanged" :tree="tree" />
-			<TreeFinderDisplay :distance="user_data.distance" :tree="tree" />
+			<TreeFinderDisplay
+				:distance="user_data.distance"
+				:tree="tree"
+				@back-click="() => router.push(back_link)"
+				@debug-click="() => router.push(debug_link)"
+			/>
 		</div>
 	</ClientOnly>
 </template>

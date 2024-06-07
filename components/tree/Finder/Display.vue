@@ -50,8 +50,8 @@ onUnmounted(function () {
 					</button>
 				</div>
 			</div>
-			<div class="back-button" @click="router.push(back_link)"></div>
-			<div class="debug-button" @click="router.push(debug_link)"></div>
+			<div class="back-button" @click="$emit('backClick')"></div>
+			<div class="debug-button" @click="$emit('debugClick')"></div>
 
 			<div class="mt-4">
 				<p
