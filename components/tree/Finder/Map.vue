@@ -9,8 +9,9 @@ const props = defineProps({
 	},
 });
 
-const mainMap = ref(null);
-const topMap = ref(null);
+const map1 = ref(null);
+const map2 = ref(null);
+
 let tick_interval = null;
 const user_data = reactive({
 	lat: 0,
@@ -47,11 +48,11 @@ const tick = () => {
 };
 
 const syncMaps = () => {
-	if (topMap.value.leafletObject == undefined) return;
-	if (mainMap.value.leafletObject == undefined) return;
+	if (map1.value.leafletObject == undefined) return;
+	if (map2.value.leafletObject == undefined) return;
 	if (maps_synced) return;
 
-	mainMap.value.leafletObject.sync(topMap.value.leafletObject, {
+	map2.value.leafletObject.sync(map1.value.leafletObject, {
 		offsetFn: L.Sync.offsetHelper([0, 0], [0, 1]),
 	});
 
@@ -94,28 +95,11 @@ onUnmounted(function () {
 	<div class="maps">
 		<div class="map-container pointer-events-none">
 			<LMap
-				id="topMap"
-				ref="topMap"
-				:center="[tree.lat, tree.lon]"
-				:zoom="15"
-				:options="{ zoomControl: false, attributionControl: false }"
-			>
-				<LTileLayer
-					url="https://d1up0v8yxutj1v.cloudfront.net/{z}/{x}/{y}.png"
-					attribution='&amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-					layer-type="base"
-					:max-zoom="18"
-					name="OpenStreetMap"
-				/>
-			</LMap>
-		</div>
-		<div class="map-container">
-			<LMap
-				id="mainMap"
-				ref="mainMap"
+				ref="map1"
 				:center="[tree.lat, tree.lon]"
 				:bounds="getMapBounds()"
 				:zoom="15"
+				:zoomAnimation="false"
 				:options="{ zoomControl: false, attributionControl: false }"
 			>
 				<LTileLayer
@@ -140,7 +124,39 @@ onUnmounted(function () {
 						:icon-size="[35, 35]"
 					/>
 				</LMarker>
-				<LRectangle :bounds="getMapBounds()" />
+			</LMap>
+		</div>
+		<div class="map-container">
+			<LMap
+				ref="map2"
+				:center="[tree.lat, tree.lon]"
+				:bounds="getMapBounds()"
+				:zoom="15"
+				:zoomAnimation="false"
+				:options="{ zoomControl: false, attributionControl: false }"
+			>
+				<LTileLayer
+					url="https://d1up0v8yxutj1v.cloudfront.net/{z}/{x}/{y}.png"
+					attribution='&amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+					layer-type="base"
+					:max-zoom="18"
+					name="OpenStreetMap"
+				/>
+				<LMarker :lat-lng="[tree.lat, tree.lon]">
+					<LIcon
+						icon-url="/icons/tree_icon.png"
+						:icon-size="[35, 35]"
+					/>
+				</LMarker>
+				<LMarker
+					:if="user_data.lat != 0 && user_data.lon != 0"
+					:lat-lng="[user_data.lat, user_data.lon]"
+				>
+					<LIcon
+						icon-url="/icons/user_icon.png"
+						:icon-size="[35, 35]"
+					/>
+				</LMarker>
 			</LMap>
 		</div>
 	</div>
