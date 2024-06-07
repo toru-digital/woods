@@ -106,8 +106,8 @@ onUnmounted(function () {
 				ref="map1"
 				:center="[tree.lat, tree.lon]"
 				:bounds="getMapBounds()"
+				:maxZoom="16"
 				:zoom="15"
-				:maxZoom="15"
 				:zoomAnimation="false"
 				:options="{ zoomControl: false, attributionControl: false }"
 			>
@@ -140,8 +140,8 @@ onUnmounted(function () {
 				ref="map2"
 				:center="[tree.lat, tree.lon]"
 				:bounds="getMapBounds()"
+				:maxZoom="16"
 				:zoom="15"
-				:maxZoom="15"
 				:zoomAnimation="false"
 				:options="{ zoomControl: false, attributionControl: false }"
 			>
