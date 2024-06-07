@@ -9,6 +9,10 @@
 </template>
 
 <script setup>
+definePageMeta({
+	layout: "minimal",
+});
+
 const route = useRoute();
 const slug = route.params?.slug;
 const { data: tree } = await useFetch(`/api/tree/${slug}`, {
