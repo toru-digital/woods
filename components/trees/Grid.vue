@@ -7,6 +7,7 @@ const { data: trees } = await useFetch("/api/trees");
 		<TreesGridBlock
 			v-for="tree in trees"
 			:image="tree.images[0].src"
+			:found="true"
 			v-on:click="$emit('select-tree', tree.slug)"
 			:title="tree.title"
 			:key="tree.inaturalist_observation_id"

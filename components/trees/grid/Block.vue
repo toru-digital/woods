@@ -8,6 +8,10 @@ const props = defineProps({
 		type: String,
 		required: true,
 	},
+	found: {
+		type: Boolean,
+		required: true,
+	},
 });
 </script>
 
@@ -19,7 +23,7 @@ const props = defineProps({
 				:style="`background-image: url(` + image + `)`"
 			></div>
 			<img
-				v-if="false"
+				v-if="found"
 				class="absolute bottom-0 right-4 w-10 h-10"
 				src="/icons/tick-orange.png"
 				alt="tick"
