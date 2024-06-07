@@ -180,8 +180,8 @@ onUnmounted(function () {
 }
 
 .compass {
-	width: 200px;
-	height: 200px;
+	width: 180px;
+	height: 180px;
 	overflow: hidden;
 	border-radius: 50%;
 	margin: auto;
