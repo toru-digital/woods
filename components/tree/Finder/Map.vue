@@ -16,12 +16,14 @@ let tick_interval = null;
 const user_data = reactive({
 	lat: 0,
 	lon: 0,
+	accuracy: 0,
 });
 
 const locationHandler = function (position) {
-	const { latitude, longitude } = position.coords;
+	const { latitude, longitude, accuracy } = position.coords;
 	user_data.lat = latitude;
 	user_data.lon = longitude;
+	user_data.accuracy = accuracy;
 
 	emit("positionChanged", [latitude, longitude]);
 };
@@ -32,12 +34,17 @@ const locationError = function (error) {
 };
 
 let maps_synced = false;
-
+let watchID = null;
 const tick = () => {
-	navigator.geolocation.getCurrentPosition(locationHandler, locationError, {
-		enableHighAccuracy: true,
-		maximumAge: 1000,
-	});
+	watchID = navigator.geolocation.watchPosition(
+		locationHandler,
+		locationError,
+		{
+			enableHighAccuracy: true,
+			maximumAge: 0,
+		}
+	);
+
 	if (!maps_synced) syncMaps();
 };
 
@@ -83,6 +90,7 @@ const getMapBounds = () => {
 
 onUnmounted(function () {
 	clearInterval(tick_interval);
+	navigator.geolocation.clearWatch(watchID);
 });
 </script>
 <template>
@@ -118,6 +126,12 @@ onUnmounted(function () {
 						:icon-size="[35, 35]"
 					/>
 				</LMarker>
+				<LCircle
+					:if="user_data.lat != 0 && user_data.lon != 0"
+					:lat-lng="[user_data.lat, user_data.lon]"
+					:radius="user_data.accuracy"
+					:color="'blue'"
+				/>
 			</LMap>
 		</div>
 		<div class="map-container">
@@ -151,6 +165,12 @@ onUnmounted(function () {
 						:icon-size="[35, 35]"
 					/>
 				</LMarker>
+				<LCircle
+					:if="user_data.lat != 0 && user_data.lon != 0"
+					:lat-lng="[user_data.lat, user_data.lon]"
+					:radius="user_data.accuracy"
+					:color="'blue'"
+				/>
 			</LMap>
 		</div>
 	</div>
