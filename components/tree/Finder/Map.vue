@@ -36,14 +36,16 @@ const locationError = function (error) {
 let maps_synced = false;
 let watchID = null;
 const tick = () => {
-	watchID = navigator.geolocation.watchPosition(
-		locationHandler,
-		locationError,
-		{
-			enableHighAccuracy: true,
-			maximumAge: 0,
-		}
-	);
+	if (watchID == null) {
+		watchID = navigator.geolocation.watchPosition(
+			locationHandler,
+			locationError,
+			{
+				enableHighAccuracy: true,
+				maximumAge: 0,
+			}
+		);
+	}
 
 	if (!maps_synced) syncMaps();
 };
