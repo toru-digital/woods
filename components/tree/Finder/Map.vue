@@ -107,7 +107,7 @@ onUnmounted(function () {
 				:center="[tree.lat, tree.lon]"
 				:bounds="getMapBounds()"
 				:zoom="15"
-				:maxZoom="17"
+				:maxZoom="15"
 				:zoomAnimation="false"
 				:options="{ zoomControl: false, attributionControl: false }"
 			>
@@ -141,7 +141,7 @@ onUnmounted(function () {
 				:center="[tree.lat, tree.lon]"
 				:bounds="getMapBounds()"
 				:zoom="15"
-				:maxZoom="17"
+				:maxZoom="15"
 				:zoomAnimation="false"
 				:options="{ zoomControl: false, attributionControl: false }"
 			>
