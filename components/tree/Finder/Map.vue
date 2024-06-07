@@ -1,8 +1,8 @@
 <script setup>
 import { reactive, ref } from "vue";
-
 import * as Sync from "@/components/tree/Finder/Sync";
 
+const emit = defineEmits(["distanceChanged"]);
 const props = defineProps({
 	tree: {
 		required: true,
@@ -27,6 +27,8 @@ const locationHandler = function (position) {
 		latitude,
 		longitude
 	);
+
+	emit("distanceChanged", distance);
 
 	user_data.lat = latitude;
 	user_data.lon = longitude;
