@@ -76,7 +76,7 @@ onNuxtReady(async () => {
 
 const getMapBounds = () => {
 	const user_pos_set = user_data.lat != 0 && user_data.lon != 0;
-	const padding = 0.00005;
+	const padding = 0.0005;
 
 	const user_pos = {
 		lat: user_pos_set ? user_data.lat : props.tree.lat,
@@ -86,11 +86,11 @@ const getMapBounds = () => {
 	return [
 		[
 			Math.min(user_pos.lat, props.tree.lat) - padding,
-			Math.min(user_pos.lon, props.tree.lon) - padding,
+			Math.min(user_pos.lon, props.tree.lon),
 		],
 		[
 			Math.max(user_pos.lat, props.tree.lat) + padding,
-			Math.max(user_pos.lon, props.tree.lon) + padding,
+			Math.max(user_pos.lon, props.tree.lon),
 		],
 	];
 };
@@ -134,6 +134,7 @@ onUnmounted(function () {
 						:icon-size="[35, 35]"
 					/>
 				</LMarker>
+				<!-- <LRectangle :bounds="getMapBounds()" /> -->
 			</LMap>
 		</div>
 		<div class="map-container">
@@ -168,6 +169,7 @@ onUnmounted(function () {
 						:icon-size="[35, 35]"
 					/>
 				</LMarker>
+				<!-- <LRectangle :bounds="getMapBounds()" /> -->
 			</LMap>
 		</div>
 	</div>
