@@ -14,8 +14,12 @@ const props = defineProps({
 	},
 });
 
+const user_data = reactive({
+	distance: -1,
+});
+
 const distanceChanged = (distance) => {
-	console.log(distance);
+	user_data.distance = distance;
 };
 </script>
 
@@ -23,7 +27,7 @@ const distanceChanged = (distance) => {
 	<ClientOnly>
 		<div class="w-full h-full bg-black text-white relative">
 			<TreeFinderMap @distance-changed="distanceChanged" :tree="tree" />
-			<TreeFinderDisplay />
+			<TreeFinderDisplay :distance="user_data.distance" :tree="tree" />
 		</div>
 	</ClientOnly>
 </template>
