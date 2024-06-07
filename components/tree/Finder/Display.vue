@@ -117,7 +117,7 @@ onUnmounted(function () {
 					class="font-mont text-center text-bold text-xl text-white"
 					v-else
 				>
-					{{ props.distance < 0 ? "..." : props.distance + "km" }}
+					{{ props.distance }}
 					<span v-if="user_data.is_initiated">
 						{{
 							toOrdinal(

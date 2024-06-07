@@ -25,7 +25,7 @@ const locationHandler = function (position) {
 	user_data.lon = longitude;
 	user_data.accuracy = accuracy;
 
-	emit("positionChanged", [latitude, longitude]);
+	emit("positionChanged", user_data);
 };
 
 const locationError = function (error) {
