@@ -5,6 +5,12 @@ const props = defineProps({
 	tree: {
 		required: true,
 	},
+	lat: {
+		required: true,
+	},
+	lon: {
+		required: true,
+	},
 	distance: {
 		required: true,
 	},
@@ -33,8 +39,8 @@ onUnmounted(function () {
 						class="compass-arrow"
 						:style="{
 							transform: `translate(-50%, -50%) rotate(${calculateBearing(
-								user_data.lat,
-								user_data.lon,
+								lat,
+								lon,
 								tree.lat,
 								tree.lon
 							)}deg)`,
@@ -56,7 +62,7 @@ onUnmounted(function () {
 			<div class="mt-4">
 				<p
 					class="text-center text-bold text-xl text-white"
-					v-if="tree == null || user_data.lat == 0"
+					v-if="tree == null || lat == 0"
 				>
 					...
 				</p>
@@ -68,12 +74,7 @@ onUnmounted(function () {
 					<span v-if="user_data.is_initiated">
 						{{
 							toOrdinal(
-								calculateBearing(
-									user_data.lat,
-									user_data.lon,
-									tree.lat,
-									tree.lon
-								)
+								calculateBearing(lat, lon, tree.lat, tree.lon)
 							)
 						}}
 					</span>

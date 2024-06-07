@@ -2,7 +2,7 @@
 import { reactive, ref } from "vue";
 import * as Sync from "@/components/tree/Finder/Sync";
 
-const emit = defineEmits(["distanceChanged"]);
+const emit = defineEmits(["positionChanged"]);
 const props = defineProps({
 	tree: {
 		required: true,
@@ -21,14 +21,7 @@ const user_data = reactive({
 const locationHandler = function (position) {
 	const { latitude, longitude } = position.coords;
 
-	const distance = getDistance(
-		props.tree.lat,
-		props.tree.lon,
-		latitude,
-		longitude
-	);
-
-	emit("distanceChanged", distance);
+	emit("userPositionChanged", [latitude, longitude]);
 
 	user_data.lat = latitude;
 	user_data.lon = longitude;
