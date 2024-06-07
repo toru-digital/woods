@@ -41,7 +41,7 @@ const userPositionChanged = (position) => {
 	<ClientOnly>
 		<div class="w-full h-full bg-black text-white relative">
 			<TreeFinderMap
-				@user-position-changed="userPositionChanged"
+				@position-changed="userPositionChanged"
 				:tree="tree"
 			/>
 			<TreeFinderDisplay

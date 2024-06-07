@@ -20,11 +20,10 @@ const user_data = reactive({
 
 const locationHandler = function (position) {
 	const { latitude, longitude } = position.coords;
-
-	emit("userPositionChanged", [latitude, longitude]);
-
 	user_data.lat = latitude;
 	user_data.lon = longitude;
+
+	emit("positionChanged", [latitude, longitude]);
 };
 
 const locationError = function (error) {
