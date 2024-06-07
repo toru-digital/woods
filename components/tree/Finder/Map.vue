@@ -21,6 +21,8 @@ const user_data = reactive({
 
 const locationHandler = function (position) {
 	const { latitude, longitude, accuracy } = position.coords;
+	if (accuracy == null || accuracy > 25) return;
+
 	user_data.lat = latitude;
 	user_data.lon = longitude;
 	user_data.accuracy = accuracy;
