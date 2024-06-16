@@ -48,7 +48,7 @@ onMounted(function () {
 				</div>
 				<div
 					@click="() => router.push(more_link)"
-					class="secondary-button-white mt-4 w-full"
+					class="secondary-button-white text-[#41C265] mt-4 w-full"
 				>
 					Read More
 				</div>
@@ -75,7 +75,7 @@ onMounted(function () {
 }
 
 .display-container .display-bg {
-	background-color: rgba(255, 122, 65, 0.97);
+	background-color: rgba(65, 194, 101, 0.98);
 	padding: 45px 20px 20px 20px;
 	border-radius: 30px;
 	margin: 0 auto;
@@ -98,6 +98,6 @@ onMounted(function () {
 	top: 20px;
 	left: 20px;
 	cursor: pointer;
-	background-image: url(/icons/back-orange.png);
+	background-image: url(/icons/back-green-circle.png);
 }
 </style>
