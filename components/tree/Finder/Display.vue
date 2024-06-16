@@ -107,7 +107,6 @@ onUnmounted(function () {
 				</div>
 			</div>
 			<div class="back-button" @click="$emit('backClick')"></div>
-			<div class="debug-button" @click="$emit('debugClick')"></div>
 
 			<div class="mt-4">
 				<p
@@ -161,8 +160,7 @@ onUnmounted(function () {
 	width: 100%;
 }
 
-.compass-container .compass-bg .back-button,
-.compass-container .compass-bg .debug-button {
+.compass-container .compass-bg .back-button {
 	width: 30px;
 	height: 30px;
 	background-size: contain;
@@ -175,12 +173,6 @@ onUnmounted(function () {
 .compass-container .compass-bg .back-button {
 	background-image: url(/icons/back-orange.png);
 	left: 20px;
-}
-
-.compass-container .compass-bg .debug-button {
-	background-image: url(/icons/debug.png);
-	right: 20px;
-	opacity: 0.25;
 }
 
 .compass {

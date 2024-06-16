@@ -8,9 +8,6 @@ const props = defineProps({
 	back_link: {
 		required: true,
 	},
-	debug_link: {
-		required: true,
-	},
 	found_link: {
 		required: true,
 	},
@@ -68,7 +65,6 @@ const getAccuracyStr = () => {
 				:lon="user_data.lon"
 				:tree="tree"
 				@back-click="() => router.push(back_link)"
-				@debug-click="() => router.push(debug_link)"
 			/>
 		</div>
 	</ClientOnly>
