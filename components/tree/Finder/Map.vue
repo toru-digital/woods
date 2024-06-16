@@ -134,7 +134,7 @@ onUnmounted(function () {
 			</LMarker>
 			<LCircle
 				:lat-lng="[user_data.lat, user_data.lon]"
-				:radius="100"
+				:radius="user_data.accuracy"
 				fillColor="white"
 				fillOpacity="0.6"
 				dashArray="1, 5"
