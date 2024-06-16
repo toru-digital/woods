@@ -11,6 +11,7 @@ const props = defineProps({
 
 const maps = ref();
 const accuracy_threshold = 25;
+let best_accuracy = 20000000;
 
 let tick_interval = null;
 const user_data = reactive({
@@ -21,9 +22,8 @@ const user_data = reactive({
 
 const locationHandler = function (position) {
 	const { latitude, longitude, accuracy } = position.coords;
-	if (accuracy == null) return;
-
-	// accuracy > accuracy_threshold
+	if (accuracy == null || accuracy > best_accuracy) return;
+	best_accuracy = Math.max(accuracy, accuracy_threshold);
 
 	user_data.lat = latitude;
 	user_data.lon = longitude;
@@ -133,6 +133,7 @@ onUnmounted(function () {
 				<LIcon icon-url="/icons/user_icon.png" :icon-size="[35, 35]" />
 			</LMarker>
 			<LCircle
+				:v-if="user_data.accuracy <= accuracy_threshold"
 				:lat-lng="[user_data.lat, user_data.lon]"
 				:radius="user_data.accuracy"
 				fillColor="white"
