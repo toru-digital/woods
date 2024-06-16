@@ -22,7 +22,7 @@ const setFound = (tree) => {
 	if (found.includes(tree.slug)) return;
 
 	found.push(tree.slug);
-	nuxtStorage.localStorage.setData("found_trees", found);
+	nuxtStorage.localStorage.setData("found_trees", found, 3650, "d");
 };
 
 onMounted(function () {
