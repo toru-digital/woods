@@ -21,16 +21,22 @@ const user_data = reactive({
 });
 
 const locationHandler = function (position) {
+	emit("permissionChanged", true);
 	const { latitude, longitude, accuracy } = position.coords;
 	if (accuracy == null || accuracy > best_accuracy) return;
-	best_accuracy = Math.max(accuracy, accuracy_threshold);
 
+	const changed =
+		user_data.lat != latitude ||
+		user_data.lon != longitude ||
+		user_data.accuracy != accuracy;
+	if (!changed) return;
+
+	best_accuracy = Math.max(accuracy, accuracy_threshold);
 	user_data.lat = latitude;
 	user_data.lon = longitude;
 	user_data.accuracy = accuracy;
 
 	emit("positionChanged", user_data);
-	emit("permissionChanged", true);
 };
 
 const locationError = function (error) {
