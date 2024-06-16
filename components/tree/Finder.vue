@@ -18,6 +18,7 @@ const user_data = reactive({
 	lon: 0,
 	accuracy: 0,
 	distance: -1,
+	locationEnabled: false,
 });
 
 const userPositionChanged = (data) => {
@@ -59,6 +60,7 @@ const getAccuracyStr = () => {
 				:tree="tree"
 			/>
 			<TreeFinderDisplay
+				:locationEnabled="user_data.locationEnabled"
 				:distance="getDistanceStr()"
 				:accuracy="getAccuracyStr()"
 				:lat="user_data.lat"

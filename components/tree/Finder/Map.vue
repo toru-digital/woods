@@ -2,7 +2,7 @@
 import { reactive, ref, getCurrentInstance } from "vue";
 import * as Sync from "@/components/tree/Finder/Sync";
 
-const emit = defineEmits(["positionChanged"]);
+const emit = defineEmits(["positionChanged", "permissionChanged"]);
 const props = defineProps({
 	tree: {
 		required: true,

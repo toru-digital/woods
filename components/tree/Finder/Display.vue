@@ -2,6 +2,9 @@
 import { reactive } from "vue";
 
 const props = defineProps({
+	locationEnabled: {
+		required: true,
+	},
 	tree: {
 		required: true,
 	},
@@ -77,7 +80,7 @@ onUnmounted(function () {
 <template>
 	<div class="compass-container">
 		<div class="compass-bg">
-			<div class="compass">
+			<div v-if="locationEnabled" class="compass">
 				<div
 					class="compass-circle"
 					v-if="user_data.is_initiated"
@@ -108,7 +111,7 @@ onUnmounted(function () {
 			</div>
 			<div class="back-button" @click="$emit('backClick')"></div>
 
-			<div class="mt-4">
+			<div v-if="locationEnabled" class="mt-4">
 				<p
 					class="text-center text-bold text-xl text-white"
 					v-if="tree == null || lat == 0"
@@ -136,6 +139,15 @@ onUnmounted(function () {
 					</span>
 				</p>
 			</div>
+
+			<div v-if="!locationEnabled">
+				<button
+					class="bg-transparent text-white font-semibold py-2 px-4 border border-white rounded"
+					@click="() => {}"
+				>
+					Allow location
+				</button>
+			</div>
 		</div>
 	</div>
 </template>
@@ -158,6 +170,12 @@ onUnmounted(function () {
 	margin: 0 auto;
 	position: relative;
 	width: 100%;
+	min-height: 288px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
 .compass-container .compass-bg .back-button {
