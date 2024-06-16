@@ -1,5 +1,4 @@
 <script setup>
-import { reactive, ref } from "vue";
 import * as Sync from "@/components/tree/Finder/Sync";
 
 const emit = defineEmits(["positionChanged"]);
@@ -9,8 +8,8 @@ const props = defineProps({
 	},
 });
 
-const map1 = ref(null);
-const map2 = ref(null);
+const maps = ref();
+const accuracy_threshold = 25;
 
 let tick_interval = null;
 const user_data = reactive({
@@ -21,7 +20,9 @@ const user_data = reactive({
 
 const locationHandler = function (position) {
 	const { latitude, longitude, accuracy } = position.coords;
-	if (accuracy == null || accuracy > 25) return;
+	if (accuracy == null) return;
+
+	// accuracy > accuracy_threshold
 
 	user_data.lat = latitude;
 	user_data.lon = longitude;
@@ -31,7 +32,6 @@ const locationHandler = function (position) {
 };
 
 const locationError = function (error) {
-	alert("Error getting location");
 	console.log(error);
 	navigator.geolocation.clearWatch(watchID);
 	watchID = null;
@@ -55,19 +55,19 @@ const tick = () => {
 };
 
 const syncMaps = () => {
-	if (map1.value.leafletObject == undefined) return;
-	if (map2.value.leafletObject == undefined) return;
+	if (maps.value[0]?.leafletObject == undefined) return;
+	if (maps.value[1]?.leafletObject == undefined) return;
 	if (maps_synced) return;
 
-	map2.value.leafletObject.sync(map1.value.leafletObject, {
+	maps.value[1].leafletObject.sync(maps.value[0].leafletObject, {
 		offsetFn: L.Sync.offsetHelper([0, 0], [0, 1]),
 	});
-
 	maps_synced = true;
 };
 
 onNuxtReady(async () => {
 	if (!process.client || !navigator.geolocation) return;
+
 	tick_interval = setInterval(tick, 1000);
 	tick();
 
@@ -102,76 +102,41 @@ onUnmounted(function () {
 </script>
 <template>
 	<div class="maps">
-		<div class="map-container pointer-events-none">
-			<LMap
-				ref="map1"
-				:center="[tree.lat, tree.lon]"
-				:bounds="getMapBounds()"
-				:maxZoom="17"
-				:zoom="15"
-				:zoomAnimation="false"
-				:options="{ zoomControl: false, attributionControl: false }"
+		<LMap
+			ref="maps"
+			v-for="i in 2"
+			class="map-container"
+			:class="{ 'pointer-events-none': i == 1 }"
+			:data-index="index"
+			:center="[tree.lat, tree.lon]"
+			:bounds="getMapBounds()"
+			:maxZoom="17"
+			:zoom="15"
+			:zoomAnimation="false"
+			:options="{ zoomControl: false, attributionControl: false }"
+		>
+			<LTileLayer
+				url="https://d1up0v8yxutj1v.cloudfront.net/{z}/{x}/{y}.png"
+				attribution='&amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+				layer-type="base"
+				:max-zoom="18"
+				name="OpenStreetMap"
+			/>
+			<LMarker :lat-lng="[tree.lat, tree.lon]">
+				<LIcon icon-url="/icons/tree_icon.png" :icon-size="[35, 35]" />
+			</LMarker>
+			<LMarker
+				:if="user_data.lat != 0 && user_data.lon != 0"
+				:lat-lng="[user_data.lat, user_data.lon]"
 			>
-				<LTileLayer
-					url="https://d1up0v8yxutj1v.cloudfront.net/{z}/{x}/{y}.png"
-					attribution='&amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-					layer-type="base"
-					:max-zoom="18"
-					name="OpenStreetMap"
-				/>
-				<LMarker :lat-lng="[tree.lat, tree.lon]">
-					<LIcon
-						icon-url="/icons/tree_icon.png"
-						:icon-size="[35, 35]"
-					/>
-				</LMarker>
-				<LMarker
-					:if="user_data.lat != 0 && user_data.lon != 0"
-					:lat-lng="[user_data.lat, user_data.lon]"
-				>
-					<LIcon
-						icon-url="/icons/user_icon.png"
-						:icon-size="[35, 35]"
-					/>
-				</LMarker>
-				<!-- <LRectangle :bounds="getMapBounds()" /> -->
-			</LMap>
-		</div>
-		<div class="map-container">
-			<LMap
-				ref="map2"
-				:center="[tree.lat, tree.lon]"
-				:bounds="getMapBounds()"
-				:maxZoom="17"
-				:zoom="15"
-				:zoomAnimation="false"
-				:options="{ zoomControl: false, attributionControl: false }"
-			>
-				<LTileLayer
-					url="https://d1up0v8yxutj1v.cloudfront.net/{z}/{x}/{y}.png"
-					attribution='&amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-					layer-type="base"
-					:max-zoom="18"
-					name="OpenStreetMap"
-				/>
-				<LMarker :lat-lng="[tree.lat, tree.lon]">
-					<LIcon
-						icon-url="/icons/tree_icon.png"
-						:icon-size="[35, 35]"
-					/>
-				</LMarker>
-				<LMarker
-					:if="user_data.lat != 0 && user_data.lon != 0"
-					:lat-lng="[user_data.lat, user_data.lon]"
-				>
-					<LIcon
-						icon-url="/icons/user_icon.png"
-						:icon-size="[35, 35]"
-					/>
-				</LMarker>
-				<!-- <LRectangle :bounds="getMapBounds()" /> -->
-			</LMap>
-		</div>
+				<LIcon icon-url="/icons/user_icon.png" :icon-size="[35, 35]" />
+			</LMarker>
+			<LCircle
+				:lat-lng="[user_data.lat, user_data.lon]"
+				:radius="100"
+				:color="'red'"
+			/>
+		</LMap>
 	</div>
 </template>
 
