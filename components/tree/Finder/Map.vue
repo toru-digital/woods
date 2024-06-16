@@ -88,11 +88,11 @@ const getMapBounds = () => {
 	return [
 		[
 			Math.min(user_pos.lat, props.tree.lat) - padding,
-			Math.min(user_pos.lon, props.tree.lon),
+			Math.min(user_pos.lon, props.tree.lon) - padding,
 		],
 		[
 			Math.max(user_pos.lat, props.tree.lat) + padding,
-			Math.max(user_pos.lon, props.tree.lon),
+			Math.max(user_pos.lon, props.tree.lon) + padding,
 		],
 	];
 };
@@ -150,8 +150,8 @@ onUnmounted(function () {
 
 <style scoped>
 .maps {
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 }
