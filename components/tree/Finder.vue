@@ -18,8 +18,12 @@ const user_data = reactive({
 	lon: 0,
 	accuracy: 0,
 	distance: -1,
-	locationEnabled: false,
+	locationEnabled: null,
 });
+
+const userPermissionChanged = (value) => {
+	user_data.locationEnabled = value;
+};
 
 const userPositionChanged = (data) => {
 	const { lat, lon, accuracy } = data;
@@ -57,6 +61,7 @@ const getAccuracyStr = () => {
 		<div class="w-full h-full bg-black text-white relative">
 			<TreeFinderMap
 				@position-changed="userPositionChanged"
+				@permission-changed="userPermissionChanged"
 				:tree="tree"
 			/>
 			<TreeFinderDisplay

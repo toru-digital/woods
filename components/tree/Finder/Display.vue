@@ -140,13 +140,8 @@ onUnmounted(function () {
 				</p>
 			</div>
 
-			<div v-if="!locationEnabled">
-				<button
-					class="bg-transparent text-white font-semibold py-2 px-4 border border-white rounded"
-					@click="() => {}"
-				>
-					Allow location
-				</button>
+			<div v-if="locationEnabled === false">
+				Please allow access to your location and refresh the page
 			</div>
 		</div>
 	</div>

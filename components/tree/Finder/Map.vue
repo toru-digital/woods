@@ -30,10 +30,11 @@ const locationHandler = function (position) {
 	user_data.accuracy = accuracy;
 
 	emit("positionChanged", user_data);
+	emit("permissionChanged", true);
 };
 
 const locationError = function (error) {
-	console.log(error);
+	emit("permissionChanged", false);
 	navigator.geolocation.clearWatch(watchID);
 	watchID = null;
 };
