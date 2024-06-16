@@ -45,7 +45,12 @@ const getDistanceStr = () => {
 			? user_data.distance * 1000 + "m"
 			: user_data.distance + "km";
 
-	return distance + " (" + Math.round(user_data.accuracy) + "m acc.)";
+	return distance;
+};
+
+const getAccuracyStr = () => {
+	if (user_data.accuracy == null) return "";
+	return "(+/- " + Math.round(user_data.accuracy) + "m)";
 };
 </script>
 
@@ -58,6 +63,7 @@ const getDistanceStr = () => {
 			/>
 			<TreeFinderDisplay
 				:distance="getDistanceStr()"
+				:accuracy="getAccuracyStr()"
 				:lat="user_data.lat"
 				:lon="user_data.lon"
 				:tree="tree"

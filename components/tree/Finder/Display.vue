@@ -14,6 +14,9 @@ const props = defineProps({
 	distance: {
 		required: true,
 	},
+	accuracy: {
+		required: true,
+	},
 });
 
 const isIOS = getIsIOS();
@@ -114,7 +117,7 @@ onUnmounted(function () {
 					...
 				</p>
 				<p
-					class="font-mont text-center text-bold text-xl text-white"
+					class="font-mont text-center font-bold text-xl text-white"
 					v-else
 				>
 					{{ props.distance }}
@@ -127,7 +130,8 @@ onUnmounted(function () {
 					</span>
 				</p>
 				<p class="font-mont text-center text-white">
-					to {{ tree.title }}
+					to the {{ tree.title }}
+					<span class="text-xs opacity-60">{{ props.accuracy }}</span>
 					<span class="text-red-500">
 						{{ user_data.error }}&nbsp;
 					</span>
