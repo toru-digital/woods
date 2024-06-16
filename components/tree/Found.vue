@@ -38,19 +38,23 @@ onMounted(function () {
 		<div class="display-container">
 			<div class="display-bg">
 				<div class="back-button" @click="$emit('backClick')"></div>
-				<p class="font-bold">You found the {{ tree.title }}!</p>
-				<p>tree info</p>
-				<p>etc etc</p>
-				<p>etc etc</p>
+				<div class="text-white mb-1 mt-4">
+					<p class="font-bold text-xl">
+						You found the {{ tree.title }}!
+					</p>
+					<p>tree info</p>
+					<p>etc etc</p>
+					<p>etc etc</p>
+				</div>
 				<div
 					@click="() => router.push(more_link)"
-					class="secondary-button mt-4"
+					class="secondary-button-white mt-4 w-full"
 				>
 					Read More
 				</div>
 				<div
 					@click="() => router.push(back_link)"
-					class="secondary-button mt-3"
+					class="secondary-button-white-outline mt-3 w-full"
 				>
 					Back to Trees
 				</div>
@@ -72,7 +76,7 @@ onMounted(function () {
 
 .display-container .display-bg {
 	background-color: rgba(255, 122, 65, 0.97);
-	padding: 40px 20px 20px 20px;
+	padding: 45px 20px 20px 20px;
 	border-radius: 30px;
 	margin: 0 auto;
 	position: relative;
@@ -80,8 +84,8 @@ onMounted(function () {
 	min-height: 288px;
 
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: end;
+	align-items: start;
 	flex-direction: column;
 }
 
