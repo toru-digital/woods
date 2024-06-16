@@ -37,7 +37,7 @@ onMounted(function () {
 	>
 		<div class="display-container">
 			<div class="display-bg">
-				<div class="tick-icon"></div>
+				<div class="back-button" @click="$emit('backClick')"></div>
 				<p class="font-bold">You found the {{ tree.title }}!</p>
 				<p>tree info</p>
 				<p>etc etc</p>
@@ -65,30 +65,35 @@ onMounted(function () {
 	display: flex;
 	position: absolute;
 	z-index: 20000;
-	bottom: 0;
+	top: 0;
 	left: 0;
 	padding: 20px;
 }
 
 .display-container .display-bg {
-	background-color: rgba(255, 255, 255, 0.57);
-	padding: 55px 20px 20px 20px;
+	background-color: rgba(255, 122, 65, 0.97);
+	padding: 40px 20px 20px 20px;
 	border-radius: 30px;
 	margin: 0 auto;
 	position: relative;
 	width: 100%;
-	backdrop-filter: blur(10px);
+	min-height: 288px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
-.display-container .display-bg .tick-icon {
-	width: 55px;
-	height: 55px;
+.display-container .display-bg .back-button {
+	width: 30px;
+	height: 30px;
 	background-size: contain;
 	background-repeat: no-repeat;
 	position: absolute;
-	top: -20px;
+	top: 20px;
+	left: 20px;
 	cursor: pointer;
-	background-image: url(/icons/tick-orange.png);
-	left: calc(50% - 27.5px);
+	background-image: url(/icons/back-orange.png);
 }
 </style>
