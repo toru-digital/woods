@@ -1,4 +1,5 @@
 <script setup>
+import { reactive, ref, getCurrentInstance } from "vue";
 import * as Sync from "@/components/tree/Finder/Sync";
 
 const emit = defineEmits(["positionChanged"]);
@@ -134,7 +135,10 @@ onUnmounted(function () {
 			<LCircle
 				:lat-lng="[user_data.lat, user_data.lon]"
 				:radius="100"
-				:color="'red'"
+				fillColor="white"
+				fillOpacity="0.6"
+				dashArray="1, 5"
+				color="#FE7C43"
 			/>
 		</LMap>
 	</div>
