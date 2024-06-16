@@ -114,6 +114,9 @@ onUnmounted(function () {
 			:maxZoom="17"
 			:zoom="15"
 			:zoomAnimation="false"
+			:fadeAnimation="false"
+			:markerZoomAnimation="false"
+			:noBlockingAnimations="true"
 			:options="{ zoomControl: false, attributionControl: false }"
 		>
 			<LTileLayer
