@@ -37,7 +37,6 @@ onMounted(function () {
 	>
 		<div class="display-container">
 			<div class="display-bg">
-				<div class="back-button" @click="$emit('backClick')"></div>
 				<div class="text-white mb-1 mt-4">
 					<p class="font-bold text-xl">
 						You found the {{ tree.title }}!
@@ -76,7 +75,7 @@ onMounted(function () {
 
 .display-container .display-bg {
 	background-color: rgba(65, 194, 101, 0.98);
-	padding: 45px 20px 20px 20px;
+	padding: 20px;
 	border-radius: 30px;
 	margin: 0 auto;
 	position: relative;
@@ -84,20 +83,8 @@ onMounted(function () {
 	min-height: 288px;
 
 	display: flex;
-	justify-content: end;
-	align-items: start;
+	justify-content: flex-end;
+	align-items: flex-start;
 	flex-direction: column;
-}
-
-.display-container .display-bg .back-button {
-	width: 30px;
-	height: 30px;
-	background-size: contain;
-	background-repeat: no-repeat;
-	position: absolute;
-	top: 20px;
-	left: 20px;
-	cursor: pointer;
-	background-image: url(/icons/back-green-circle.png);
 }
 </style>
