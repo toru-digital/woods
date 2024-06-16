@@ -107,8 +107,7 @@ onUnmounted(function () {
 		<LMap
 			ref="maps"
 			v-for="i in 2"
-			class="map-container"
-			:class="{ 'pointer-events-none': i == 1 }"
+			class="map-container pointer-events-none"
 			:data-index="index"
 			:center="[tree.lat, tree.lon]"
 			:bounds="getMapBounds()"
